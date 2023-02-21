@@ -1,1 +1,3 @@
-# ir-experiment-platform
+# The IR Experiment Platform
+
+### PyTerrier in Jupyter
