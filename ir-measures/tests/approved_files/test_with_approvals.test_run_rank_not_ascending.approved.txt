@@ -1,0 +1,13 @@
+ℹ Check run path: test-input/run_sample_warning_rank_not_asc.txt
+✓ Run path is valid.
+ℹ Check run file format.
+	⚠ Ranks not consecutive at lines: 3↛4, 4↛5 
+	⚠ Ranks not in ascending order at lines: 4>5 
+	⚠ Ranks and scores inconsistent at lines: 4≷5 
+⚠ Run file format is valid: 4 warnings
+ℹ Load run with ir-measures.
+✓ Run successfully loaded.
+
+
+####
+files: []

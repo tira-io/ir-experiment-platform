@@ -1,0 +1,11 @@
+ℹ Check run path: test-input/run_sample_warning_rank_not_start_at_0.txt
+✓ Run path is valid.
+ℹ Check run file format.
+	⚠ Ranks do not start at 0.
+⚠ Run file format is valid: 1 warnings
+ℹ Load run with ir-measures.
+✓ Run successfully loaded.
+
+
+####
+files: []

@@ -1,0 +1,14 @@
+ℹ Check run path: test-input/run_sample_warning_consistency.txt
+✓ Run path is valid.
+ℹ Check run file format.
+	⚠ Ranks not consecutive at lines: 1↛2, 2↛3, 3↛4 
+	⚠ Ranks not in ascending order at lines: 2>3 
+	⚠ Ranks and scores inconsistent at lines: 2≷3, 4≷5 
+	⚠ Scores not in descending order at lines: 4<5 
+⚠ Run file format is valid: 7 warnings
+ℹ Load run with ir-measures.
+✓ Run successfully loaded.
+
+
+####
+files: []

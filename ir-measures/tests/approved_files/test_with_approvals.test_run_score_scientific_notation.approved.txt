@@ -1,0 +1,11 @@
+ℹ Check run path: test-input/run_sample_warning_score_scientific.txt
+✓ Run path is valid.
+ℹ Check run file format.
+	⚠ Score in scientific notation at lines: 1 
+⚠ Run file format is valid: 1 warnings
+ℹ Load run with ir-measures.
+✓ Run successfully loaded.
+
+
+####
+files: []

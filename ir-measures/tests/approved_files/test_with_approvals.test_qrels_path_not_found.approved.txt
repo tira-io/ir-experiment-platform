@@ -1,0 +1,13 @@
+ℹ Check run path: test-input/run_sample_valid.txt
+✓ Run path is valid.
+ℹ Check run file format.
+✓ Run file format is valid.
+ℹ Load run with ir-measures.
+✓ Run successfully loaded.
+ℹ Check qrels path: bar
+	✗ Qrels path does not exist.
+✗ Qrels path is invalid: 1 error
+
+
+####
+files: []

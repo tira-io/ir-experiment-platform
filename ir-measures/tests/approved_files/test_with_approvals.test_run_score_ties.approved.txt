@@ -1,0 +1,11 @@
+ℹ Check run path: test-input/run_sample_warning_score_ties.txt
+✓ Run path is valid.
+ℹ Check run file format.
+	⚠ Scores ties at lines: 2=3 
+⚠ Run file format is valid: 1 warnings
+ℹ Load run with ir-measures.
+✓ Run successfully loaded.
+
+
+####
+files: []

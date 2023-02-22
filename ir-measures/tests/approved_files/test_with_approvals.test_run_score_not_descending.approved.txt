@@ -1,0 +1,12 @@
+ℹ Check run path: test-input/run_sample_warning_score_not_desc.txt
+✓ Run path is valid.
+ℹ Check run file format.
+	⚠ Scores not in descending order at lines: 2<3 
+	⚠ Ranks and scores inconsistent at lines: 2≷3 
+⚠ Run file format is valid: 2 warnings
+ℹ Load run with ir-measures.
+✓ Run successfully loaded.
+
+
+####
+files: []

@@ -1,0 +1,7 @@
+ℹ Check run path: foo
+	✗ Run path does not exist.
+✗ Run path is invalid: 1 error
+
+
+####
+files: []

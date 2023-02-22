@@ -1,0 +1,12 @@
+ℹ Check run path: test-input/run_sample_warning_rank_ties.txt
+✓ Run path is valid.
+ℹ Check run file format.
+	⚠ Rank ties at lines: 4=5 
+	⚠ Ranks not consecutive at lines: 4↛5 
+⚠ Run file format is valid: 2 warnings
+ℹ Load run with ir-measures.
+✓ Run successfully loaded.
+
+
+####
+files: []

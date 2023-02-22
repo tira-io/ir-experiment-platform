@@ -1,0 +1,11 @@
+ℹ Check run path: test-input/run_sample_warning_qid_special_chars.txt
+✓ Run path is valid.
+ℹ Check run file format.
+	⚠ Query IDs with special characters at lines: 1, 2, 3, 4, 5 
+⚠ Run file format is valid: 5 warnings
+ℹ Load run with ir-measures.
+✓ Run successfully loaded.
+
+
+####
+files: []

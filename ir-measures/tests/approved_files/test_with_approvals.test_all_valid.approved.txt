@@ -1,0 +1,52 @@
+ℹ Check run path: test-input/run_sample_valid.txt
+✓ Run path is valid.
+ℹ Check run file format.
+✓ Run file format is valid.
+ℹ Load run with ir-measures.
+✓ Run successfully loaded.
+ℹ Check qrels path: test-input/qrels_sample_valid.txt
+✓ Qrels path is valid.
+ℹ Load qrels with ir-measures.
+✓ Qrels successfully loaded.
+ℹ Check topics path: test-input/topics_sample_valid.jsonl
+✓ Topics path is valid.
+ℹ Load topics.
+✓ Topics successfully loaded.
+ℹ Parse measures: P@2, nDCG@2
+✓ Measures successfully parsed.
+ℹ Check output path: test-output
+✓ Output path is valid.
+ℹ Check run, qrels, and topics consistency.
+✓ Run, qrels, and topics are consistent.
+ℹ Evaluate run with measures: P@2, nDCG@2
+✓ Run successfully evaluated.
+ℹ Export metrics.
+✓ Metrics successfully exported.
+
+
+####
+files: ['test-output/evaluation-per-query.prototext', 'test-output/evaluation.prototext']
+
+
+####test-output/evaluation-per-query.prototext
+measure {
+	query_id: "1"
+	measure: "P@2"
+	value: "1.0"
+}
+measure {
+	query_id: "1"
+	measure: "nDCG@2"
+	value: "0.6666666666666667"
+}
+
+
+####test-output/evaluation.prototext
+measure {
+	key: "P@2"
+	value: "1.0"
+}
+measure {
+	key: "nDCG@2"
+	value: "0.6666666666666667"
+}

@@ -1,0 +1,7 @@
+ℹ Check run path: test-input/empty_file.txt
+	✗ Run file is empty.
+✗ Run path is invalid: 1 error
+
+
+####
+files: []

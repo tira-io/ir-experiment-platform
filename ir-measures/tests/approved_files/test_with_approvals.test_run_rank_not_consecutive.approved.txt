@@ -1,0 +1,11 @@
+ℹ Check run path: test-input/run_sample_warning_rank_not_consecutive.txt
+✓ Run path is valid.
+ℹ Check run file format.
+	⚠ Ranks not consecutive at lines: 4↛5 
+⚠ Run file format is valid: 1 warnings
+ℹ Load run with ir-measures.
+✓ Run successfully loaded.
+
+
+####
+files: []

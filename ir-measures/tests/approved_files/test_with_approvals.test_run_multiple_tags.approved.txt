@@ -1,0 +1,9 @@
+ℹ Check run path: test-input/run_sample_invalid_multiple_tags.txt
+✓ Run path is valid.
+ℹ Check run file format.
+	✗ Conflicting run tags at lines: 1≠2, 2≠3 
+✗ Run file format is invalid: 2 errors
+
+
+####
+files: []

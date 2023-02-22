@@ -1,0 +1,11 @@
+ℹ Check run path: test-input/run_sample_warning_docid_special_chars.txt
+✓ Run path is valid.
+ℹ Check run file format.
+	⚠ Document IDs with special characters at lines: 2 
+⚠ Run file format is valid: 1 warnings
+ℹ Load run with ir-measures.
+✓ Run successfully loaded.
+
+
+####
+files: []

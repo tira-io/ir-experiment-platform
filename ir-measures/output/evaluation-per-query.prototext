@@ -1,0 +1,960 @@
+measure {
+	query_id: "51"
+	measure: "AP"
+	value: "0.08431784264198276"
+}
+measure {
+	query_id: "51"
+	measure: "ERR@20"
+	value: "0.16736"
+}
+measure {
+	query_id: "51"
+	measure: "P@20"
+	value: "0.55"
+}
+measure {
+	query_id: "51"
+	measure: "nDCG@20"
+	value: "0.31366546266699225"
+}
+measure {
+	query_id: "52"
+	measure: "AP"
+	value: "0.31008322890753487"
+}
+measure {
+	query_id: "52"
+	measure: "ERR@20"
+	value: "0.64243"
+}
+measure {
+	query_id: "52"
+	measure: "P@20"
+	value: "0.55"
+}
+measure {
+	query_id: "52"
+	measure: "nDCG@20"
+	value: "0.6397676289506087"
+}
+measure {
+	query_id: "53"
+	measure: "AP"
+	value: "0.006766846052119314"
+}
+measure {
+	query_id: "53"
+	measure: "ERR@20"
+	value: "0.01042"
+}
+measure {
+	query_id: "53"
+	measure: "P@20"
+	value: "0.05"
+}
+measure {
+	query_id: "53"
+	measure: "nDCG@20"
+	value: "0.025474423234207066"
+}
+measure {
+	query_id: "54"
+	measure: "AP"
+	value: "0.08239186557890366"
+}
+measure {
+	query_id: "54"
+	measure: "ERR@20"
+	value: "0.04318"
+}
+measure {
+	query_id: "54"
+	measure: "P@20"
+	value: "0.15"
+}
+measure {
+	query_id: "54"
+	measure: "nDCG@20"
+	value: "0.09439235986160549"
+}
+measure {
+	query_id: "55"
+	measure: "AP"
+	value: "0.025442795139649605"
+}
+measure {
+	query_id: "55"
+	measure: "ERR@20"
+	value: "0.0"
+}
+measure {
+	query_id: "55"
+	measure: "P@20"
+	value: "0.0"
+}
+measure {
+	query_id: "55"
+	measure: "nDCG@20"
+	value: "0.0"
+}
+measure {
+	query_id: "56"
+	measure: "AP"
+	value: "0.014797358670446365"
+}
+measure {
+	query_id: "56"
+	measure: "ERR@20"
+	value: "0.0"
+}
+measure {
+	query_id: "56"
+	measure: "P@20"
+	value: "0.0"
+}
+measure {
+	query_id: "56"
+	measure: "nDCG@20"
+	value: "0.0"
+}
+measure {
+	query_id: "57"
+	measure: "AP"
+	value: "0.08271814470215763"
+}
+measure {
+	query_id: "57"
+	measure: "ERR@20"
+	value: "0.18104"
+}
+measure {
+	query_id: "57"
+	measure: "P@20"
+	value: "1.0"
+}
+measure {
+	query_id: "57"
+	measure: "nDCG@20"
+	value: "0.37814263992105696"
+}
+measure {
+	query_id: "58"
+	measure: "AP"
+	value: "0.047981620592769274"
+}
+measure {
+	query_id: "58"
+	measure: "ERR@20"
+	value: "0.2002"
+}
+measure {
+	query_id: "58"
+	measure: "P@20"
+	value: "0.1"
+}
+measure {
+	query_id: "58"
+	measure: "nDCG@20"
+	value: "0.15470717233038872"
+}
+measure {
+	query_id: "59"
+	measure: "AP"
+	value: "0.000998727734206654"
+}
+measure {
+	query_id: "59"
+	measure: "ERR@20"
+	value: "0.0"
+}
+measure {
+	query_id: "59"
+	measure: "P@20"
+	value: "0.0"
+}
+measure {
+	query_id: "59"
+	measure: "nDCG@20"
+	value: "0.0"
+}
+measure {
+	query_id: "60"
+	measure: "AP"
+	value: "0.12562945326365674"
+}
+measure {
+	query_id: "60"
+	measure: "ERR@20"
+	value: "0.07527"
+}
+measure {
+	query_id: "60"
+	measure: "P@20"
+	value: "0.6"
+}
+measure {
+	query_id: "60"
+	measure: "nDCG@20"
+	value: "0.2996408129012732"
+}
+measure {
+	query_id: "61"
+	measure: "AP"
+	value: "0.04222096080018801"
+}
+measure {
+	query_id: "61"
+	measure: "ERR@20"
+	value: "0.0227"
+}
+measure {
+	query_id: "61"
+	measure: "P@20"
+	value: "0.25"
+}
+measure {
+	query_id: "61"
+	measure: "nDCG@20"
+	value: "0.11833938829847222"
+}
+measure {
+	query_id: "62"
+	measure: "AP"
+	value: "0.33499884410457975"
+}
+measure {
+	query_id: "62"
+	measure: "ERR@20"
+	value: "0.11955"
+}
+measure {
+	query_id: "62"
+	measure: "P@20"
+	value: "0.7"
+}
+measure {
+	query_id: "62"
+	measure: "nDCG@20"
+	value: "0.46481395345418863"
+}
+measure {
+	query_id: "63"
+	measure: "AP"
+	value: "0.09440786331475708"
+}
+measure {
+	query_id: "63"
+	measure: "ERR@20"
+	value: "0.07744"
+}
+measure {
+	query_id: "63"
+	measure: "P@20"
+	value: "0.55"
+}
+measure {
+	query_id: "63"
+	measure: "nDCG@20"
+	value: "0.32402552769835197"
+}
+measure {
+	query_id: "64"
+	measure: "AP"
+	value: "0.08685313627059385"
+}
+measure {
+	query_id: "64"
+	measure: "ERR@20"
+	value: "0.21479"
+}
+measure {
+	query_id: "64"
+	measure: "P@20"
+	value: "0.45"
+}
+measure {
+	query_id: "64"
+	measure: "nDCG@20"
+	value: "0.35944389019892176"
+}
+measure {
+	query_id: "65"
+	measure: "AP"
+	value: "0.20467862651522445"
+}
+measure {
+	query_id: "65"
+	measure: "ERR@20"
+	value: "0.12497"
+}
+measure {
+	query_id: "65"
+	measure: "P@20"
+	value: "0.95"
+}
+measure {
+	query_id: "65"
+	measure: "nDCG@20"
+	value: "0.41366710335886037"
+}
+measure {
+	query_id: "66"
+	measure: "AP"
+	value: "0.014383592976393763"
+}
+measure {
+	query_id: "66"
+	measure: "ERR@20"
+	value: "0.01158"
+}
+measure {
+	query_id: "66"
+	measure: "P@20"
+	value: "0.1"
+}
+measure {
+	query_id: "66"
+	measure: "nDCG@20"
+	value: "0.04742937553647769"
+}
+measure {
+	query_id: "67"
+	measure: "AP"
+	value: "0.1523541663660107"
+}
+measure {
+	query_id: "67"
+	measure: "ERR@20"
+	value: "0.25877"
+}
+measure {
+	query_id: "67"
+	measure: "P@20"
+	value: "0.6"
+}
+measure {
+	query_id: "67"
+	measure: "nDCG@20"
+	value: "0.5324232213504778"
+}
+measure {
+	query_id: "68"
+	measure: "AP"
+	value: "0.0539546705439429"
+}
+measure {
+	query_id: "68"
+	measure: "ERR@20"
+	value: "0.07295"
+}
+measure {
+	query_id: "68"
+	measure: "P@20"
+	value: "0.2"
+}
+measure {
+	query_id: "68"
+	measure: "nDCG@20"
+	value: "0.18905274852308146"
+}
+measure {
+	query_id: "69"
+	measure: "AP"
+	value: "0.04092753746619256"
+}
+measure {
+	query_id: "69"
+	measure: "ERR@20"
+	value: "0.11001"
+}
+measure {
+	query_id: "69"
+	measure: "P@20"
+	value: "0.2"
+}
+measure {
+	query_id: "69"
+	measure: "nDCG@20"
+	value: "0.22456039597469996"
+}
+measure {
+	query_id: "70"
+	measure: "AP"
+	value: "0.0"
+}
+measure {
+	query_id: "70"
+	measure: "ERR@20"
+	value: "0.0"
+}
+measure {
+	query_id: "70"
+	measure: "P@20"
+	value: "0.0"
+}
+measure {
+	query_id: "70"
+	measure: "nDCG@20"
+	value: "0.0"
+}
+measure {
+	query_id: "71"
+	measure: "AP"
+	value: "0.009362496897326355"
+}
+measure {
+	query_id: "71"
+	measure: "ERR@20"
+	value: "0.01232"
+}
+measure {
+	query_id: "71"
+	measure: "P@20"
+	value: "0.1"
+}
+measure {
+	query_id: "71"
+	measure: "nDCG@20"
+	value: "0.037256819695418365"
+}
+measure {
+	query_id: "72"
+	measure: "AP"
+	value: "0.001789027566111398"
+}
+measure {
+	query_id: "72"
+	measure: "ERR@20"
+	value: "0.0"
+}
+measure {
+	query_id: "72"
+	measure: "P@20"
+	value: "0.0"
+}
+measure {
+	query_id: "72"
+	measure: "nDCG@20"
+	value: "0.0"
+}
+measure {
+	query_id: "73"
+	measure: "AP"
+	value: "0.09857345907915036"
+}
+measure {
+	query_id: "73"
+	measure: "ERR@20"
+	value: "0.16964"
+}
+measure {
+	query_id: "73"
+	measure: "P@20"
+	value: "0.75"
+}
+measure {
+	query_id: "73"
+	measure: "nDCG@20"
+	value: "0.42288861454588955"
+}
+measure {
+	query_id: "74"
+	measure: "AP"
+	value: "0.0031613061126710886"
+}
+measure {
+	query_id: "74"
+	measure: "ERR@20"
+	value: "0.0"
+}
+measure {
+	query_id: "74"
+	measure: "P@20"
+	value: "0.0"
+}
+measure {
+	query_id: "74"
+	measure: "nDCG@20"
+	value: "0.0"
+}
+measure {
+	query_id: "75"
+	measure: "AP"
+	value: "0.1853848101935964"
+}
+measure {
+	query_id: "75"
+	measure: "ERR@20"
+	value: "0.08819"
+}
+measure {
+	query_id: "75"
+	measure: "P@20"
+	value: "0.7"
+}
+measure {
+	query_id: "75"
+	measure: "nDCG@20"
+	value: "0.28892416616087263"
+}
+measure {
+	query_id: "76"
+	measure: "AP"
+	value: "0.1596744031456364"
+}
+measure {
+	query_id: "76"
+	measure: "ERR@20"
+	value: "0.18655"
+}
+measure {
+	query_id: "76"
+	measure: "P@20"
+	value: "0.75"
+}
+measure {
+	query_id: "76"
+	measure: "nDCG@20"
+	value: "0.39505803833045194"
+}
+measure {
+	query_id: "77"
+	measure: "AP"
+	value: "0.05916086544499962"
+}
+measure {
+	query_id: "77"
+	measure: "ERR@20"
+	value: "0.17976"
+}
+measure {
+	query_id: "77"
+	measure: "P@20"
+	value: "0.2"
+}
+measure {
+	query_id: "77"
+	measure: "nDCG@20"
+	value: "0.1823684709075654"
+}
+measure {
+	query_id: "78"
+	measure: "AP"
+	value: "0.07309254260205446"
+}
+measure {
+	query_id: "78"
+	measure: "ERR@20"
+	value: "0.12988"
+}
+measure {
+	query_id: "78"
+	measure: "P@20"
+	value: "0.25"
+}
+measure {
+	query_id: "78"
+	measure: "nDCG@20"
+	value: "0.27305922100120666"
+}
+measure {
+	query_id: "79"
+	measure: "AP"
+	value: "0.1660727051407492"
+}
+measure {
+	query_id: "79"
+	measure: "ERR@20"
+	value: "0.15387"
+}
+measure {
+	query_id: "79"
+	measure: "P@20"
+	value: "0.6"
+}
+measure {
+	query_id: "79"
+	measure: "nDCG@20"
+	value: "0.44242395871513723"
+}
+measure {
+	query_id: "80"
+	measure: "AP"
+	value: "0.10493115399768116"
+}
+measure {
+	query_id: "80"
+	measure: "ERR@20"
+	value: "0.1751"
+}
+measure {
+	query_id: "80"
+	measure: "P@20"
+	value: "0.95"
+}
+measure {
+	query_id: "80"
+	measure: "nDCG@20"
+	value: "0.9665625086152866"
+}
+measure {
+	query_id: "81"
+	measure: "AP"
+	value: "0.01715890156076979"
+}
+measure {
+	query_id: "81"
+	measure: "ERR@20"
+	value: "0.03841"
+}
+measure {
+	query_id: "81"
+	measure: "P@20"
+	value: "0.1"
+}
+measure {
+	query_id: "81"
+	measure: "nDCG@20"
+	value: "0.08885921609572776"
+}
+measure {
+	query_id: "82"
+	measure: "AP"
+	value: "0.14060018745496566"
+}
+measure {
+	query_id: "82"
+	measure: "ERR@20"
+	value: "0.0158"
+}
+measure {
+	query_id: "82"
+	measure: "P@20"
+	value: "0.15"
+}
+measure {
+	query_id: "82"
+	measure: "nDCG@20"
+	value: "0.05286949541504003"
+}
+measure {
+	query_id: "83"
+	measure: "AP"
+	value: "0.0032003192840618978"
+}
+measure {
+	query_id: "83"
+	measure: "ERR@20"
+	value: "0.0"
+}
+measure {
+	query_id: "83"
+	measure: "P@20"
+	value: "0.0"
+}
+measure {
+	query_id: "83"
+	measure: "nDCG@20"
+	value: "0.0"
+}
+measure {
+	query_id: "84"
+	measure: "AP"
+	value: "0.26403019394946936"
+}
+measure {
+	query_id: "84"
+	measure: "ERR@20"
+	value: "0.37726"
+}
+measure {
+	query_id: "84"
+	measure: "P@20"
+	value: "1.0"
+}
+measure {
+	query_id: "84"
+	measure: "nDCG@20"
+	value: "0.8234510385252299"
+}
+measure {
+	query_id: "85"
+	measure: "AP"
+	value: "0.04984746146436076"
+}
+measure {
+	query_id: "85"
+	measure: "ERR@20"
+	value: "0.13017"
+}
+measure {
+	query_id: "85"
+	measure: "P@20"
+	value: "0.35"
+}
+measure {
+	query_id: "85"
+	measure: "nDCG@20"
+	value: "0.2072412325901197"
+}
+measure {
+	query_id: "86"
+	measure: "AP"
+	value: "0.38665923711198213"
+}
+measure {
+	query_id: "86"
+	measure: "ERR@20"
+	value: "0.57431"
+}
+measure {
+	query_id: "86"
+	measure: "P@20"
+	value: "0.9"
+}
+measure {
+	query_id: "86"
+	measure: "nDCG@20"
+	value: "0.9357498985251277"
+}
+measure {
+	query_id: "87"
+	measure: "AP"
+	value: "0.013672391980620615"
+}
+measure {
+	query_id: "87"
+	measure: "ERR@20"
+	value: "0.0125"
+}
+measure {
+	query_id: "87"
+	measure: "P@20"
+	value: "0.05"
+}
+measure {
+	query_id: "87"
+	measure: "nDCG@20"
+	value: "0.04218127244872386"
+}
+measure {
+	query_id: "88"
+	measure: "AP"
+	value: "0.07687099066731841"
+}
+measure {
+	query_id: "88"
+	measure: "ERR@20"
+	value: "0.07895"
+}
+measure {
+	query_id: "88"
+	measure: "P@20"
+	value: "0.6"
+}
+measure {
+	query_id: "88"
+	measure: "nDCG@20"
+	value: "0.29983243845001567"
+}
+measure {
+	query_id: "89"
+	measure: "AP"
+	value: "0.20466545770487468"
+}
+measure {
+	query_id: "89"
+	measure: "ERR@20"
+	value: "0.11247"
+}
+measure {
+	query_id: "89"
+	measure: "P@20"
+	value: "0.75"
+}
+measure {
+	query_id: "89"
+	measure: "nDCG@20"
+	value: "0.2343846571103149"
+}
+measure {
+	query_id: "90"
+	measure: "AP"
+	value: "0.1296490231661245"
+}
+measure {
+	query_id: "90"
+	measure: "ERR@20"
+	value: "0.07679"
+}
+measure {
+	query_id: "90"
+	measure: "P@20"
+	value: "0.55"
+}
+measure {
+	query_id: "90"
+	measure: "nDCG@20"
+	value: "0.3285795110302251"
+}
+measure {
+	query_id: "91"
+	measure: "AP"
+	value: "0.0902393945671462"
+}
+measure {
+	query_id: "91"
+	measure: "ERR@20"
+	value: "0.09979"
+}
+measure {
+	query_id: "91"
+	measure: "P@20"
+	value: "0.45"
+}
+measure {
+	query_id: "91"
+	measure: "nDCG@20"
+	value: "0.25477116590093857"
+}
+measure {
+	query_id: "92"
+	measure: "AP"
+	value: "0.00030078355911961535"
+}
+measure {
+	query_id: "92"
+	measure: "ERR@20"
+	value: "0.0"
+}
+measure {
+	query_id: "92"
+	measure: "P@20"
+	value: "0.0"
+}
+measure {
+	query_id: "92"
+	measure: "nDCG@20"
+	value: "0.0"
+}
+measure {
+	query_id: "93"
+	measure: "AP"
+	value: "0.2061604493260041"
+}
+measure {
+	query_id: "93"
+	measure: "ERR@20"
+	value: "0.16062"
+}
+measure {
+	query_id: "93"
+	measure: "P@20"
+	value: "0.4"
+}
+measure {
+	query_id: "93"
+	measure: "nDCG@20"
+	value: "0.3265855299470895"
+}
+measure {
+	query_id: "94"
+	measure: "AP"
+	value: "5.2742616033755275e-05"
+}
+measure {
+	query_id: "94"
+	measure: "ERR@20"
+	value: "0.0"
+}
+measure {
+	query_id: "94"
+	measure: "P@20"
+	value: "0.0"
+}
+measure {
+	query_id: "94"
+	measure: "nDCG@20"
+	value: "0.0"
+}
+measure {
+	query_id: "96"
+	measure: "AP"
+	value: "0.15053669942589204"
+}
+measure {
+	query_id: "96"
+	measure: "ERR@20"
+	value: "0.16757"
+}
+measure {
+	query_id: "96"
+	measure: "P@20"
+	value: "0.6"
+}
+measure {
+	query_id: "96"
+	measure: "nDCG@20"
+	value: "0.4710935901006018"
+}
+measure {
+	query_id: "97"
+	measure: "AP"
+	value: "0.033941105876571405"
+}
+measure {
+	query_id: "97"
+	measure: "ERR@20"
+	value: "0.05199"
+}
+measure {
+	query_id: "97"
+	measure: "P@20"
+	value: "0.2"
+}
+measure {
+	query_id: "97"
+	measure: "nDCG@20"
+	value: "0.11506784902368167"
+}
+measure {
+	query_id: "98"
+	measure: "AP"
+	value: "0.11126690348306295"
+}
+measure {
+	query_id: "98"
+	measure: "ERR@20"
+	value: "0.1414"
+}
+measure {
+	query_id: "98"
+	measure: "P@20"
+	value: "0.65"
+}
+measure {
+	query_id: "98"
+	measure: "nDCG@20"
+	value: "0.34040441310101244"
+}
+measure {
+	query_id: "99"
+	measure: "AP"
+	value: "0.17954069638973388"
+}
+measure {
+	query_id: "99"
+	measure: "ERR@20"
+	value: "0.07698"
+}
+measure {
+	query_id: "99"
+	measure: "P@20"
+	value: "0.65"
+}
+measure {
+	query_id: "99"
+	measure: "nDCG@20"
+	value: "0.350016617656165"
+}

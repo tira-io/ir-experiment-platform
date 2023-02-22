@@ -1,0 +1,9 @@
+ℹ Check run path: test-input/run_sample_invalid_more_columns.txt
+✓ Run path is valid.
+ℹ Check run file format.
+	✗ More then 6 columns at lines: 2 
+✗ Run file format is invalid: 1 errors
+
+
+####
+files: []

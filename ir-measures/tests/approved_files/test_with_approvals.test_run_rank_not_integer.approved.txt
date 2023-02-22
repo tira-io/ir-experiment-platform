@@ -1,0 +1,11 @@
+ℹ Check run path: test-input/run_sample_warning_rank_not_int.txt
+✓ Run path is valid.
+ℹ Check run file format.
+	⚠ Non-integer ranks at lines: 1, 2, 3, 4, 5 
+⚠ Run file format is valid: 5 warnings
+ℹ Load run with ir-measures.
+✓ Run successfully loaded.
+
+
+####
+files: []

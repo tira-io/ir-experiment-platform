@@ -1,0 +1,21 @@
+ℹ Check run path: test-input/run_sample_valid.txt
+✓ Run path is valid.
+ℹ Check run file format.
+✓ Run file format is valid.
+ℹ Load run with ir-measures.
+✓ Run successfully loaded.
+ℹ Check qrels path: test-input/qrels_sample_valid.txt
+✓ Qrels path is valid.
+ℹ Load qrels with ir-measures.
+✓ Qrels successfully loaded.
+ℹ Check topics path: test-input/topics_sample_valid.jsonl
+✓ Topics path is valid.
+ℹ Load topics.
+✓ Topics successfully loaded.
+ℹ Parse measures: FOOBAR
+	✗ Measure is unknown: FOOBAR
+	✗ Measures could not be parsed: 1 unknown
+
+
+####
+files: []

@@ -1,0 +1,11 @@
+ℹ Check run path: test-input/run_sample_warning_ignored_column_wrong.txt
+✓ Run path is valid.
+ℹ Check run file format.
+	⚠ Ignored column is not "Q0" at lines: 2 
+⚠ Run file format is valid: 1 warnings
+ℹ Load run with ir-measures.
+✓ Run successfully loaded.
+
+
+####
+files: []

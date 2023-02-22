@@ -1,0 +1,11 @@
+ℹ Check run path: test-input/run_sample_warning_qid_not_asc.txt
+✓ Run path is valid.
+ℹ Check run file format.
+	⚠ Query IDs not in ascending order at lines: 2>3 
+⚠ Run file format is valid: 1 warnings
+ℹ Load run with ir-measures.
+✓ Run successfully loaded.
+
+
+####
+files: []

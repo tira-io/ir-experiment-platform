@@ -1,0 +1,16 @@
+measure {
+	key: "AP"
+	value: "0.0984479789876958"
+}
+measure {
+	key: "ERR@20"
+	value: "0.11547874999999996"
+}
+measure {
+	key: "P@20"
+	value: "0.3895833333333332"
+}
+measure {
+	key: "nDCG@20"
+	value: "0.2595661630864897"
+}

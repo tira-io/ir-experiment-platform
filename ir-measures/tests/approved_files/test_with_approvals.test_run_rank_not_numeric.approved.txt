@@ -1,0 +1,10 @@
+ℹ Check run path: test-input/run_sample_warning_rank_not_num.txt
+✓ Run path is valid.
+ℹ Check run file format.
+	✗ Non-numeric ranks at lines: 1, 2, 3, 4, 5 
+	⚠ Non-integer ranks at lines: 1, 2, 3, 4, 5 
+✗ Run file format is invalid: 5 errors, 5 warnings
+
+
+####
+files: []
