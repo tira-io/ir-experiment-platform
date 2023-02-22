@@ -1,0 +1,10 @@
+FROM webis/tira-ir-baselines-beir:0.0.1-base
+
+ARG DRES_MODEL=local
+ENV DRES_MODEL ${DRES_MODEL}
+
+RUN pip3 install tira==0.0.9 \
+	&& python -c "from beir.retrieval import models; from beir.retrieval.search.dense import DenseRetrievalExactSearch as DRES; DRES(models.SentenceBERT('${DRES_MODEL}'));"
+
+COPY beir/reranking.py /reranking.py
+

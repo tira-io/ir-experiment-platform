@@ -1,0 +1,20 @@
+FROM pytorch/pytorch:1.12.0-cuda11.3-cudnn8-runtime
+
+ENV PYTERRIER_VERSION='5.7'
+ENV PYTERRIER_HELPER_VERSION='0.0.7'
+
+RUN apt-get update \
+	&& apt-get install -y git openjdk-11-jdk \
+	&& pip3 install python-terrier pandas jupyterlab runnb \
+	&& python3 -c "import pyterrier as pt; pt.init(version='${PYTERRIER_VERSION}', helper_version='${PYTERRIER_HELPER_VERSION}');" \
+	&& python3 -c "import pyterrier as pt; pt.init(version='${PYTERRIER_VERSION}', helper_version='${PYTERRIER_HELPER_VERSION}', boot_packages=['com.github.terrierteam:terrier-prf:-SNAPSHOT']);"
+
+RUN pip3 install tira==0.0.4
+
+COPY pyterrier/full-rank-pipeline.ipynb pyterrier/retrieval-pipeline.ipynb pyterrier/run-pyterrier-notebook.py pyterrier/default_pipelines.py pyterrier/pyterrier_cli.py /workspace/
+
+ENV PYTHONPATH=/workspace
+
+RUN jupyter trust /workspace/full-rank-pipeline.ipynb \
+	&& jupyter trust /workspace/retrieval-pipeline.ipynb
+
