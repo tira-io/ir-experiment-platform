@@ -13,7 +13,9 @@ Submission is available at: The hosted version of the IR Experiment Platform is 
 
 ## Reproducibility
 
-Examples of reproducibility experiments are available in the directory [reproducibility-experiments](reproducibility-experiments)
+Examples of reproducibility experiments are available in the directory [reproducibility-experiments](reproducibility-experiments).
+The main advantage of the IR Experiment Platform is that after the shared tasks, the complete shared task repository can be archived in a fully self contained archive (including all software, runs, etc.).
+This repository [https://github.com/tira-io/ir-experiment-platform-benchmarks](https://github.com/tira-io/ir-experiment-platform-benchmarks) contains an archived shared task repository covering over 50~retrieval softwares on more than 32 benchmarks with overall over 2000 executed softwares.
 
 ## IR Starters
 
