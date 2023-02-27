@@ -9,7 +9,7 @@ The hosted version of the IR Experiment Platform is open for submissions at [htt
 
 ## Submission
 
-Submission is available at: The hosted version of the IR Experiment Platform is open for submissions at [https://www.tira.io/task/ir-benchmarks](https://www.tira.io/task/ir-benchmarks).
+Submission is available at: The hosted version of the IR Experiment Platform is open for submissions at [https://www.tira.io/task/ir-benchmarks](https://www.tira.io/task/ir-benchmarks). To simplify submissions, we provide several [starters](tira-ir-starters) (that yield 50 different retrieval models) that you can [use as starting point](tira-ir-starters).
 
 After the run was unblinded and published by an organizer, it becomes visible on the leaderboard (here, as example, the top entries by nDCG@10 for the ClueWeb09):
 
