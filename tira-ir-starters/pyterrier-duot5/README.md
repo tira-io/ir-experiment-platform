@@ -1,6 +1,6 @@
 # TIRA IR-Starter for duoT5@PyTerrier
 
-This directory contains a tira starter for the duoT5 retrieval model implemented in PyTerrier.
+This directory contains a tira starter for the [duoT5 retrieval model implemented in PyTerrier](https://github.com/terrierteam/pyterrier_t5).
 
 Overall, this starter (or other versions derived from the starter) can serve as re-rank retriever and we produce 3 different variants by switching out the embedded duoT5 model.
 
