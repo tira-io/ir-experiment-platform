@@ -24,7 +24,7 @@ After the image is uploaded, you should use the following command in TIRA:
 /workspace/retrieve-with-chatnoir.sh --input $inputDataset --output $outputDir
 ```
 
-The following screenshot shows how the valid configuration in TIRA might look like:
+Please refer to the general tutorial on [how to import your retrieval approach to TIRA](https://github.com/tira-io/ir-experiment-platform/tree/main/tira-ir-starters#adding-your-retrieval-software) and on [how to run your retrieval software in TIRA](https://github.com/tira-io/ir-experiment-platform/tree/main/tira-ir-starters#running-your-retrieval-software) for more detailed instructions on how to submit.
 
 
 
