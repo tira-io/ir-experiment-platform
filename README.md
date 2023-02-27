@@ -11,6 +11,12 @@ The hosted version of the IR Experiment Platform is open for submissions at [htt
 
 Submission is available at: The hosted version of the IR Experiment Platform is open for submissions at [https://www.tira.io/task/ir-benchmarks](https://www.tira.io/task/ir-benchmarks).
 
+After the run was unblinded and published by an organizer, it becomes visible on the leaderboard (here, as example, the top entries by nDCG@10 for the ClueWeb09):
+
+![leaderboard-example](https://user-images.githubusercontent.com/10050886/221593767-fa405b12-2f46-4348-a036-43027000c882.png)
+
+
+
 ## Reproducibility
 
 Examples of reproducibility experiments are available in the directory [reproducibility-experiments](reproducibility-experiments).
