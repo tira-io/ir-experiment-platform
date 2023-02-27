@@ -1,0 +1,54 @@
+{
+"Lexical": [
+"BM25 Re-Rank (tira-ir-starter-pyterrier)", "DFIC Re-Rank (tira-ir-starter-pyterrier)",
+"DFIZ Re-Rank (tira-ir-starter-pyterrier)","DFR_BM25 Re-Rank (tira-ir-starter-pyterrier)",
+"DFRee Re-Rank (tira-ir-starter-pyterrier)", "DFReeKLIM Re-Rank (tira-ir-starter-pyterrier)",
+"DirichletLM Re-Rank (tira-ir-starter-pyterrier)", "DLH Re-Rank (tira-ir-starter-pyterrier)",
+"DPH Re-Rank (tira-ir-starter-pyterrier)", "Hiemstra_LM Re-Rank (tira-ir-starter-pyterrier)",
+"IFB2 Re-Rank (tira-ir-starter-pyterrier)", "In_expB2 Re-Rank (tira-ir-starter-pyterrier)",
+"In_expC2 Re-Rank (tira-ir-starter-pyterrier)", "InB2 Re-Rank (tira-ir-starter-pyterrier)",
+"InL2 Re-Rank (tira-ir-starter-pyterrier)", "Js_KLs Re-Rank (tira-ir-starter-pyterrier)",
+"LGD Re-Rank (tira-ir-starter-pyterrier)", "PL2 Re-Rank (tira-ir-starter-pyterrier)",
+"TF_IDF Re-Rank (tira-ir-starter-pyterrier)", "XSqrA_M Re-Rank (tira-ir-starter-pyterrier)"
+],
+
+"Late Int.": ["ColBERT Re-Rank (tira-ir-starter-pyterrier)"],
+
+"Bi-Encoder": [
+"ANCE Base Cosine (tira-ir-starter-beir)",
+"ANCE Base Dot (tira-ir-starter-beir)",
+"SBERT msmarco-distilbert-base-v3-cos (tira-ir-starter-beir)",
+"SBERT msmarco-distilbert-base-v3-dot (tira-ir-starter-beir)",
+"SBERT msmarco-MiniLM-L6-cos-v5 (tira-ir-starter-beir)",
+"SBERT msmarco-MiniLM-L12-cos-v5 (tira-ir-starter-beir)",
+"SBERT msmarco-distilbert-cos-v5 (tira-ir-starter-beir)",
+"SBERT msmarco-distilbert-dot-v5 (tira-ir-starter-beir)",
+"SBERT msmarco-bert-base-dot-v5 (tira-ir-starter-beir)",
+"TASB msmarco-distilbert-base-cos (tira-ir-starter-beir)",
+"TASB msmarco-distilbert-base-dot (tira-ir-starter-beir)",
+"SBERT multi-qa-MiniLM-L6-cos-v1 (tira-ir-starter-beir)",
+"SBERT multi-qa-distilbert-cos-v1 (tira-ir-starter-beir)",
+"SBERT multi-qa-mpnet-base-cos-v1 (tira-ir-starter-beir)",
+"SBERT multi-qa-MiniLM-L6-dot-v1 (tira-ir-starter-beir)",
+"SBERT multi-qa-distilbert-dot-v1 (tira-ir-starter-beir)",
+"SBERT multi-qa-mpnet-base-dot-v1 (tira-ir-starter-beir)"
+],
+
+"duoT5": [
+"DuoT5 base-10k-ms-marco Top-25 (tira-ir-starter-pyterrier)", 
+"DuoT5 Top-25 (tira-ir-starter-pyterrier)",
+"DuoT5 3b-ms-marco Top-25 (tira-ir-starter-pyterrier)"
+],
+
+"PyGaggle": [
+"claret-fortress",
+"rectilinear-credits",
+"senior-platform",
+"MonoBERT Large (tira-ir-starter-gygaggle)",
+"MonoT5 Base (tira-ir-starter-gygaggle)",
+"MonoT5 Large (tira-ir-starter-gygaggle)",
+"nimble-bar",
+"obsolete-mart",
+"latent-wetland"
+]   
+}

@@ -1,0 +1,16 @@
+{
+"Args.me": ["argsme-touche-2021-task-1-20230209-training", "argsme-touche-2020-task-1-20230209-training"],
+"Antique": ["antique-test-20230107-training"],
+"Cranfield": ["cranfield-20230107-training"],
+"ClueWeb09": ["clueweb09-en-trec-web-2009-20230107-training", "clueweb09-en-trec-web-2010-20230107-training", "clueweb09-en-trec-web-2011-20230107-training", "clueweb09-en-trec-web-2012-20230107-training"],
+"ClueWeb12": ["clueweb12-trec-web-2013-20230107-training", "clueweb12-trec-web-2014-20230107-training", "clueweb12-touche-2020-task-2-20230209-training", "clueweb12-touche-2021-task-2-20230209-training"],
+"CORD-19": ["cord19-fulltext-trec-covid-20230107-training"],
+"Disks4+5": ["disks45-nocr-trec7-20230209-training", "disks45-nocr-trec8-20230209-training", "disks45-nocr-trec-robust-2004-20230209-training"],
+"Gov": ["gov-trec-web-2002-20230209-training", "gov-trec-web-2003-20230209-training", "gov-trec-web-2004-20230209-training"],
+"Gov2": ["gov2-trec-tb-2006-20230209-training", "gov2-trec-tb-2004-20230209-training", "gov2-trec-tb-2005-20230209-training"],
+"Medline": ["medline-2004-trec-genomics-2004-20230107-training", "medline-2004-trec-genomics-2005-20230107-training", "medline-2017-trec-pm-2017-20230211-training", "medline-2017-trec-pm-2018-20230211-training"],
+"MARCO": ["msmarco-passage-trec-dl-2019-judged-20230107-training", "msmarco-passage-trec-dl-2020-judged-20230107-training"],
+"NFCorpus": ["nfcorpus-test-20230107-training"],
+"Vaswani": ["vaswani-20230107-training"],
+"WaPo": ["wapo-v2-trec-core-2018-20230107-training"]
+}
