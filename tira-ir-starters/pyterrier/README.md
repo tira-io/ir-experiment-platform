@@ -1,18 +1,58 @@
-# Indexing Command for TIRA:
+# TIRA IR-Starter for PyTerrier
 
-docker build -t webis/tira-ir-starter-pyterrier:0.0.1-base -f pyterrier/Dockerfile.base .
+This directory contains a retrieval system that uses PyTerrier for full-rank and re-rank approaches.
+
+Overall, this starter (or other versions derived from the starter) can run arbitrary declarative PyTerrier Pipelines, and we have executed 20 re-rank and 20 full-rank approaches (using BM25, PL2, etc. as retrieval models) on all benchmarks integrated into the platform.
+
+## Submit the Image to TIRA
+
+You need a team for your submission, in the following, we use `tira-ir-starter` as team name, to resubmit the image, please just replace `tira-ir-starter` with your team name.
+
+First, you have to upload the image:
+
+```
+docker pull webis/tira-ir-starter-pyterrier:0.0.1-base
+
 docker tag webis/tira-ir-starter-pyterrier:0.0.1-base registry.webis.de/code-research/tira/tira-user-tira-ir-starter/pyterrier:0.0.1
+docker push registry.webis.de/code-research/tira/tira-user-tira-ir-starter/pyterrier:0.0.1
+```
 
-`/workspace/pyterrier_cli.py --input $inputDataset --output $outputDir --index_directory $outputDir`
+The Full-Rank retriever for PyTerrier is intended to run in two stages, where the first stage builds the index, and the second stage retrieves from the index.
+After the image is uploaded, you can define the first stage that builds the index via the following command in TIRA:
+
+``` 
+/workspace/pyterrier_cli.py --input $inputDataset --output $outputDir --index_directory $outputDir
+```
+
+For the second stage that does the actual full-rank retrieval, you can specify all kinds of retrieval models available in PyTerrier, e.g.,:
+
+- BM25: `/workspace/pyterrier_cli.py --input $inputDataset --output $outputDir --index_directory $inputRun --params wmodel=BM25 --retrieval_pipeline default_pipelines.wmodel_batch_retrieve`
+- DPH: `/workspace/pyterrier_cli.py --input $inputDataset --output $outputDir --index_directory $inputRun --params wmodel=DPH --retrieval_pipeline default_pipelines.wmodel_batch_retrieve`
+- BM25+RM3: `/workspace/pyterrier_cli.py --input $inputDataset --output $outputDir --index_directory $inputRun --params wmodel=BM25 --retrieval_pipeline default_pipelines.wmodel_batch_retrieve_rm3`
+
+Similarly, the image can directly re-rank results, in which case no index is needed (i.e., it is only a single stage, not two stages). Again, you can specify all kinds of retrieval models available in PyTerrier as re-rankers, e.g.:
+
+- BM25: `/workspace/pyterrier_cli.py --input /input --output /output --params wmodel=BM25 --rerank True --retrieval_pipeline default_pipelines.wmodel_text_scorer`
+- DFIC: `/workspace/pyterrier_cli.py --input /input --output /output --params wmodel=DFIC --rerank True --retrieval_pipeline default_pipelines.wmodel_text_scorer`
 
 
-/workspace/pyterrier_cli.py --input /foo/cranfield --output /tmp --index_directory /tmp/index
+Please refer to the general tutorial on [how to import your retrieval approach to TIRA](https://github.com/tira-io/ir-experiment-platform/tree/main/tira-ir-starters#adding-your-retrieval-software) and on [how to run your retrieval software in TIRA](https://github.com/tira-io/ir-experiment-platform/tree/main/tira-ir-starters#running-your-retrieval-software) for more detailed instructions on how to submit.
 
-/workspace/pyterrier_cli.py --input /foo/cranfield --output /tmp/o --params wmodel=BM25 --retrieval_pipeline default_pipelines.wmodel_batch_retrieve --index_directory /tmp/index
 
-/workspace/pyterrier_cli.py --input /foo/cranfield --output /tmp/o --params wmodel=BM25 --retrieval_pipeline default_pipelines.wmodel_batch_retrieve_rm3 --index_directory /tmp/index
 
-# Retrieval Commands for TIRA:
+## Building the image:
+
+To build the image and to deploy it in TIRA, please run the follwoing commands:
+
+```
+docker build -t webis/tira-ir-starter-pyterrier:0.0.1-base -f pyterrier/Dockerfile.base .
+docker push webis/tira-ir-starter-pyterrier:0.0.1-base
+```
+
+
+
+
+## Overview of all retrieval commands for TIRA:
 
 - BM25: `/workspace/pyterrier_cli.py --input $inputDataset --output $outputDir --index_directory $inputRun --params wmodel=BM25 --retrieval_pipeline default_pipelines.wmodel_batch_retrieve`
 - BM25+RM3: `/workspace/pyterrier_cli.py --input $inputDataset --output $outputDir --index_directory $inputRun --params wmodel=BM25 --retrieval_pipeline default_pipelines.wmodel_batch_retrieve_rm3`
@@ -42,7 +82,7 @@ docker tag webis/tira-ir-starter-pyterrier:0.0.1-base registry.webis.de/code-res
 - XSqrA_M: `/workspace/pyterrier_cli.py --input $inputDataset --output $outputDir --index_directory $inputRun --params wmodel=XSqrA_M --retrieval_pipeline default_pipelines.wmodel_batch_retrieve`
 
 
-# Rerank Commands for TIRA:
+## Overview of all Re-rank Commands for TIRA:
 
 docker run --rm -ti -v ${PWD}/tmp-out:/output -v ${PWD}/clueweb-rerank:/input:ro --entrypoint /workspace/pyterrier_cli.py webis/tira-ir-starter-pyterrier:0.0.1-base --input /input --output /output --params wmodel=BM25 --rerank True --retrieval_pipeline default_pipelines.wmodel_text_scorer
 
