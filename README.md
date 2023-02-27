@@ -7,6 +7,10 @@ The platform currently includes 15 corpora (1.9 billion documents) on which 32 w
 
 The hosted version of the IR Experiment Platform is open for submissions at [https://www.tira.io/task/ir-benchmarks](https://www.tira.io/task/ir-benchmarks).
 
+## Experiments
+
+All evaluations and analysis (including those reported in the paper) are located in [analysis-of-submissions](analysis-of-submissions).
+
 ## Submission
 
 Submission is available at: The hosted version of the IR Experiment Platform is open for submissions at [https://www.tira.io/task/ir-benchmarks](https://www.tira.io/task/ir-benchmarks). To simplify submissions, we provide several [starters](tira-ir-starters) (that yield 50 different retrieval models) that you can [use as starting point](tira-ir-starters).
