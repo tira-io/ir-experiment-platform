@@ -8,7 +8,7 @@ Overall, this starter (or other versions derived from the starter) can serve as 
 
 Please use the `tira-run` command (can be installed via `pip3 install tira`) to test that your retrieval approach is correctly installed inside the Docker image.
 **Attention: ColBERT requires a GPU, i.e., ensure that you have installed the nvidia-runtime for Docker.**
-For example, you can run the following command inside this directory to re-rank with an PyTerrier re-ranker from our tira-ir-starter with BM25 on a small example (2 queries from the passage retrieval task of TREC DL 2019):
+For example, you can run the following command inside this directory to re-rank with the ColBERT re-ranker from our tira-ir-starter on a small example (2 queries from the passage retrieval task of TREC DL 2019):
 
 ```
 tira-run \
