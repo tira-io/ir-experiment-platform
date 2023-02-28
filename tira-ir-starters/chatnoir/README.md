@@ -6,6 +6,29 @@ ChatNoir is reachable from within TIRA, and we keep the REST API of ChatNoir com
 Overall, this starter (or other versions derived from the starter, maybe with custom Query Expansion or similar) can serve as full-rank retriever against huge corpora.
 TIRA injects the to-be-used credentials (i.e., the API key and index) in a configuration file, so that an approach can run in multiple shared tasks.
 
+## Local Development
+
+Please use the `tira-run` command (can be installed via `pip3 install tira`) to test that your retrieval approach is correctly installed inside the Docker image.
+For example, you can run the following command inside this directory to retrieve with the ChatNoir retrieval model from our tira-ir-starter on a small example (using the first 3 queries of the TREC Web Track 2009):
+
+```
+tira-run \
+    --input-directory ${PWD}/sample-input \
+    --output-directory ${PWD}/sample-output \
+    --image webis/tira-ir-starter-chatnoir:0.0.2 \
+    --command '/workspace/retrieve-with-chatnoir.sh --input $inputDataset --output $outputDir'
+```
+
+In this example above, the command `/workspace/retrieve-with-chatnoir.sh --input $inputDataset --output $outputDir` is the command that you would enter in TIRA, and the `--input-directory` and the `--output-directory` flag point to the inputs respectively the outputs.
+
+This creates a run file `sample-output/run.txt`, with content like (`cat sample-output/run.txt |head -3`):
+
+```
+1 Q0 clueweb09-en0044-22-32198 1 1811.187 pyterrier.chatnoir_pipelines.retrieve_by_default_text
+1 Q0 clueweb09-en0059-35-02945 2 1809.0287 pyterrier.chatnoir_pipelines.retrieve_by_default_text
+1 Q0 clueweb09-en0054-92-07350 3 1655.2092 pyterrier.chatnoir_pipelines.retrieve_by_default_text
+```
+
 ## Submit the Image to TIRA
 
 You need a team for your submission, in the following, I use `tira-ir-starter` as team name, to resubmit the image, please just replace `tira-ir-starter` with your team name.

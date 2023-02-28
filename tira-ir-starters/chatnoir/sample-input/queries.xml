@@ -1,0 +1,72 @@
+<topics ir-datasets-id="clueweb09/en/trec-web-2009">
+ <topic number="1">
+  <query>
+   obama family tree
+  </query>
+  <original_query>
+   <query_id>
+    1
+   </query_id>
+   <query>
+    obama family tree
+   </query>
+   <description>
+    Find information on President Barack Obama's family
+  history, including genealogy, national origins, places and dates of
+  birth, etc.
+   </description>
+   <type>
+    faceted
+   </type>
+   <subtopics>
+    (TrecSubtopic(number='1', text='\n    Find the TIME magazine photo essay "Barack Obama\'s Family Tree".\n  ', type='nav'), TrecSubtopic(number='2', text="\n    Where did Barack Obama's parents and grandparents come from?\n  ", type='inf'), TrecSubtopic(number='3', text="\n    Find biographical information on Barack Obama's mother.\n  ", type='inf'))
+   </subtopics>
+  </original_query>
+ </topic>
+ <topic number="2">
+  <query>
+   french lick resort and casino
+  </query>
+  <original_query>
+   <query_id>
+    2
+   </query_id>
+   <query>
+    french lick resort and casino
+   </query>
+   <description>
+    Find information on French Lick Resort and Casino in
+  Indiana.
+   </description>
+   <type>
+    faceted
+   </type>
+   <subtopics>
+    (TrecSubtopic(number='1', text='\n    Find the homepage for French Lick Resort and Casino.\n  ', type='nav'), TrecSubtopic(number='2', text="\n    What casinos are located within a day's drive of French Lick\n    Resort and Casino?\n  ", type='inf'), TrecSubtopic(number='3', text='\n    What jobs are available at French Lick Casino and Resort?\n  ', type='inf'), TrecSubtopic(number='4', text='\n    Are there discounted packages for staying at French Lick Resort\n    and Casino?\n  ', type='inf'))
+   </subtopics>
+  </original_query>
+ </topic>
+ <topic number="3">
+  <query>
+   getting organized
+  </query>
+  <original_query>
+   <query_id>
+    3
+   </query_id>
+   <query>
+    getting organized
+   </query>
+   <description>
+    Find tips, resources, supplies for getting organized
+  and reducing clutter.
+   </description>
+   <type>
+    faceted
+   </type>
+   <subtopics>
+    (TrecSubtopic(number='1', text='\n    Find tips on getting organized, both reducing clutter and managing time.\n  ', type='inf'), TrecSubtopic(number='2', text='\n    Take me to the Container Store homepage.\n  ', type='nav'), TrecSubtopic(number='3', text='\n    Find catalogs of office supplies for organization and decluttering.\n  ', type='inf'))
+   </subtopics>
+  </original_query>
+ </topic>
+</topics>

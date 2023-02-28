@@ -6,6 +6,11 @@ Retrieval Systems submitted to the IR Experiment Platform have to be implemented
 
 Our existing starters can be directly submitted to TIRA, as all of them have been extensively tested on 32 benchmarks in TIRA, and they also might serve as starting point for custom development.
 
+## Local Development
+
+Please use the `tira-run` command (can be installed via `pip3 install tira`) to test that your retrieval approach is correctly installed inside the Docker image.
+Each tira-ir-starter comes with a dedicated `tira-run` example that shows how you can test your docker image locally.
+
 ## Available Starters
 
 The following starters are available:
