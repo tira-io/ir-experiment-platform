@@ -4,6 +4,31 @@ This directory contains retrieval systems that dockerizes dense retrievers from 
 We obtain 17 different retrieval models by switching out the dense retrieval model (SBERT models) that can be used as re-ranker and as full-ranker.
 For re-rankers, the approach uses a single stage (directly re-ranking all query-document pairs), and for full-ranking, this approach uses two stages (first stage indexes all documents into its dense vectors, the second stage does only the retrieval against the index).
 
+
+## Local Development
+
+Please use the `tira-run` command (can be installed via `pip3 install tira`) to test that your retrieval approach is correctly installed inside the Docker image.
+For example, you can run the following command inside this directory to re-rank with an BEIR re-ranker from our tira-ir-starter on a small example (2 queries from the passage retrieval task of TREC DL 2019):
+
+```
+tira-run \
+    --input-directory ${PWD}/sample-input \
+    --image webis/tira-ir-starter-beir:0.0.1-msmarco-roberta-base-ance-firstp \
+    --command '/reranking.py --input $inputDataset --output $outputDir --score_function cos_sim'
+```
+
+In this example above, the command `/reranking.py --input $inputDataset --output $outputDir --score_function cos_sim` is the command that you would enter in TIRA, and the `--input-directory` flag points to the inputs.
+
+
+This creates a run file `tira-output/run.txt`, with content like (`cat sample-output/run.txt |head -3`):
+
+```
+19335 0 8412684 1 0.9907888174057007 sentence-transformers/msmarco-roberta-base-ance-firstp-cos_sim
+19335 0 7267248 2 0.9901072978973389 sentence-transformers/msmarco-roberta-base-ance-firstp-cos_sim
+19335 0 527689 3 0.988582968711853 sentence-transformers/msmarco-roberta-base-ance-firstp-cos_si
+```
+
+
 ## Submit the Image to TIRA
 
 You need a team for your submission, in the following, I use `tira-ir-starter` as team name, to resubmit the image, please just replace `tira-ir-starter` with your team name.
