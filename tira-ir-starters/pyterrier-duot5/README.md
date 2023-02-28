@@ -4,6 +4,30 @@ This directory contains a tira starter for the [duoT5 retrieval model implemente
 
 Overall, this starter (or other versions derived from the starter) can serve as re-rank retriever and we produce 3 different variants by switching out the embedded duoT5 model.
 
+
+## Local Development
+
+Please use the `tira-run` command (can be installed via `pip3 install tira`) to test that your retrieval approach is correctly installed inside the Docker image.
+For example, you can run the following command inside this directory to re-rank with an duot5 re-ranker from our tira-ir-starter on a small example (2 queries from the passage retrieval task of TREC DL 2019):
+
+```
+tira-run \
+    --input-directory ${PWD}/sample-input \
+    --image webis/tira-ir-starter-duot5:0.0.1-duot5-base-msmarco \
+    --command '/reranking.py --input $inputDataset --output $outputDir --top_k 3'
+```
+
+In this example above, the command `/reranking.py --input $inputDataset --output $outputDir --score_function cos_sim` is the command that you would enter in TIRA, and the `--input-directory` flag points to the inputs.
+
+
+This creates a run file `tira-output/run.txt`, with content like (`cat sample-output/run.txt |head -3`):
+
+```
+19335 0 8412684 1 2.7129419036209583 duoT5-additive
+19335 0 7267248 2 1.6789115946739912 duoT5-additive
+19335 0 8412687 3 1.6081465017050505 duoT5-additive
+```
+
 ## Submit the Image to TIRA
 
 You need a team for your submission, in the following, I use `tira-ir-starter` as team name, to resubmit the image, please just replace `tira-ir-starter` with your team name.

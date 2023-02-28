@@ -124,6 +124,7 @@ def rerank(model, tok_model, top_k, input_directory, output_directory):
     with open(output_directory +'/pairwise-preferences.jsonl', 'w') as out_file:
         for pref in duot5(df):
             out_file.write(json.dumps(pref) + '\n')
+    pairwise_aggregation(output_directory)
 
 
 def pairwise_aggregation(input_directory):
