@@ -14,14 +14,13 @@ For example, you can run the following command inside this directory to retrieve
 ```
 tira-run \
     --input-directory ${PWD}/sample-input \
-    --output-directory ${PWD}/sample-output \
     --image webis/tira-ir-starter-chatnoir:0.0.2 \
     --command '/workspace/retrieve-with-chatnoir.sh --input $inputDataset --output $outputDir'
 ```
 
-In this example above, the command `/workspace/retrieve-with-chatnoir.sh --input $inputDataset --output $outputDir` is the command that you would enter in TIRA, and the `--input-directory` and the `--output-directory` flag point to the inputs respectively the outputs.
+In this example above, the command `/workspace/retrieve-with-chatnoir.sh --input $inputDataset --output $outputDir` is the command that you would enter in TIRA, and the `--input-directory` flag points to the inputs.
 
-This creates a run file `sample-output/run.txt`, with content like (`cat sample-output/run.txt |head -3`):
+This creates a run file `tira-output/run.txt`, with content like (`cat sample-output/run.txt |head -3`):
 
 ```
 1 Q0 clueweb09-en0044-22-32198 1 1811.187 pyterrier.chatnoir_pipelines.retrieve_by_default_text
