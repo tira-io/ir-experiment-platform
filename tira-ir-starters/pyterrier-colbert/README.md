@@ -19,6 +19,15 @@ tira-run \
 
 In this example above, the command `/reranking.py --input $inputDataset --output $outputDir` is the command that you would enter in TIRA, and the `--input-directory` flag points to the inputs.
 
+
+This creates a run file `tira-output/run.txt`, with content like (`cat sample-output/run.txt |head -3`):
+
+```
+19335 0 7267248 1 20.848087310791016 colbert
+19335 0 8412684 2 20.28887939453125 colbert
+19335 0 527689 3 19.020572662353516 colbert
+```
+
 ## Submit the Image to TIRA
 
 You need a team for your submission, in the following, I use `tira-ir-starter` as team name, to resubmit the image, please just replace `tira-ir-starter` with your team name.
