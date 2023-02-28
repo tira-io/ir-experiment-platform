@@ -41,6 +41,7 @@ The current leaderboards can be viewed in [tira.io](https://www.tira.io/task/ir-
 - [TREC Web Track 2014 (ClueWeb12)](https://www.tira.io/task/ir-benchmarks#clueweb12-trec-web-2014-20230107-training)
 - [Touché 2020 Task 2 (ClueWeb12)](https://www.tira.io/task/ir-benchmarks#clueweb12-touche-2020-task-2-20230209-training)
 - [Touché 2021 Task 2 (ClueWeb12)](https://www.tira.io/task/ir-benchmarks#clueweb12-touche-2021-task-2-20230209-training)
+- Touché 2022 Task 2 (ClueWeb22) ([Task is still ongoing](https://www.tira.io/task/touche-2023-task-2), so the leaderboard is not yet public)
 - [TREC Terabyte 2004 (gov2)](https://www.tira.io/task/ir-benchmarks#gov2-trec-tb-2004-20230209-training)
 - [TREC Terabyte 2005 (gov2)](https://www.tira.io/task/ir-benchmarks#gov2-trec-tb-2005-20230209-training)
 - [TREC Terabyte 2006 (gov2)](https://www.tira.io/task/ir-benchmarks#gov2-trec-tb-2006-20230209-training)
