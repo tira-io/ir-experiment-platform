@@ -9,7 +9,7 @@ TIRA injects the to-be-used credentials (i.e., the API key and index) in a confi
 ## Local Development
 
 Please use the `tira-run` command (can be installed via `pip3 install tira`) to test that your retrieval approach is correctly installed inside the Docker image.
-For example, you can run the following command inside this directory to retrieve with the ChatNoir retrieval model from our tira-ir-starter on a small example (using the first 3 queries of the TREC Web Track 2009):
+For example, you can run the following command inside this directory to retrieve with the tira-ir-starter for ChatNoir on a small example using the first 3 queries of the TREC Web Track 2009:
 
 ```
 tira-run \
