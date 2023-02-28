@@ -5,6 +5,29 @@ This directory contains a retrieval system that uses [PyGaggle](https://github.c
 Overall, this starter (or other versions derived from the starter) can serve as re-rank retrieval approaches following any previous retrieval stage.
 
 
+## Local Development
+
+Please use the `tira-run` command (can be installed via `pip3 install tira`) to test that your retrieval approach is correctly installed inside the Docker image.
+For example, you can run the following command inside this directory to re-rank with an PyGaggle re-ranker from our tira-ir-starter on a small example (2 queries from the passage retrieval task of TREC DL 2019):
+
+```
+tira-run \
+    --input-directory ${PWD}/sample-input \
+    --image webis/tira-ir-starter-pygaggle:0.0.1-monot5-base-msmarco-10k \
+    --command '/reranking.py --input $inputDataset --output $outputDir'
+```
+
+In this example above, the command `/reranking.py --input $inputDataset --output $outputDir` is the command that you would enter in TIRA, and the `--input-directory` flag points to the inputs.
+
+
+This creates a run file `tira-output/run.txt`, with content like (`cat sample-output/run.txt |head -3`):
+
+```
+19335 0 8412684 1 -0.08743388205766678 castorini/monot5-base-msmarco-10k
+19335 0 7267248 2 -0.20035237073898315 castorini/monot5-base-msmarco-10k
+19335 0 527689 3 -0.9691352844238281 castorini/monot5-base-msmarco-10k
+```
+
 ## Submit the Image to TIRA
 
 You need a team for your submission, in the following, I use `tira-ir-starter` as team name, to resubmit the image, please just replace `tira-ir-starter` with your team name.
