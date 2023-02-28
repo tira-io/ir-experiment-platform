@@ -4,6 +4,30 @@ This directory contains a retrieval system that uses PyTerrier for full-rank and
 
 Overall, this starter (or other versions derived from the starter) can run arbitrary declarative PyTerrier Pipelines, and we have executed 20 re-rank and 20 full-rank approaches (using BM25, PL2, etc. as retrieval models) on all benchmarks integrated into the platform.
 
+## Local Development
+
+Please use the `tira-run` command (can be installed via `pip3 install tira`) to test that your retrieval approach is correctly installed inside the Docker image.
+For example, you can run the following command inside this directory to re-rank with an PyTerrier re-ranker from our tira-ir-starter with BM25 on a small example (2 queries from the passage retrieval task of TREC DL 2019):
+
+```
+tira-run \
+    --input-directory ${PWD}/sample-input \
+    --image webis/tira-ir-starter-pyterrier:0.0.1-base \
+    --command '/workspace/pyterrier_cli.py --input $inputDataset --output $outputDir --params wmodel=BM25 --rerank True --retrieval_pipeline default_pipelines.wmodel_text_scorer'
+```
+
+In this example above, the command `/workspace/pyterrier_cli.py --input $inputDataset --output $outputDir --params wmodel=BM25 --rerank True --retrieval_pipeline default_pipelines.wmodel_text_scorer` is the command that you would enter in TIRA, and the `--input-directory` flag points to the inputs.
+
+This creates a run file `tira-output/run.txt`, with content like (`cat sample-output/run.txt |head -3`):
+
+```
+19335 Q0 8412684 1 2.0044117909904275 pyterrier.default_pipelines.wmodel_text_scorer
+19335 Q0 8412687 2 1.6165480088144524 pyterrier.default_pipelines.wmodel_text_scorer
+19335 Q0 527689 3 0.7777388572417481 pyterrier.default_pipelines.wmodel_text_scorer
+```
+
+Testing full-rank retrievers works analougously.
+
 ## Submit the Image to TIRA
 
 You need a team for your submission, in the following, we use `tira-ir-starter` as team name, to resubmit the image, please just replace `tira-ir-starter` with your team name.
