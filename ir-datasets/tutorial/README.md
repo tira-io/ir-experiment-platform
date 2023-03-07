@@ -1,0 +1,72 @@
+# Tutorial: Import Custom `ir_datasets` to TIRA
+
+This tutorial explains how new and custom datasets can be imported into TIRA via `ir_datasets`.
+All datasets from the main branch of `ir_datasets` are supported by default, so that this tutorial shows how new, potentially work-in-progress data can be imported (making it still easy to merge the integration to the main branch of `ir_datasets` later).
+Although this tutorial uses a tiny dataset that is publicly available in this directory (i.e., [pangram-documents.jsonl](pangram-documents.jsonl) and [pangram-topics.xml](pangram-topics.xml)), you dont have to make the data publicly available and you can also keep your code private in case your data is confidential.
+
+## Requirements
+
+This tutorial assumes that you have `Docker`, `git`, `python3`, and `tira` installed.
+
+- Please use official documentation/tutorials to install `docker`, `git` and `python3` on your machine.
+- Please run `pip3 install tira` to install the TIRA client library on your machine.
+
+## Scenario
+
+We want to build a hypothetical search engine for [pangrams](https://en.wikipedia.org/wiki/Pangram). A pangram is a sentence in which each letter of the alphabet occurs once or more. The following tutorial first shows [how to integrate a new custom dataset](#compiling-the-dataset) into ir_datasets so that subsequent retrieval approaches [can retrieve from this new dataset](#retrieval-experiments).
+
+## Compiling the Dataset
+
+Retrieval experiments following the cranfield paradigm require a set of documents, a set of topics with information needs, and relevance judgments. To build and evaluate our hypothetical search engine for pangrams, we first collect the documents from an existing [list of pangrams](https://clagnut.com/blog/2380) and build a set of information needs for retrieval experiments. We assume that no relevance judgments are available yet (as they usually are created after "enough" retrieval models have been pooled).
+
+### Documents
+
+We use the JSON Lines text format to integrate a tiny corpus of pangrams into `ir_datasets` to allow for unified document access.
+As corpus, we extract 5 pangrams from an existing [list of pangrams](https://clagnut.com/blog/2380).
+Each pangram has a `doc_id`, its `text`, and a number of `letters` and we store this corpus in the file [pangram-documents.jsonl](pangram-documents.jsonl).
+
+Our corpus in the file [pangram-documents.jsonl](pangram-documents.jsonl) is (e.g., run `cat pangram-documents.jsonl`):
+
+```
+{"doc_id": "pangram-01", "text": "How quickly daft jumping zebras vex.", "letters": 30}
+{"doc_id": "pangram-02", "text": "Quick fox jumps nightly above wizard.", "letters":  31}
+{"doc_id": "pangram-03", "text": "The jay, pig, fox, zebra and my wolves quack!", "letters": 33}
+{"doc_id": "pangram-04", "text": "The quick brown fox jumps over the lazy dog.", "letters": 35}
+{"doc_id": "pangram-05", "text": "As quirky joke, chefs won’t pay devil magic zebra tax.", "letters": 42}
+```
+
+### Topics
+
+We use the TREC-XML format to specify two topics for our hypothetical pangram search engine.
+Each topic describes an information need coming with a `title`, a `description`, and a `narrative` that we store in the file [pangram-topics.xml](pangram-topics.xml).
+
+Our topics in the file [pangram-topics.xml](pangram-topics.xml) are (e.g., run `cat pangram-topics.xml`):
+
+```
+<topics>
+  <topic number="1">
+    <title>fox jumps above animal</title>
+    <description>What pangrams have a fox jumping above some animal?</description>
+    <narrative>Relevant pangrams have a fox jumping over an animal (e.g., an dog). Pangrams containing a fox that is not jumping or jumps over something that is not an animal are not relevant.</narrative>
+  </topic>
+  <topic number="2">
+    <title>multiple animals including a zebra</title>
+    <description>Which pangrams have multiple animals where one of the animals is a zebra?</description>
+    <narrative>Relevant pangrams have at least two animals, one of the animals must be a Zebra. Pangrams containing only a Zebra are not relevant.</narrative>
+  </topic>
+</topics>
+```
+
+### Importing the new Dataset to TIRA
+
+Given our [documents](pangram-documents.jsonl) and [topics](pangram-topics.jsonl), the python file [pangrams.py](pangrams.py) 
+
+You can test the import locally via:
+
+```
+```
+
+### Relevance Judgments
+
+## Retrieval Experiments
+

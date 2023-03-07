@@ -51,6 +51,11 @@ The current leaderboards can be viewed in [tira.io](https://www.tira.io/task/ir-
 - [TREC Precision Medicine 2017](https://www.tira.io/task/ir-benchmarks#medline-2017-trec-pm-2017-20230211-training)
 - [TREC Precision Medicine 2018](https://www.tira.io/task/ir-benchmarks#medline-2017-trec-pm-2018-20230211-training)
 
+## Import new Datasets
+
+All datasets from the main branch of `ir_datasets` are supported by default.
+We have a tutorial showing how new, potentially work-in-progress data can be imported at [ir-datasets/tutorial](ir-datasets/tutorial)
+
 ## Submission
 
 Submission is available at: The hosted version of the IR Experiment Platform is open for submissions at [https://www.tira.io/task/ir-benchmarks](https://www.tira.io/task/ir-benchmarks). To simplify submissions, we provide several [starters](tira-ir-starters) (that yield 50 different retrieval models) that you can [use as starting point](tira-ir-starters).
