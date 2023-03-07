@@ -102,7 +102,7 @@ tira-run \
     --command '/workspace/run-pyterrier-notebook.py --input $inputDataset --output $outputDir --notebook /workspace/full-rank-pipeline.ipynb'
 ```
 
-This creates a run file `tira-output/run.txt`, with content like (`cat sample-output/run.txt |head -3`):
+This creates a run file `tira-output/run.txt`, with content like (`cat tira-output/run.txt |head -3`):
 
 ```
 1 0 pangram-03 1 -0.4919184192126373 BM25
