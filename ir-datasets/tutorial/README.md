@@ -89,12 +89,7 @@ tira-run \
     --command '/irds_cli.sh --ir_datasets_id pangrams --output_dataset_path $outputDir'
 ```
 
-This produces the unified files that approaches in TIRA would use as inputs in the directory `pangram-dataset-tira`, e.g., `documents.jsonl`, `metadata.json`, `queries.jsonl`, `queries.xml`, etc.
-
-### Relevance Judgments
-
-To go the full circle and evaluate retrieval approaches, we would need relevance judgments.
-We skip this for the moment, as relevance judgments are typically only done after an experiment.
+This produces the unified files that TIRA requires approaches to use as inputs. The files are saved to the directory `pangram-dataset-tira` and are named `documents.jsonl`, `metadata.json`, `queries.jsonl`, `queries.xml`. (Normally, as with other datasets, the files would also include relevance judgements, but we do not have them in this tutorial. This is because they are typically produced after an experiment has been run.)
 
 ## Retrieval Experiments
 
