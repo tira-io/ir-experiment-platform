@@ -6,10 +6,18 @@ Although this tutorial uses a tiny dataset that is publicly available in this di
 
 ## Requirements
 
-This tutorial assumes that you have `Docker`, `git`, `python3`, and `tira` installed.
+This tutorial assumes that you have `Docker`, `git`, `python3`, and `tira` installed. If not:
 
 - Please use official documentation/tutorials to install `docker`, `git` and `python3` on your machine.
 - Please run `pip3 install tira` to install the TIRA client library on your machine.
+
+## Preparation
+Clone this repository and change to the directory containing this tutorial:
+
+```
+$ git clone git@github.com:tira-io/ir-experiment-platform.git
+$ cd ir-experiment-platform/ir-datasets/tutorial
+```
 
 ## Scenario
 
