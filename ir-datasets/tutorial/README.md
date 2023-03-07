@@ -59,14 +59,30 @@ Our topics in the file [pangram-topics.xml](pangram-topics.xml) are (e.g., run `
 
 ### Importing the new Dataset to TIRA
 
-Given our [documents](pangram-documents.jsonl) and [topics](pangram-topics.jsonl), the python file [pangrams.py](pangrams.py) 
+The python file [pangrams.py](pangrams.py) integrates our [documents](pangram-documents.jsonl) and [topics](pangram-topics.jsonl) into `ir_datasets`.
 
-You can test the import locally via:
+The `Dockerfile` embeds this `ir_datasets` integration into an Docker image suitable to import the data to TIRA.
+
+Please build the Docker image via:
 
 ```
+docker build -t pangram-ir-dataset .
 ```
+
+To integrate this dataset to TIRA, we use the existing `/irds_cli.sh` script that is packaged in the image `pangram-dataset-tira` that we just have build. In TIRA, you have to specify the Docker image that contains the corresponding `ir_datasets` integration (e.g., the image that we just have build), and the import command that is executed in the container, which would be `/irds_cli.sh --ir_datasets_id pangrams --output_dataset_path $outputDir` in our case here.
+
+We can test the integration to TIRA locally with `tira-run` (ensure this is installed via `pip3 install tira`).
+Please execute the following command to import the data to a local directory `pangram-dataset-tira ` (TIRA would run the same command):
+
+```
+tira-run \
+    --output-directory ${PWD}/pangram-dataset-tira \
+    --image pangram-ir-dataset \
+    --command '/irds_cli.sh --ir_datasets_id pangrams --output_dataset_path $outputDir'
+```
+
+This produces the unified files that approaches in TIRA would use as inputs in the directory `pangram-dataset-tira`, e.g., `documents.jsonl`, `metadata.json`, `queries.jsonl`, `queries.xml`, etc.
 
 ### Relevance Judgments
 
 ## Retrieval Experiments
-
