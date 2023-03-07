@@ -69,7 +69,7 @@ Our topics in the file [pangram-topics.xml](pangram-topics.xml) are (e.g., run `
 
 The python file [pangrams.py](pangrams.py) integrates our [documents](pangram-documents.jsonl) and [topics](pangram-topics.jsonl) into `ir_datasets`.
 
-The `Dockerfile` embeds this `ir_datasets` integration into an Docker image suitable to import the data to TIRA.
+The `Dockerfile` embeds this `ir_datasets` integration into a Docker image suitable to import the data to TIRA.
 
 Please build the Docker image via:
 
