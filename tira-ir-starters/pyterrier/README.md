@@ -28,6 +28,27 @@ This creates a run file `tira-output/run.txt`, with content like (`cat sample-ou
 
 Testing full-rank retrievers works analougously.
 
+## Developing Retrieval Approaches in Declarative PyTerrier-Pipelines
+
+The notebook [full-rank-pipeline.ipynb](full-rank-pipeline.ipynb) exemplifies how to directly run Jupyter Notebooks in TIRA.
+
+You can run it locally via:
+
+```
+tira-run \
+    --input-directory ${PWD}/sample-input-full-rank \
+    --image webis/tira-ir-starter-pyterrier:0.0.1-base \
+    --command '/workspace/run-pyterrier-notebook.py --input $inputDataset --output $outputDir --notebook /workspace/full-rank-pipeline.ipynb'
+```
+
+This creates a run file `tira-output/run.txt`, with content like (`cat sample-output/run.txt |head -3`):
+
+```
+1 0 pangram-03 1 -0.4919184192126373 BM25
+1 0 pangram-01 2 -0.5271673505256447 BM25
+1 0 pangram-04 3 -0.9838368384252746 BM25
+```
+
 ## Submit the Image to TIRA
 
 You need a team for your submission, in the following, we use `tira-ir-starter` as team name, to resubmit the image, please just replace `tira-ir-starter` with your team name.
