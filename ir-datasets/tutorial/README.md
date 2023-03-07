@@ -13,9 +13,9 @@ This tutorial assumes that you have `Docker`, `git`, `python3`, and `tira` insta
 
 ## Scenario
 
-We want to build a hypothetical search engine for [pangrams](https://en.wikipedia.org/wiki/Pangram). A pangram is a sentence in which each letter of the alphabet occurs at least once. The following tutorial first shows [how to integrate a new custom dataset](#compiling-the-dataset) into ir_datasets so that subsequent retrieval approaches [can retrieve from this new dataset](#retrieval-experiments).
+We want to build a hypothetical search engine for [pangrams](https://en.wikipedia.org/wiki/Pangram). A pangram is a sentence in which each letter of the alphabet occurs at least once. This tutorial first shows [how to integrate a new custom dataset](#how-to-integrate-a-new-custom-dataset) into ir_datasets, then it shows how [retrieval experiments](#retrieval-experiments) can be implemented, to retrieve documents from this new dataset.
 
-## Compiling the Dataset
+## How to integrate a new custom dataset
 
 Retrieval experiments following the cranfield paradigm require a set of documents, a set of topics with information needs, and relevance judgments. To build and evaluate our hypothetical search engine for pangrams, we first collect the documents from an existing [list of pangrams](https://clagnut.com/blog/2380) and build a set of information needs for retrieval experiments. We assume that no relevance judgments are available yet (as they usually are created after "enough" retrieval models have been pooled).
 
