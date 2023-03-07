@@ -77,7 +77,7 @@ Please build the Docker image via:
 docker build -t pangram-ir-dataset .
 ```
 
-To integrate this dataset to TIRA, we use the existing `/irds_cli.sh` script that is packaged in the image `pangram-dataset-tira` that we just have build. In TIRA, you have to specify the Docker image that contains the corresponding `ir_datasets` integration (e.g., the image that we just have build), and the import command that is executed in the container, which would be `/irds_cli.sh --ir_datasets_id pangrams --output_dataset_path $outputDir` in our case here.
+To integrate this dataset to TIRA, we use the script `/irds_cli.sh`, which is packaged in the image `pangram-dataset-tira` that we have just build. In TIRA, you have to specify the Docker image that contains the corresponding `ir_datasets` integration (e.g., the image that we just have build), and the import command that is executed in the container, which would be `/irds_cli.sh --ir_datasets_id pangrams --output_dataset_path $outputDir` in our case here.
 
 We can test the integration to TIRA locally with `tira-run` (ensure this is installed via `pip3 install tira`).
 Please execute the following command to import the data to a local directory `pangram-dataset-tira ` (TIRA would run the same command):
