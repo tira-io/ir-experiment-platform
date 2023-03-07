@@ -67,7 +67,7 @@ Our topics in the file [pangram-topics.xml](pangram-topics.xml) are (e.g., run `
 
 ### Importing the new Dataset to TIRA
 
-The python file [pangrams.py](pangrams.py) integrates our [documents](pangram-documents.jsonl) and [topics](pangram-topics.jsonl) into `ir_datasets`.
+The python file [pangrams.py](pangrams.py) registers our [documents](pangram-documents.jsonl) and [topics](pangram-topics.jsonl) for use in `ir_datasets`. This means, our dataset is now locally available as a class. You do not have to execute this script now in this tutorial, but you can use it as a template when creating your own dataset later on.
 
 The `Dockerfile` embeds this `ir_datasets` integration into a Docker image suitable to import the data to TIRA.
 
