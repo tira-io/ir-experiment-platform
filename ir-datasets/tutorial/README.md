@@ -85,4 +85,29 @@ This produces the unified files that approaches in TIRA would use as inputs in t
 
 ### Relevance Judgments
 
+To go the full circle and evaluate retrieval approaches, we would need relevance judgments.
+We skip this for the moment, as relevance judgments are typically only done after an experiment.
+
 ## Retrieval Experiments
+
+Now that we have prepared our [documents](pangram-documents.jsonl) and [topics](pangram-topics.jsonl), we can do the actual retrieval.
+In this tutorial, we will use a simple declarative PyTerrier pipeline defined in [../../tira-ir-starters/pyterrier/full-rank-pipeline.ipynb](../../tira-ir-starters/pyterrier/full-rank-pipeline.ipynb) that uses BM25 for retrieval that can be easily extended.
+
+To run this `full-rank-pipeline.ipynb` notebook on our dataset exported to `pangram-dataset-tira`, please run:
+
+```
+tira-run \
+    --input-directory ${PWD}/pangram-dataset-tira \
+    --image webis/tira-ir-starter-pyterrier:0.0.1-base \
+    --command '/workspace/run-pyterrier-notebook.py --input $inputDataset --output $outputDir --notebook /workspace/full-rank-pipeline.ipynb'
+```
+
+This creates a run file `tira-output/run.txt`, with content like (`cat sample-output/run.txt |head -3`):
+
+```
+1 0 pangram-03 1 -0.4919184192126373 BM25
+1 0 pangram-01 2 -0.5271673505256447 BM25
+1 0 pangram-04 3 -0.9838368384252746 BM25
+```
+
+For more details on the internals, please have a look at the [corresponding documentation of the PyTerrier starter](../../tira-ir-starters/pyterrier#developing-retrieval-approaches-in-declarative-pyterrier-pipelines).
