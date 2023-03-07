@@ -94,7 +94,7 @@ This produces the unified files that TIRA requires approaches to use as inputs. 
 ## Retrieval Experiments
 
 Now that we have prepared our [documents](pangram-documents.jsonl) and [topics](pangram-topics.jsonl), we can do the actual retrieval.
-In this tutorial, we will use a simple declarative PyTerrier pipeline defined in [../../tira-ir-starters/pyterrier/full-rank-pipeline.ipynb](../../tira-ir-starters/pyterrier/full-rank-pipeline.ipynb) that uses BM25 for retrieval that can be easily extended.
+In this tutorial, we will use a simple declarative PyTerrier pipeline defined in [../../tira-ir-starters/pyterrier/full-rank-pipeline.ipynb](../../tira-ir-starters/pyterrier/full-rank-pipeline.ipynb) that uses BM25 for retrieval that can be easily extended in order to produce your own experiments later on.
 
 To run this `full-rank-pipeline.ipynb` notebook on our dataset exported to `pangram-dataset-tira`, please run:
 
