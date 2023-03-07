@@ -13,7 +13,7 @@ This tutorial assumes that you have `Docker`, `git`, `python3`, and `tira` insta
 
 ## Scenario
 
-We want to build a hypothetical search engine for [pangrams](https://en.wikipedia.org/wiki/Pangram). A pangram is a sentence in which each letter of the alphabet occurs once or more. The following tutorial first shows [how to integrate a new custom dataset](#compiling-the-dataset) into ir_datasets so that subsequent retrieval approaches [can retrieve from this new dataset](#retrieval-experiments).
+We want to build a hypothetical search engine for [pangrams](https://en.wikipedia.org/wiki/Pangram). A pangram is a sentence in which each letter of the alphabet occurs at least once. The following tutorial first shows [how to integrate a new custom dataset](#compiling-the-dataset) into ir_datasets so that subsequent retrieval approaches [can retrieve from this new dataset](#retrieval-experiments).
 
 ## Compiling the Dataset
 
