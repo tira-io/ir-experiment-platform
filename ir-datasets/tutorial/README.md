@@ -52,7 +52,7 @@ Our topics in the file [pangram-topics.xml](pangram-topics.xml) are (e.g., run `
   <topic number="2">
     <title>multiple animals including a zebra</title>
     <description>Which pangrams have multiple animals where one of the animals is a zebra?</description>
-    <narrative>Relevant pangrams have at least two animals, one of the animals must be a Zebra. Pangrams containing only a Zebra are not relevant.</narrative>
+    <narrative>Relevant pangrams have at least two animals, one of the animals must be a zebra. Pangrams containing only a zebra are not relevant.</narrative>
   </topic>
 </topics>
 ```
