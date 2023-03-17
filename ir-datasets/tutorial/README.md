@@ -122,7 +122,7 @@ This tutorial covers both a qualitative and a quantitative analysis.
 
 ### Qualitative Analysis
 
-The `pangram-ir-dataset` already has a [diffir](https://github.com/capreolus-ir/diffir) integration (because this is already included in the starting point) to render run files for qualitative analysis in TIRA.
+The `pangram-ir-dataset` image that we created above already has a [diffir](https://github.com/capreolus-ir/diffir) integration (because this is already included in the starting point) to render run files for qualitative analysis in TIRA.
 
 To render the run file produced above, please run:
 
@@ -159,3 +159,31 @@ Our relevance judgments in the file [pangram-qrels.txt](pangram-qrels.txt) are (
 2 0 pangram-04 0
 2 0 pangram-05 0
 ```
+
+The `pangram-ir-dataset` image that we created above already has a [ir-measures](https://github.com/capreolus-ir/diffir) integration (because this is already included in the starting point) that we can use for evaluation.
+
+
+To evaluate the run file produced above in terms of nDCG@10, MRR, P@3, and Recall@3, please run:
+
+```
+tira-run \
+    --input-directory ${PWD}/tira-output \
+    --image pangram-ir-dataset \
+    --command 'ir_measures pangrams $outputDir/run.txt nDCG@10 MRR P@3 Recall@3'
+```
+
+This should output the following:
+
+```
+nDCG@10	0.5655
+RR	0.4167
+P@3	0.3333
+R@3	1.0000
+```
+
+# Additional Resources
+
+- The [PyTerrier tutorial](https://github.com/terrier-org/ecir2021tutorial)\n",
+- The [PyTerrier documentation](https://pyterrier.readthedocs.io/en/latest/)\n",
+- The [TIRA quickstart](https://github.com/tira-io/ir-experiment-platform/tree/main/tira-ir-starters)
+
