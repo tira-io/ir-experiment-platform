@@ -139,4 +139,23 @@ This creates a rendered run file `tira-output/run.html`, that looks like:
 
 ### Quantitative Analysis
 
+To make a quantitative analysis according to the Cranfield Paradigm, we need to judge query-document pairs.
 
+We use the standard TREC-Qrels format to label the documents.
+Each line in the qrels file has four entries `<QID> 0 <DOC_ID> <REL>` where `<QID>` is the id of the query, `<DOC_ID>` is the id of the document, and `<REL>` is the relevance label of the document for the query (e.g., document `pangram-04` would be the only document relevant to document 1, so it might get a relevance label of 1 while all other documents for query 1 get a relevance label of 0).
+
+Our relevance judgments in the file [pangram-qrels.txt](pangram-qrels.txt) are (e.g., run `cat pangram-qrels.txt`):
+
+
+```
+1 0 pangram-01 0
+1 0 pangram-02 0
+1 0 pangram-03 0
+1 0 pangram-04 1
+1 0 pangram-05 0
+2 0 pangram-01 0
+2 0 pangram-02 0
+2 0 pangram-03 1
+2 0 pangram-04 0
+2 0 pangram-05 0
+```
