@@ -117,11 +117,14 @@ For more details on the internals, please have a look at the [corresponding docu
 
 ## Analysis
 
-
+To cover the last step of frequent IR experiments, we have to analyse the results.
+This tutorial covers both a qualitative and a quantitative analysis.
 
 ### Qualitative Analysis
 
-Look at the run files.
+We provide an [diffir](https://github.com/capreolus-ir/diffir) integration to render run files for qualitative analysis in TIRA.
+
+To render the run file produced aboce, please run:
 
 ```
 tira-run \
@@ -129,4 +132,11 @@ tira-run \
     --image pangram-ir-dataset \
     --command 'diffir --dataset pangrams --web $outputDir/run.txt > $outputDir/run.html'
 ```
+
+This creates a rendered run file `tira-output/run.html`, that looks like:
+
+![Screenshot_20230317_113841](https://user-images.githubusercontent.com/10050886/225883358-064f3d60-9f06-4e74-96de-9aa0ed37ff4c.png)
+
+### Quantitative Analysis
+
 
