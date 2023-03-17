@@ -122,9 +122,9 @@ This tutorial covers both a qualitative and a quantitative analysis.
 
 ### Qualitative Analysis
 
-We provide an [diffir](https://github.com/capreolus-ir/diffir) integration to render run files for qualitative analysis in TIRA.
+The `pangram-ir-dataset` already has a [diffir](https://github.com/capreolus-ir/diffir) integration (because this is already included in the starting point) to render run files for qualitative analysis in TIRA.
 
-To render the run file produced aboce, please run:
+To render the run file produced above, please run:
 
 ```
 tira-run \
