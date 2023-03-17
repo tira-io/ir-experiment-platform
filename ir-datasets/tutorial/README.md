@@ -183,7 +183,7 @@ R@3	1.0000
 
 # Additional Resources
 
-- The [PyTerrier tutorial](https://github.com/terrier-org/ecir2021tutorial)\n",
-- The [PyTerrier documentation](https://pyterrier.readthedocs.io/en/latest/)\n",
+- The [PyTerrier tutorial](https://github.com/terrier-org/ecir2021tutorial)
+- The [PyTerrier documentation](https://pyterrier.readthedocs.io/en/latest/)
 - The [TIRA quickstart](https://github.com/tira-io/ir-experiment-platform/tree/main/tira-ir-starters)
 
