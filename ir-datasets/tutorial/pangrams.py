@@ -19,7 +19,7 @@ class PangramDocument(NamedTuple):
 def register_pangram_dataset():
     docs = JsonlDocs(ir_datasets.util.Download([RequestsDownload(DOCS)]), doc_cls=PangramDocument, lang='en')
     queries = TrecXmlQueries(ir_datasets.util.Download([RequestsDownload(QUERIES)]), lang='en')
-    empty_qrels = TrecQrels([], {})
+    empty_qrels = TrecQrels(ir_datasets.util.Download([RequestsDownload(QUERIES)]), {})
 
     ir_datasets.registry.register(NAME, Dataset(docs, queries, empty_qrels))
     
