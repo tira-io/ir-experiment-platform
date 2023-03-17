@@ -125,8 +125,8 @@ Look at the run files.
 
 ```
 tira-run \
-    --input-directory ${PWD}/pangram-dataset-tira \
+    --input-directory ${PWD}/tira-output \
     --image pangram-ir-dataset \
-    --command 'diffir --dataset pangrams $outputDir/run.txt'
+    --command 'diffir --dataset pangrams --web $outputDir/run.txt > $outputDir/run.html'
 ```
 
