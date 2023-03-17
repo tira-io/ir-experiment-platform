@@ -1,6 +1,6 @@
-FROM webis/tira-application:0.0.43
+FROM webis/tira-ir-datasets-starter:0.0.45
 
-COPY pangrams.py /tira/application/src/tira/management/commands/__init__.py
+COPY pangrams.py /usr/lib/python3.8/site-packages/ir_datasets/datasets_in_progress/
 
 ENTRYPOINT [ "/irds_cli.sh" ]
 

@@ -114,3 +114,19 @@ This creates a run file `tira-output/run.txt`, with content like (`cat tira-outp
 ```
 
 For more details on the internals, please have a look at the [corresponding documentation of the PyTerrier starter](../../tira-ir-starters/pyterrier#developing-retrieval-approaches-in-declarative-pyterrier-pipelines).
+
+## Analysis
+
+
+
+### Qualitative Analysis
+
+Look at the run files.
+
+```
+tira-run \
+    --input-directory ${PWD}/pangram-dataset-tira \
+    --image pangram-ir-dataset \
+    --command 'diffir --dataset pangrams $outputDir/run.txt'
+```
+

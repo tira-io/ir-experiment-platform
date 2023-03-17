@@ -1,5 +1,5 @@
 import ir_datasets
-from ir_datasets.formats import JsonlDocs, TrecXmlQueries
+from ir_datasets.formats import JsonlDocs, TrecXmlQueries, TrecQrels
 from typing import NamedTuple, Dict
 from ir_datasets.util.download import RequestsDownload
 from ir_datasets.datasets.base import Dataset
@@ -19,8 +19,9 @@ class PangramDocument(NamedTuple):
 def register_pangram_dataset():
     docs = JsonlDocs(ir_datasets.util.Download([RequestsDownload(DOCS)]), doc_cls=PangramDocument, lang='en')
     queries = TrecXmlQueries(ir_datasets.util.Download([RequestsDownload(QUERIES)]), lang='en')
+    empty_qrels = TrecQrels([], {})
 
-    ir_datasets.registry.register(NAME, Dataset(docs, queries))
+    ir_datasets.registry.register(NAME, Dataset(docs, queries, empty_qrels))
     
 register_pangram_dataset()
 
