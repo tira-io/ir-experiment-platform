@@ -1,4 +1,4 @@
-# Tutorial: Import Custom `ir_datasets` to TIRA
+# Tutorial: Import Custom `ir_datasets` to TIRA, do retrieval experiments, analyze the retrieval system's performance
 
 This tutorial explains how new and custom datasets can be imported into TIRA via `ir_datasets`.
 All datasets from the main branch of `ir_datasets` are supported by default, so that this tutorial shows how new, potentially work-in-progress data can be imported (making it still easy to merge the integration to the main branch of `ir_datasets` later).
@@ -23,7 +23,7 @@ $ cd ir-experiment-platform/ir-datasets/tutorial
 
 We want to build a hypothetical search engine for [pangrams](https://en.wikipedia.org/wiki/Pangram). A pangram is a sentence in which each letter of the alphabet occurs at least once. This tutorial first shows [how to integrate a new custom dataset](#how-to-integrate-a-new-custom-dataset) into ir_datasets, then it shows how [retrieval experiments](#retrieval-experiments) can be implemented to retrieve documents from this new dataset.
 
-## How to integrate a new custom dataset
+## Milestone 1: Data – How to integrate a new custom dataset
 
 Retrieval experiments following the cranfield paradigm require a set of documents, a set of topics with information needs, and relevance judgments. To build and evaluate our hypothetical search engine for pangrams, we first collect the documents from an existing [list of pangrams](https://clagnut.com/blog/2380) and build a set of information needs for retrieval experiments. We assume that no relevance judgments are available yet (as they usually are created after "enough" retrieval models have been pooled).
 
@@ -65,7 +65,7 @@ Our topics in the file [pangram-topics.xml](pangram-topics.xml) are (e.g., run `
 </topics>
 ```
 
-### Importing the new Dataset to TIRA
+### Importing the new Dataset to TIRA (dry run)
 
 The python file [pangrams.py](pangrams.py) registers our [documents](pangram-documents.jsonl) and [topics](pangram-topics.jsonl) for use in `ir_datasets`. This means, our dataset is now locally available as a class. You do not have to execute this script now in this tutorial, but you can use it as a template when creating your own dataset later on.
 
@@ -91,7 +91,7 @@ tira-run \
 
 This produces the unified files that TIRA requires approaches to use as inputs. The files are saved to the directory `pangram-dataset-tira` and are named `documents.jsonl`, `metadata.json`, `queries.jsonl`, `queries.xml`. (Normally, as with other datasets, the files would also include relevance judgements, but we do not have them in this tutorial. This is because they are typically produced after an experiment has been run.)
 
-## Retrieval Experiments
+## Milestone 2: Methods – How to execute retrieval experiments
 
 Now that we have prepared our [documents](pangram-documents.jsonl) and [topics](pangram-topics.jsonl), we can do the actual retrieval.
 In this tutorial, we will use a simple declarative PyTerrier pipeline defined in [../../tira-ir-starters/pyterrier/full-rank-pipeline.ipynb](../../tira-ir-starters/pyterrier/full-rank-pipeline.ipynb) that uses BM25 for retrieval that can be easily extended in order to produce your own experiments later on.
@@ -115,7 +115,7 @@ This creates a run file `tira-output/run.txt`, with content like (`cat tira-outp
 
 For more details on the internals, please have a look at the [corresponding documentation of the PyTerrier starter](../../tira-ir-starters/pyterrier#developing-retrieval-approaches-in-declarative-pyterrier-pipelines).
 
-## Analysis
+## Milestone 3: Analysis – How to analyze the retrieval system's performance
 
 To cover the last step of frequent IR experiments, we have to analyse the results.
 This tutorial covers both a qualitative and a quantitative analysis.
