@@ -187,3 +187,14 @@ R@3	1.0000
 - The [PyTerrier documentation](https://pyterrier.readthedocs.io/en/latest/)
 - The [TIRA quickstart](https://github.com/tira-io/ir-experiment-platform/tree/main/tira-ir-starters)
 
+
+# Deploy this in TIRA
+
+Prerequisities:
+
+You have the docker image uploaded. E.g., by running:
+
+```
+docker tag pangram-ir-dataset webis/tira-ir-datasets-starter:0.0.45-pangram
+docker push webis/tira-ir-datasets-starter:0.0.45-pangram
+```
