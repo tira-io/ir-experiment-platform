@@ -86,6 +86,7 @@ Please execute the following command to import the data to a local directory `pa
 tira-run \
     --output-directory ${PWD}/pangram-dataset-tira \
     --image pangram-ir-dataset \
+    --allow-network true \
     --command '/irds_cli.sh --ir_datasets_id pangrams --output_dataset_path $outputDir'
 ```
 
@@ -130,6 +131,7 @@ To render the run file produced above, please run:
 tira-run \
     --input-directory ${PWD}/tira-output \
     --image pangram-ir-dataset \
+    --allow-network true \
     --command 'diffir --dataset pangrams --web $outputDir/run.txt > $outputDir/run.html'
 ```
 
@@ -169,6 +171,7 @@ To evaluate the run file produced above in terms of nDCG@10, MRR, P@3, and Recal
 tira-run \
     --input-directory ${PWD}/tira-output \
     --image pangram-ir-dataset \
+    --allow-network true \
     --command 'ir_measures pangrams $outputDir/run.txt nDCG@10 MRR P@3 Recall@3'
 ```
 
