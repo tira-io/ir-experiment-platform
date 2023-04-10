@@ -184,6 +184,16 @@ P@3	0.3333
 R@3	1.0000
 ```
 
+The TIRA evaluator (executed by TIRA) that makes some more checks for consistency in the run file would look like this:
+
+```
+tira-run \
+    --input-directory ${PWD}/tira-output \
+    --input-run ${PWD}/tira-output \
+    --image pangram-ir-dataset \
+    --command '/ir_measures_evaluator.py --run ${inputRun}/run.txt --topics ${inputDataset}/queries.jsonl --qrels ${inputDataset}/qrels.txt --output ${outputDir} --measures "P@10" "nDCG@10" "MRR"'
+```
+
 # Additional Resources
 
 - The [PyTerrier tutorial](https://github.com/terrier-org/ecir2021tutorial)
