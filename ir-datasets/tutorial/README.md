@@ -188,10 +188,27 @@ The TIRA evaluator (executed by TIRA) that makes some more checks for consistenc
 
 ```
 tira-run \
-    --input-directory ${PWD}/tira-output \
-    --input-run ${PWD}/tira-output \
+    --input-directory ${PWD} \
+    --input-run ${PWD}/.. \
     --image pangram-ir-dataset \
-    --command '/ir_measures_evaluator.py --run ${inputRun}/run.txt --topics ${inputDataset}/queries.jsonl --qrels ${inputDataset}/qrels.txt --output ${outputDir} --measures "P@10" "nDCG@10" "MRR"'
+    --command '/ir_measures_evaluator.py --run ${inputRun}/tutorial/tira-output/run.txt --topics ${inputDataset}/pangram-dataset-tira/queries.jsonl --qrels ${inputDataset}/pangram-qrels.txt --output ${outputDir} --measures "P@10" "nDCG@10" "MRR"'
+```
+
+This creates the evaluation as above in a file `tira-output/evaluation.prototext` with content that should look like this:
+
+```
+measure {
+	key: "P@10"
+	value: "0.1"
+}
+measure {
+	key: "RR"
+	value: "0.41666666666666663"
+}
+measure {
+	key: "nDCG@10"
+	value: "0.5654648767857288"
+}
 ```
 
 # Additional Resources
