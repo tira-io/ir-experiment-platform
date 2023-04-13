@@ -15,8 +15,8 @@ This tutorial assumes that you have `Docker`, `git`, `python3`, and `tira` insta
 Clone this repository and change to the directory containing this tutorial:
 
 ```
-$ git clone git@github.com:tira-io/ir-experiment-platform.git
-$ cd ir-experiment-platform/ir-datasets/tutorial
+git clone git@github.com:tira-io/ir-experiment-platform.git
+cd ir-experiment-platform/ir-datasets/tutorial
 ```
 
 ## Scenario
