@@ -11,6 +11,8 @@ This tutorial assumes that you have `Docker`, `git`, `python3`, and `tira` insta
 - Please use official documentation/tutorials to install `docker`, `git` and `python3` on your machine.
 - Please run `pip3 install tira` to install the TIRA client library on your machine.
 
+Please note: If you use windows, we have the experience that there are problems with docker in git-bash that do not appear in the standard windows shell. I.e., please use the powershell on windows, or the Windows Subsystem for Linux.
+
 ## Preparation
 Clone this repository and change to the directory containing this tutorial:
 
