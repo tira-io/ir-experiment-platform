@@ -13,7 +13,6 @@ class PangramDocument(NamedTuple):
 
 ir_datasets.registry.register('pangrams', Dataset(
     JsonlDocs(ir_datasets.util.PackageDataFile(path='datasets_in_progress/pangram-documents.jsonl'), doc_cls=PangramDocument, lang='en'),
-    TrecXmlQueries(ir_datasets.util.PackageDataFile(path='datasets_in_progress/pangram-topics.xml'), lang='en'),
-    TrecQrels(ir_datasets.util.PackageDataFile(path='datasets_in_progress/pangram-qrels.txt'), {0: 'Not Relevant', 1: 'Relevant'})
+    TrecXmlQueries(ir_datasets.util.PackageDataFile(path='datasets_in_progress/pangram-topics.xml'), lang='en')
 ))
 
