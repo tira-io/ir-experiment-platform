@@ -45,7 +45,7 @@ def index(documents, index_directory):
     documents = tqdm((json.loads(line) for line in Path(documents).open('rt')), 'Load Documents')
 
     print(f'create new index at:\t{index_directory}')
-    return pt.IterDictIndexer(index_directory, meta= {'docno' : 50}).index(documents)
+    return pt.IterDictIndexer(index_directory, meta= {'docno' : 100}).index(documents)
 
 
 def retrieve(queries, index_ref, args, retrieval_pipeline, output_directory):
