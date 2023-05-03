@@ -1,0 +1,40 @@
+<topics ir-datasets-id="pangrams">
+ <topic number="1">
+  <query>
+   fox jumps above animal
+  </query>
+  <original_query>
+   <query_id>
+    1
+   </query_id>
+   <title>
+    fox jumps above animal
+   </title>
+   <description>
+    What pangrams have a fox jumping above some animal?
+   </description>
+   <narrative>
+    Relevant pangrams have a fox jumping over an animal (e.g., an dog). Pangrams containing a fox that is not jumping or jumps over something that is not an animal are not relevant.
+   </narrative>
+  </original_query>
+ </topic>
+ <topic number="2">
+  <query>
+   multiple animals including a zebra
+  </query>
+  <original_query>
+   <query_id>
+    2
+   </query_id>
+   <title>
+    multiple animals including a zebra
+   </title>
+   <description>
+    Which pangrams have multiple animals where one of the animals is a zebra?
+   </description>
+   <narrative>
+    Relevant pangrams have at least two animals, one of the animals must be a Zebra. Pangrams containing only a Zebra are not relevant.
+   </narrative>
+  </original_query>
+ </topic>
+</topics>
