@@ -11,3 +11,7 @@ RUN python3 -c "import pandas as pd; from tira.third_party_integrations import e
 
 COPY pyterrier-colbert/reranking.py /reranking.py
 
+COPY pyterrier-colbert/bm25-colbert.ipynb /workspace/
+
+RUN jupyter trust /workspace/*.ipynb
+
