@@ -53,7 +53,7 @@ Please refer to the general tutorial on [how to import your retrieval approach t
 ## Building the image:
 
 ```
-docker build -t webis/tira-ir-starter-pyterrier-colbert:0.0.1 --build-arg MODEL_NAME=http://www.dcs.gla.ac.uk/~craigm/colbert.dnn.zip -f pyterrier-colbert/Dockerfile .
+docker build -t webis/tira-ir-starter-pyterrier-colbert:0.0.2 --build-arg MODEL_NAME=http://www.dcs.gla.ac.uk/~craigm/colbert.dnn.zip -f pyterrier-colbert/Dockerfile .
 ```
 
 You can test it locally via:
