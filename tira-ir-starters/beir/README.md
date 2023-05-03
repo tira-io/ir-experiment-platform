@@ -28,6 +28,14 @@ This creates a run file `tira-output/run.txt`, with content like (`cat sample-ou
 19335 0 527689 3 0.988582968711853 sentence-transformers/msmarco-roberta-base-ance-firstp-cos_si
 ```
 
+We also have an jupyter notebook that allows for full-ranking.
+
+```
+tira-run \
+    --input-directory ${PWD}/sample-input-full-rank \
+    --image webis/tira-ir-starter-beir:0.0.2-msmarco-roberta-base-ance-firstp \
+    --command '/full_ranking.py --input $inputDataset --output $outputDir --score_function cos_sim'
+```
 
 ## Submit the Image to TIRA
 
@@ -64,6 +72,10 @@ The remaining variants are:
 
 ```
 docker build --build-arg DRES_MODEL=sentence-transformers/msmarco-roberta-base-ance-firstp -t webis/tira-ir-starter-beir:0.0.1-msmarco-roberta-base-ance-firstp -f beir/Dockerfile.dres .
+```
+
+```
+docker build --build-arg DRES_MODEL=sentence-transformers/msmarco-roberta-base-ance-firstp -t webis/tira-ir-starter-beir:0.0.2-msmarco-roberta-base-ance-firstp -f beir/Dockerfile.dres .
 ```
 
 ```

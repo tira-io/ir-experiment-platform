@@ -8,3 +8,5 @@ RUN pip3 install tira==0.0.9 \
 
 COPY beir/reranking.py /reranking.py
 
+COPY beir/full_ranking.py /full_ranking.py
+
