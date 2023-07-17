@@ -1,6 +1,4 @@
-FROM python:3.10
-
-RUN pip3 install ir-measures approvaltests pytest
+FROM webis/ir_measures_evaluator:dev-1.0.6
 
 COPY ir_measures_evaluator.py /
 

@@ -1,0 +1,4 @@
+FROM webis/tira-ir-datasets-starter:0.0.54
+
+RUN apk add jq libffi-dev && pip3 install ir-datasets ir-measures approvaltests exceptiongroup pytest jupyter
+

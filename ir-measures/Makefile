@@ -1,6 +1,7 @@
-IMAGE_VERSION=1.0.5
+IMAGE_VERSION=1.0.6
 
 build-docker-image:
+	docker build -t webis/ir_measures_evaluator:dev-${IMAGE_VERSION} -f Dockerfile.dev .
 	docker build -t webis/ir_measures_evaluator:${IMAGE_VERSION} .
 
 .PHONY: tests

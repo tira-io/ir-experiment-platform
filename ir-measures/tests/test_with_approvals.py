@@ -10,10 +10,12 @@ from typing import List
 from approvaltests import set_default_reporter, DiffReporter
 from approvaltests.approvals import verify
 from pytest import raises
+import shutil
 
 from ir_measures_evaluator import main
 
 _TEST_IO_DIR = Path(__file__).parent / 'test-io'
+_TEST_OUTPUT_DIR = '<token-to-be-replaced-by-test-output>'
 
 
 def setup_module():
@@ -29,21 +31,21 @@ def run_capture_stdout_files(
     captured_files = ''
     with TemporaryDirectory() as temp_dir:
         tmp_path = Path(temp_dir) / 'test-io'
-        # Copy test_io to temp_dir
         copytree(_TEST_IO_DIR, tmp_path)
-        # Change to temp_dir
-        os.chdir(tmp_path)
+        
         # Override sys.argv
         sys.argv = ['', *argv]
+        sys.argv = [i.replace(_TEST_OUTPUT_DIR, str(tmp_path)) for i in sys.argv]
+
         with redirect_stdout(buffer):
             if exit_normal:
                 main()
             else:
                 with raises(SystemExit):
                     main()
+
         # List files in temp output dir
-        tmp_out_path = tmp_path / output_dir
-        files = sorted(tmp_out_path.glob('**/*'))
+        files = sorted((tmp_path/output_dir).glob('**/*'))
         filenames = [
             str(file.relative_to(tmp_path)) for file in files
         ]
@@ -53,7 +55,10 @@ def run_capture_stdout_files(
                 continue
             captured_files += f'\n\n####{file.relative_to(tmp_path)}\n' + \
                               open(file).read()
-    return buffer.getvalue() + captured_files
+
+    return buffer.getvalue()\
+        .replace(str(_TEST_IO_DIR) + '/', '')\
+        .replace(str(tmp_path/output_dir), output_dir) + captured_files
 
 
 def _run_capture_stdout_files_fail(
@@ -79,197 +84,196 @@ def test_run_path_not_found():
 
 def test_run_path_is_dir():
     actual = _run_capture_stdout_files_fail([
-        '--run', 'test-input',
+        '--run', f'{_TEST_IO_DIR}/test-input',
     ])
     verify(actual)
 
 
 def test_run_file_empty():
     actual = _run_capture_stdout_files_fail([
-        '--run', 'test-input/empty_file.txt',
+        '--run', f'{_TEST_IO_DIR}/test-input/empty_file.txt',
     ])
     verify(actual)
 
 
 def test_run_fewer_columns():
     actual = _run_capture_stdout_files_fail([
-        '--run', 'test-input/run_sample_invalid_less_columns.txt',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_invalid_less_columns.txt',
     ])
     verify(actual)
 
 
 def test_run_more_columns():
     actual = _run_capture_stdout_files_fail([
-        '--run', 'test-input/run_sample_invalid_more_columns.txt',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_invalid_more_columns.txt',
     ])
     verify(actual)
 
 
 def test_run_multiple_tags():
     actual = _run_capture_stdout_files_fail([
-        '--run', 'test-input/run_sample_invalid_multiple_tags.txt',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_invalid_multiple_tags.txt',
     ])
     verify(actual)
 
 
 def test_run_tag_special_chars():
     actual = _run_capture_stdout_files_pass([
-        '--run', 'test-input/run_sample_warning_tag_special_chars.txt',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_warning_tag_special_chars.txt',
     ])
     verify(actual)
 
 
 def test_run_query_id_special_chars():
     actual = _run_capture_stdout_files_pass([
-        '--run', 'test-input/run_sample_warning_qid_special_chars.txt',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_warning_qid_special_chars.txt',
     ])
     verify(actual)
 
 
 def test_run_query_id_not_ascending():
     actual = _run_capture_stdout_files_pass([
-        '--run', 'test-input/run_sample_warning_qid_not_asc.txt',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_warning_qid_not_asc.txt',
     ])
     verify(actual)
 
 
 def test_run_document_id_special_chars():
     actual = _run_capture_stdout_files_pass([
-        '--run', 'test-input/run_sample_warning_docid_special_chars.txt',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_warning_docid_special_chars.txt',
     ])
     verify(actual)
 
 
 def test_run_ignored_column_not_default():
     actual = _run_capture_stdout_files_pass([
-        '--run', 'test-input/run_sample_warning_ignored_column_wrong.txt',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_warning_ignored_column_wrong.txt',
     ])
     verify(actual)
 
 
 def test_run_score_not_numeric():
     actual = _run_capture_stdout_files_fail([
-        '--run', 'test-input/run_sample_warning_score_not_num.txt',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_warning_score_not_num.txt',
     ])
     verify(actual)
 
 
 def test_run_score_scientific_notation():
     actual = _run_capture_stdout_files_pass([
-        '--run', 'test-input/run_sample_warning_score_scientific.txt',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_warning_score_scientific.txt',
     ])
     verify(actual)
 
 
 def test_run_score_ties():
     actual = _run_capture_stdout_files_pass([
-        '--run', 'test-input/run_sample_warning_score_ties.txt',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_warning_score_ties.txt',
     ])
     verify(actual)
 
 
 def test_run_score_not_descending():
     actual = _run_capture_stdout_files_pass([
-        '--run', 'test-input/run_sample_warning_score_not_desc.txt',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_warning_score_not_desc.txt',
     ])
     verify(actual)
 
 
 def test_run_rank_not_numeric():
     actual = _run_capture_stdout_files_fail([
-        '--run', 'test-input/run_sample_warning_rank_not_num.txt',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_warning_rank_not_num.txt',
     ])
     verify(actual)
 
 
 def test_run_rank_not_integer():
     actual = _run_capture_stdout_files_pass([
-        '--run', 'test-input/run_sample_warning_rank_not_int.txt',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_warning_rank_not_int.txt',
     ])
     verify(actual)
 
 
 def test_run_first_rank_not_zero():
     actual = _run_capture_stdout_files_pass([
-        '--run', 'test-input/run_sample_warning_rank_not_start_at_0.txt',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_warning_rank_not_start_at_0.txt',
     ])
     verify(actual)
 
 
 def test_run_rank_ties():
     actual = _run_capture_stdout_files_pass([
-        '--run', 'test-input/run_sample_warning_rank_ties.txt',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_warning_rank_ties.txt',
     ])
     verify(actual)
 
 
 def test_run_rank_not_ascending():
     actual = _run_capture_stdout_files_pass([
-        '--run', 'test-input/run_sample_warning_rank_not_asc.txt',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_warning_rank_not_asc.txt',
     ])
     verify(actual)
 
 
 def test_run_rank_not_consecutive():
     actual = _run_capture_stdout_files_pass([
-        '--run', 'test-input/run_sample_warning_rank_not_consecutive.txt',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_warning_rank_not_consecutive.txt',
     ])
     verify(actual)
 
 
 def test_run_score_rank_inconsistent():
     actual = _run_capture_stdout_files_pass([
-        '--run', 'test-input/run_sample_warning_consistency.txt',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_warning_consistency.txt',
     ])
     verify(actual)
 
 
 def test_run_valid():
     actual = _run_capture_stdout_files_pass([
-        '--run', 'test-input/run_sample_valid.txt',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_valid.txt',
     ])
     verify(actual)
 
 
 def test_qrels_path_not_found():
     actual = _run_capture_stdout_files_fail([
-        '--run', 'test-input/run_sample_valid.txt',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_valid.txt',
         '--qrels', 'bar',
-        '--topics', 'test-input/topics_sample_valid.jsonl',
+        '--topics', f'{_TEST_IO_DIR}/test-input/topics_sample_valid.jsonl',
     ])
     verify(actual)
 
 
 def test_qrels_path_is_dir():
     actual = _run_capture_stdout_files_fail([
-        '--run', 'test-input/run_sample_valid.txt',
-        '--qrels', 'test-input',
-        '--topics', 'test-input/topics_sample_valid.jsonl',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_valid.txt',
+        '--qrels', f'{_TEST_IO_DIR}/test-input',
+        '--topics', f'{_TEST_IO_DIR}/test-input/topics_sample_valid.jsonl',
     ])
     verify(actual)
 
-
 def test_qrels_file_empty():
     actual = _run_capture_stdout_files_fail([
-        '--run', 'test-input/run_sample_valid.txt',
-        '--qrels', 'test-input/empty_file.txt',
-        '--topics', 'test-input/topics_sample_valid.jsonl',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_valid.txt',
+        '--qrels', f'{_TEST_IO_DIR}/test-input/empty_file.txt',
+        '--topics', f'{_TEST_IO_DIR}/test-input/topics_sample_valid.jsonl',
     ])
     verify(actual)
 
 
 def test_qrels_valid_no_topics():
     actual = _run_capture_stdout_files_fail([
-        '--run', 'test-input/run_sample_valid.txt',
-        '--qrels', 'test-input/qrels_sample_valid.txt',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_valid.txt',
+        '--qrels', f'{_TEST_IO_DIR}/test-input/qrels_sample_valid.txt',
     ])
     verify(actual)
 
 
 def test_topics_path_not_found():
     actual = _run_capture_stdout_files_fail([
-        '--run', 'test-input/run_sample_valid.txt',
-        '--qrels', 'test-input/qrels_sample_valid.txt',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_valid.txt',
+        '--qrels', f'{_TEST_IO_DIR}/test-input/qrels_sample_valid.txt',
         '--topics', 'baz',
     ])
     verify(actual)
@@ -277,80 +281,80 @@ def test_topics_path_not_found():
 
 def test_topics_path_is_dir():
     actual = _run_capture_stdout_files_fail([
-        '--run', 'test-input/run_sample_valid.txt',
-        '--qrels', 'test-input/qrels_sample_valid.txt',
-        '--topics', 'test-input',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_valid.txt',
+        '--qrels', f'{_TEST_IO_DIR}/test-input/qrels_sample_valid.txt',
+        '--topics', f'{_TEST_IO_DIR}/test-input',
     ])
     verify(actual)
 
 
 def test_topics_file_empty():
     actual = _run_capture_stdout_files_fail([
-        '--run', 'test-input/run_sample_valid.txt',
-        '--qrels', 'test-input/qrels_sample_valid.txt',
-        '--topics', 'test-input/empty_file.jsonl',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_valid.txt',
+        '--qrels', f'{_TEST_IO_DIR}/test-input/qrels_sample_valid.txt',
+        '--topics', f'{_TEST_IO_DIR}/test-input/empty_file.jsonl',
     ])
     verify(actual)
 
 
 def test_topics_valid_no_qrels():
     actual = _run_capture_stdout_files_fail([
-        '--run', 'test-input/run_sample_valid.txt',
-        '--topics', 'test-input/topics_sample_valid.jsonl',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_valid.txt',
+        '--topics', f'{_TEST_IO_DIR}/test-input/topics_sample_valid.jsonl',
     ])
     verify(actual)
 
 
 def test_qrels_topics_valid():
     actual = _run_capture_stdout_files_pass([
-        '--run', 'test-input/run_sample_valid.txt',
-        '--qrels', 'test-input/qrels_sample_valid.txt',
-        '--topics', 'test-input/topics_sample_valid.jsonl',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_valid.txt',
+        '--qrels', f'{_TEST_IO_DIR}/test-input/qrels_sample_valid.txt',
+        '--topics', f'{_TEST_IO_DIR}/test-input/topics_sample_valid.jsonl',
     ])
     verify(actual)
 
 
 def test_query_ids_inconsistent_run_qrels():
     actual = _run_capture_stdout_files_pass([
-        '--run', 'test-input/run_sample_warning_qid_not_in_qrels.txt',
-        '--qrels', 'test-input/qrels_sample_valid.txt',
-        '--topics', 'test-input/topics_sample_valid.jsonl',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_warning_qid_not_in_qrels.txt',
+        '--qrels', f'{_TEST_IO_DIR}/test-input/qrels_sample_valid.txt',
+        '--topics', f'{_TEST_IO_DIR}/test-input/topics_sample_valid.jsonl',
     ])
     verify(actual)
 
 
 def test_document_ids_inconsistent_run_qrels():
     actual = _run_capture_stdout_files_pass([
-        '--run', 'test-input/run_sample_warning_docid_not_in_qrels.txt',
-        '--qrels', 'test-input/qrels_sample_valid.txt',
-        '--topics', 'test-input/topics_sample_valid.jsonl',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_warning_docid_not_in_qrels.txt',
+        '--qrels', f'{_TEST_IO_DIR}/test-input/qrels_sample_valid.txt',
+        '--topics', f'{_TEST_IO_DIR}/test-input/topics_sample_valid.jsonl',
     ])
     verify(actual)
 
 
 def test_query_ids_inconsistent_topics_run():
     actual = _run_capture_stdout_files_pass([
-        '--run', 'test-input/run_sample_valid.txt',
-        '--topics', 'test-input/topics_sample_warning_qid_not_in_run.jsonl',
-        '--qrels', 'test-input/qrels_sample_valid.txt',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_valid.txt',
+        '--topics', f'{_TEST_IO_DIR}/test-input/topics_sample_warning_qid_not_in_run.jsonl',
+        '--qrels', f'{_TEST_IO_DIR}/test-input/qrels_sample_valid.txt',
     ])
     verify(actual)
 
 
 def test_query_ids_inconsistent_topics_qrels():
     actual = _run_capture_stdout_files_pass([
-        '--run', 'test-input/run_sample_valid.txt',
-        '--topics', 'test-input/topics_sample_warning_qid_not_in_qrels.jsonl',
-        '--qrels', 'test-input/qrels_sample_valid.txt',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_valid.txt',
+        '--topics', f'{_TEST_IO_DIR}/test-input/topics_sample_warning_qid_not_in_qrels.jsonl',
+        '--qrels', f'{_TEST_IO_DIR}/test-input/qrels_sample_valid.txt',
     ])
     verify(actual)
 
 
 def test_measure_unknown():
     actual = _run_capture_stdout_files_fail([
-        '--run', 'test-input/run_sample_valid.txt',
-        '--qrels', 'test-input/qrels_sample_valid.txt',
-        '--topics', 'test-input/topics_sample_valid.jsonl',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_valid.txt',
+        '--qrels', f'{_TEST_IO_DIR}/test-input/qrels_sample_valid.txt',
+        '--topics', f'{_TEST_IO_DIR}/test-input/topics_sample_valid.jsonl',
         '--measures', 'FOOBAR',
     ])
     verify(actual)
@@ -358,9 +362,9 @@ def test_measure_unknown():
 
 def test_measure_invalid():
     actual = _run_capture_stdout_files_fail([
-        '--run', 'test-input/run_sample_valid.txt',
-        '--qrels', 'test-input/qrels_sample_valid.txt',
-        '--topics', 'test-input/topics_sample_valid.jsonl',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_valid.txt',
+        '--qrels', f'{_TEST_IO_DIR}/test-input/qrels_sample_valid.txt',
+        '--topics', f'{_TEST_IO_DIR}/test-input/topics_sample_valid.jsonl',
         '--measures', 'P@X',
     ])
     verify(actual)
@@ -368,8 +372,8 @@ def test_measure_invalid():
 
 def test_measure_valid_no_qrels():
     actual = _run_capture_stdout_files_fail([
-        '--run', 'test-input/run_sample_valid.txt',
-        '--topics', 'test-input/topics_sample_valid.jsonl',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_valid.txt',
+        '--topics', f'{_TEST_IO_DIR}/test-input/topics_sample_valid.jsonl',
         '--measures', 'P@2',
     ])
     verify(actual)
@@ -377,8 +381,8 @@ def test_measure_valid_no_qrels():
 
 def test_measure_valid_no_topics():
     actual = _run_capture_stdout_files_fail([
-        '--run', 'test-input/run_sample_valid.txt',
-        '--qrels', 'test-input/qrels_sample_valid.txt',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_valid.txt',
+        '--qrels', f'{_TEST_IO_DIR}/test-input/qrels_sample_valid.txt',
         '--measures', 'P@2',
     ])
     verify(actual)
@@ -386,9 +390,9 @@ def test_measure_valid_no_topics():
 
 def test_measure_valid():
     actual = _run_capture_stdout_files_pass([
-        '--run', 'test-input/run_sample_valid.txt',
-        '--qrels', 'test-input/qrels_sample_valid.txt',
-        '--topics', 'test-input/topics_sample_valid.jsonl',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_valid.txt',
+        '--qrels', f'{_TEST_IO_DIR}/test-input/qrels_sample_valid.txt',
+        '--topics', f'{_TEST_IO_DIR}/test-input/topics_sample_valid.jsonl',
         '--measures', 'P@2',
     ])
     verify(actual)
@@ -396,9 +400,9 @@ def test_measure_valid():
 
 def test_measures_valid():
     actual = _run_capture_stdout_files_pass([
-        '--run', 'test-input/run_sample_valid.txt',
-        '--qrels', 'test-input/qrels_sample_valid.txt',
-        '--topics', 'test-input/topics_sample_valid.jsonl',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_valid.txt',
+        '--qrels', f'{_TEST_IO_DIR}/test-input/qrels_sample_valid.txt',
+        '--topics', f'{_TEST_IO_DIR}/test-input/topics_sample_valid.jsonl',
         '--measures', 'P@2', 'nDCG@2',
     ])
     verify(actual)
@@ -406,9 +410,9 @@ def test_measures_valid():
 
 def test_output_path_not_found():
     actual = _run_capture_stdout_files_fail([
-        '--run', 'test-input/run_sample_valid.txt',
-        '--qrels', 'test-input/qrels_sample_valid.txt',
-        '--topics', 'test-input/topics_sample_valid.jsonl',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_valid.txt',
+        '--qrels', f'{_TEST_IO_DIR}/test-input/qrels_sample_valid.txt',
+        '--topics', f'{_TEST_IO_DIR}/test-input/topics_sample_valid.jsonl',
         '--measures', 'P@2', 'nDCG@2',
         '--output', '42',
     ])
@@ -417,62 +421,74 @@ def test_output_path_not_found():
 
 def test_output_path_is_file():
     actual = _run_capture_stdout_files_fail([
-        '--run', 'test-input/run_sample_valid.txt',
-        '--qrels', 'test-input/qrels_sample_valid.txt',
-        '--topics', 'test-input/topics_sample_valid.jsonl',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_valid.txt',
+        '--qrels', f'{_TEST_IO_DIR}/test-input/qrels_sample_valid.txt',
+        '--topics', f'{_TEST_IO_DIR}/test-input/topics_sample_valid.jsonl',
         '--measures', 'P@2', 'nDCG@2',
-        '--output', 'test-output-not-empty/file.txt',
+        '--output', f'{_TEST_IO_DIR}/test-output-not-empty/file.txt',
     ])
     verify(actual)
 
 
 def test_output_dir_not_empty():
     actual = _run_capture_stdout_files_pass([
-        '--run', 'test-input/run_sample_valid.txt',
-        '--qrels', 'test-input/qrels_sample_valid.txt',
-        '--topics', 'test-input/topics_sample_valid.jsonl',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_valid.txt',
+        '--qrels', f'{_TEST_IO_DIR}/test-input/qrels_sample_valid.txt',
+        '--topics', f'{_TEST_IO_DIR}/test-input/topics_sample_valid.jsonl',
         '--measures', 'P@2', 'nDCG@2',
-        '--output', 'test-output-not-empty',
+        '--output', f'{_TEST_OUTPUT_DIR}/test-output-not-empty',
     ], output_dir='test-output-not-empty')
     verify(actual)
 
 
 def test_output_valid_no_qrels():
+    shutil.rmtree(_TEST_IO_DIR / 'test-output', ignore_errors=True)
+    (_TEST_IO_DIR / 'test-output').mkdir(exist_ok=True, parents=True)
     actual = _run_capture_stdout_files_fail([
-        '--run', 'test-input/run_sample_valid.txt',
-        '--topics', 'test-input/topics_sample_valid.jsonl',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_valid.txt',
+        '--topics', f'{_TEST_IO_DIR}/test-input/topics_sample_valid.jsonl',
         '--measures', 'P@2', 'nDCG@2',
-        '--output', 'test-output',
+        '--output', f'{_TEST_OUTPUT_DIR}/test-output',
     ])
+    shutil.rmtree(_TEST_IO_DIR / 'test-output', ignore_errors=True)
     verify(actual)
 
 
 def test_output_valid_no_topics():
+    shutil.rmtree(_TEST_IO_DIR / 'test-output', ignore_errors=True)
+    (_TEST_IO_DIR / 'test-output').mkdir(exist_ok=True, parents=True)
     actual = _run_capture_stdout_files_fail([
-        '--run', 'test-input/run_sample_valid.txt',
-        '--qrels', 'test-input/qrels_sample_valid.txt',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_valid.txt',
+        '--qrels', f'{_TEST_IO_DIR}/test-input/qrels_sample_valid.txt',
         '--measures', 'P@2', 'nDCG@2',
-        '--output', 'test-output',
+        '--output', f'{_TEST_OUTPUT_DIR}/test-output',
     ])
+    shutil.rmtree(_TEST_IO_DIR / 'test-output', ignore_errors=True)
     verify(actual)
 
 
 def test_output_valid_no_measures():
+    shutil.rmtree(_TEST_IO_DIR / 'test-output', ignore_errors=True)
+    (_TEST_IO_DIR / 'test-output').mkdir(exist_ok=True, parents=True)
     actual = _run_capture_stdout_files_fail([
-        '--run', 'test-input/run_sample_valid.txt',
-        '--qrels', 'test-input/qrels_sample_valid.txt',
-        '--topics', 'test-input/topics_sample_valid.jsonl',
-        '--output', 'test-output',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_valid.txt',
+        '--qrels', f'{_TEST_IO_DIR}/test-input/qrels_sample_valid.txt',
+        '--topics', f'{_TEST_IO_DIR}/test-input/topics_sample_valid.jsonl',
+        '--output', f'{_TEST_OUTPUT_DIR}/test-output',
     ])
+    shutil.rmtree(_TEST_IO_DIR / 'test-output', ignore_errors=True)
     verify(actual)
 
 
 def test_all_valid():
+    shutil.rmtree(_TEST_IO_DIR / 'test-output', ignore_errors=True)
+    (_TEST_IO_DIR / 'test-output').mkdir(exist_ok=True, parents=True)
     actual = _run_capture_stdout_files_pass([
-        '--run', 'test-input/run_sample_valid.txt',
-        '--qrels', 'test-input/qrels_sample_valid.txt',
-        '--topics', 'test-input/topics_sample_valid.jsonl',
+        '--run', f'{_TEST_IO_DIR}/test-input/run_sample_valid.txt',
+        '--qrels', f'{_TEST_IO_DIR}/test-input/qrels_sample_valid.txt',
+        '--topics', f'{_TEST_IO_DIR}/test-input/topics_sample_valid.jsonl',
         '--measures', 'P@2', 'nDCG@2',
-        '--output', 'test-output',
+        '--output', f'{_TEST_OUTPUT_DIR}/test-output',
     ])
+    shutil.rmtree(_TEST_IO_DIR / 'test-output', ignore_errors=True)
     verify(actual)
