@@ -880,7 +880,7 @@ def render_results(run_file, irds_id, output_path, top_k=10):
         output_file.write(json.dumps(excerpt_for_rendering))
 
     from diffir.run import diff_from_local_data
-    _, rendered_serp = diff_from_local_data([str(run_file.resolve())], [str((output_path / '.data-top-10-for-rendering.jsonl').resolve())], cli=False, web=True, print_html=False)
+    _, rendered_serp = diff_from_local_data([str(Path(run_file).resolve())], [str((Path(output_path) / '.data-top-10-for-rendering.jsonl').resolve())], cli=False, web=True, print_html=False)
 
     with open(Path(output_path) / 'serp.html', 'w') as output_file:
         output_file.write(rendered_serp)
