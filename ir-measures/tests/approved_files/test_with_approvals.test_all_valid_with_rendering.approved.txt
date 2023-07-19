@@ -1,0 +1,748 @@
+ℹ Check run path: test-input/test-input-cranfield/run.txt
+✓ Run path is valid.
+ℹ Check run file format.
+	⚠ Ranks do not start at 0.
+	⚠ Scores not in descending order at lines: 11<12 
+	⚠ Ranks not in ascending order at lines: 11>12 
+	⚠ Ranks not consecutive at lines: 11↛12 
+⚠ Run file format is valid: 4 warnings
+ℹ Load run with ir-measures.
+✓ Run successfully loaded.
+ℹ Check qrels path: test-input/test-input-cranfield/qrels.txt
+✓ Qrels path is valid.
+ℹ Load qrels with ir-measures.
+✓ Qrels successfully loaded.
+ℹ Check topics path: test-input/test-input-cranfield/queries.jsonl
+✓ Topics path is valid.
+ℹ Load topics.
+✓ Topics successfully loaded.
+ℹ Parse measures: P@2, nDCG@2
+✓ Measures successfully parsed.
+ℹ Check output path: test-output
+✓ Output path is valid.
+ℹ Check run, qrels, and topics consistency.
+	⚠ Document IDs of run file not found in qrels file: 359, 486, 573, 663, 746 (+1 more)
+⚠ Run, qrels, and topics are inconsistent: 6 warnings
+ℹ Evaluate run with measures: P@2, nDCG@2
+✓ Run successfully evaluated.
+ℹ Export metrics.
+✓ Metrics successfully exported.
+
+
+####
+files: ['test-output/.data-top-10-for-rendering.jsonl', 'test-output/evaluation-per-query.prototext', 'test-output/evaluation.prototext', 'test-output/serp.html']
+
+
+####test-output/.data-top-10-for-rendering.jsonl
+{"queries": {"1": {"qid": "1", "query": "what similarity laws must be obeyed when constructing aeroelastic models\nof heated high speed aircraft .", "original_query": {"query_id": "1", "text": "what similarity laws must be obeyed when constructing aeroelastic models\nof heated high speed aircraft ."}}}, "documents": {"51": {"docno": "51", "text": "theory of aircraft structural models subjected to aerodynamic\nheating and external loads . theory of aircraft structural models subjected to aerodynamic\nheating and external loads .\n  the problem of investigating the simultaneous effects of transient\naerodynamic heating and external loads on aircraft structures for the\npurpose of determining the ability of the structure to withstand flight\nto supersonic speeds is studied .  by dimensional analyses it is shown\nthat ..\nconstructed of the same materials as the aircraft will be thermally\nsimilar to the aircraft with respect to\nthe flow of heat through the structure\nwill be similar to those of the aircraft when the structural model is\nconstructed at the same temperature as the aircraft .\nexternal loads will be similar to those of the aircraft .\nsubjected to heating and cooling that correctly simulate the aerodynamic\nheating of the aircraft, except with respect to angular velocities and\nangular accelerations, without requiring determination of the heat flux\nat each point on the surface and its variation with time .\nacting on the aerodynamically heated structural model to those acting\non the aircraft is determined for the case of zero angular velocity and\nzero angular acceleration, so that the structural model may be subjected\nto the external loads required for simultaneous simulation of stresses\nand deformations due to external loads .", "original_document": {"doc_id": "51", "title": "theory of aircraft structural models subjected to aerodynamic\nheating and external loads .", "text": "theory of aircraft structural models subjected to aerodynamic\nheating and external loads .\n  the problem of investigating the simultaneous effects of transient\naerodynamic heating and external loads on aircraft structures for the\npurpose of determining the ability of the structure to withstand flight\nto supersonic speeds is studied .  by dimensional analyses it is shown\nthat ..\nconstructed of the same materials as the aircraft will be thermally\nsimilar to the aircraft with respect to\nthe flow of heat through the structure\nwill be similar to those of the aircraft when the structural model is\nconstructed at the same temperature as the aircraft .\nexternal loads will be similar to those of the aircraft .\nsubjected to heating and cooling that correctly simulate the aerodynamic\nheating of the aircraft, except with respect to angular velocities and\nangular accelerations, without requiring determination of the heat flux\nat each point on the surface and its variation with time .\nacting on the aerodynamically heated structural model to those acting\non the aircraft is determined for the case of zero angular velocity and\nzero angular acceleration, so that the structural model may be subjected\nto the external loads required for simultaneous simulation of stresses\nand deformations due to external loads .", "author": "o'sullivan,w.j.", "bib": "naca tn.4115, 1957."}}, "486": {"docno": "486", "text": "similarity laws for aerothermoelastic testing . similarity laws for aerothermoelastic testing .\n  the similarity laws for aerothermoelastic testing are presented\nin the range .  these are obtained by\nmaking nondimensional the appropriate governing equations of\nthe individual external aerodynamic flow, heat conduction to\nthe interior, and stress-deflection problems which make up the\ncombined aerothermoelastic problem .\n  for the general aerothermoelastic model, where the model is\nplaced in a high-stagnation-temperature wind tunnel, similitude\nis shown to be very difficult to achieve for a scale ratio other\nthan unity .  the primary conflict occurs between the\nfree-stream mach number reynolds number aeroelastic\nparameter heat conduction parameter and\nthermal expansion parameter .\n  means of dealing with this basic conflict are presented .  these\ninclude (1) looking at more specialized situations, such as the\nbehavior of wing structures and of thin solid plate lifting surfaces,\nand panel flutter, where the aerothermoelastic similarity\nparameters assume less restrictive forms, (2) the use of /incomplete\naerothermoelastic/ testing in which the pressure and/or heating\nrates are estimated in advance and applied artificially to the\nmodel, and (3) the use of /restricted purpose/ models\ninvestigating separately one or another facet of the complete\naerothermoelastic problem .\n  some numerical examples of modeling for the general\naerothermoelastic case as well as for the specialized situations\nmentioned in (1) above are given .\n  finally, extension of the aerothermoelastic similarity laws to\nhigher speeds and temperatures is discussed .", "original_document": {"doc_id": "486", "title": "similarity laws for aerothermoelastic testing .", "text": "similarity laws for aerothermoelastic testing .\n  the similarity laws for aerothermoelastic testing are presented\nin the range .  these are obtained by\nmaking nondimensional the appropriate governing equations of\nthe individual external aerodynamic flow, heat conduction to\nthe interior, and stress-deflection problems which make up the\ncombined aerothermoelastic problem .\n  for the general aerothermoelastic model, where the model is\nplaced in a high-stagnation-temperature wind tunnel, similitude\nis shown to be very difficult to achieve for a scale ratio other\nthan unity .  the primary conflict occurs between the\nfree-stream mach number reynolds number aeroelastic\nparameter heat conduction parameter and\nthermal expansion parameter .\n  means of dealing with this basic conflict are presented .  these\ninclude (1) looking at more specialized situations, such as the\nbehavior of wing structures and of thin solid plate lifting surfaces,\nand panel flutter, where the aerothermoelastic similarity\nparameters assume less restrictive forms, (2) the use of /incomplete\naerothermoelastic/ testing in which the pressure and/or heating\nrates are estimated in advance and applied artificially to the\nmodel, and (3) the use of /restricted purpose/ models\ninvestigating separately one or another facet of the complete\naerothermoelastic problem .\n  some numerical examples of modeling for the general\naerothermoelastic case as well as for the specialized situations\nmentioned in (1) above are given .\n  finally, extension of the aerothermoelastic similarity laws to\nhigher speeds and temperatures is discussed .", "author": "dugundji,j.", "bib": "j.ae.scs. 29, 1962, 935."}}, "13": {"docno": "13", "text": "similarity laws for stressing heated wings . similarity laws for stressing heated wings .\n  it will be shown that the differential equations for a heated\nplate with large temperature gradient and for a similar plate at\nconstant temperature can be made the same by a proper\nmodification of the thickness and the loading for the isothermal plate .\nthis fact leads to the result that the stresses in the heated plate\ncan be calculated from measured strains on the unheated plate by\na series of relations, called the /similarity laws ./  the\napplication of this analog theory to solid wings under aerodynamic\nheating is discussed in detail .  the loading on the unheated analog\nwing is, however, complicated and involves the novel concept\nof feedback and /body force/ loading .  the problem of stressing\na heated box-wing structure can be solved by the same analog\nmethod and is briefly discussed .", "original_document": {"doc_id": "13", "title": "similarity laws for stressing heated wings .", "text": "similarity laws for stressing heated wings .\n  it will be shown that the differential equations for a heated\nplate with large temperature gradient and for a similar plate at\nconstant temperature can be made the same by a proper\nmodification of the thickness and the loading for the isothermal plate .\nthis fact leads to the result that the stresses in the heated plate\ncan be calculated from measured strains on the unheated plate by\na series of relations, called the /similarity laws ./  the\napplication of this analog theory to solid wings under aerodynamic\nheating is discussed in detail .  the loading on the unheated analog\nwing is, however, complicated and involves the novel concept\nof feedback and /body force/ loading .  the problem of stressing\na heated box-wing structure can be solved by the same analog\nmethod and is briefly discussed .", "author": "tsien,h.s.", "bib": "j. ae. scs. 20, 1953, 1."}}, "184": {"docno": "184", "text": "scale models for thermo-aeroelastic research . scale models for thermo-aeroelastic research .\n  an investigation is made of the\nparameters to be satisfied for\nthermo-aeroelastic similarity .  it is concluded\nthat complete similarity obtains\nonly when aircraft and model are identical\nin all respects, including size .\n  by limiting consideration to\nconduction effects, by assuming the major\nload carrying parts of the structure\nare in regions where the flow is either\nentirely laminar, or entirely turbulent,\nand by assuming a specific\nrelationship between reynolds number and nusselt\nnumber, an approach to similarity can\nbe achieved for small scale models .\nexperimental and analytical work is\nrequired to check on the validity of these assumptions .\n  it appears that existing hot wind\ntunnels will not be completely\nadequate for thermo-aeroelastic work, and\naccordingly a possible layout for\nthe type of tunnel required is described .\nautomatic programmed control of\nthe tunnel would appear to be necessary .", "original_document": {"doc_id": "184", "title": "scale models for thermo-aeroelastic research .", "text": "scale models for thermo-aeroelastic research .\n  an investigation is made of the\nparameters to be satisfied for\nthermo-aeroelastic similarity .  it is concluded\nthat complete similarity obtains\nonly when aircraft and model are identical\nin all respects, including size .\n  by limiting consideration to\nconduction effects, by assuming the major\nload carrying parts of the structure\nare in regions where the flow is either\nentirely laminar, or entirely turbulent,\nand by assuming a specific\nrelationship between reynolds number and nusselt\nnumber, an approach to similarity can\nbe achieved for small scale models .\nexperimental and analytical work is\nrequired to check on the validity of these assumptions .\n  it appears that existing hot wind\ntunnels will not be completely\nadequate for thermo-aeroelastic work, and\naccordingly a possible layout for\nthe type of tunnel required is described .\nautomatic programmed control of\nthe tunnel would appear to be necessary .", "author": "molyneux,w.g.", "bib": "rae tn.struct.294, 1961."}}, "663": {"docno": "663", "text": "viscous flow along a flat plate moving at high speeds . viscous flow along a flat plate moving at high speeds .\n  by the distortion of coordinates, it is shown that, in the case\nof supersonic viscous flow past a flat plate, the boundary-layer\nand simple wave theories can be combined to give a complete\nrepresentation of the velocity and pressure fields .  consistent\nfirst-order solutions are considered .  an expression for the\ninduced pressure on the plate, correct to the second order, is\nobtained .  at high mach numbers the important parameter\nsatisfies the hypersonic similarity law ,. and for arbitrary mach and\nreynolds numbers and for different gases, the theoretical curve\ncorrelates closely the experimental data .  asymptotic shock\ncurve and skin-friction coefficient are also deduced, but the\nexperimental verifications are yet to be made .", "original_document": {"doc_id": "663", "title": "viscous flow along a flat plate moving at high speeds .", "text": "viscous flow along a flat plate moving at high speeds .\n  by the distortion of coordinates, it is shown that, in the case\nof supersonic viscous flow past a flat plate, the boundary-layer\nand simple wave theories can be combined to give a complete\nrepresentation of the velocity and pressure fields .  consistent\nfirst-order solutions are considered .  an expression for the\ninduced pressure on the plate, correct to the second order, is\nobtained .  at high mach numbers the important parameter\nsatisfies the hypersonic similarity law ,. and for arbitrary mach and\nreynolds numbers and for different gases, the theoretical curve\ncorrelates closely the experimental data .  asymptotic shock\ncurve and skin-friction coefficient are also deduced, but the\nexperimental verifications are yet to be made .", "author": "kuo,y.h.", "bib": "j.ae.scs. 23, 1956, 125."}}, "12": {"docno": "12", "text": "some structural and aerelastic considerations of high\nspeed flight . some structural and aerelastic considerations of high\nspeed flight .\n  the dominating factors in structural design of high-speed\naircraft are thermal and aeroelastic in origin .  the subject\nmatter is concerned largely with a discussion of these factors and\ntheir interrelation with one another .  a summary is presented\nof some of the analytical and experimental tools available to\naeronautical engineers to meet the demands of high-speed flight\nupon aircraft structures .  the state of the art with respect to\nheat transfer from the boundary layer into the structure, modes\nof failure under combined load as well as thermal inputs and\nacrothermoelasticity is discussed .  methods of attacking and\nalleviating structural and aeroelastic problems of high-speed\nflight are summarized .  finally, some avenues of fundamental\nresearch are suggested .", "original_document": {"doc_id": "12", "title": "some structural and aerelastic considerations of high\nspeed flight .", "text": "some structural and aerelastic considerations of high\nspeed flight .\n  the dominating factors in structural design of high-speed\naircraft are thermal and aeroelastic in origin .  the subject\nmatter is concerned largely with a discussion of these factors and\ntheir interrelation with one another .  a summary is presented\nof some of the analytical and experimental tools available to\naeronautical engineers to meet the demands of high-speed flight\nupon aircraft structures .  the state of the art with respect to\nheat transfer from the boundary layer into the structure, modes\nof failure under combined load as well as thermal inputs and\nacrothermoelasticity is discussed .  methods of attacking and\nalleviating structural and aeroelastic problems of high-speed\nflight are summarized .  finally, some avenues of fundamental\nresearch are suggested .", "author": "bisplinghoff,r.l.", "bib": "j. ae. scs. 23, 1956, 289."}}, "746": {"docno": "746", "text": "aeroelastic problems in connection with high speed\nflight . aeroelastic problems in connection with high speed\nflight .\n  a review is given of developments\nin the field of aeroelasticity during the\npast ten years .  the effect of steadily increasing\nmach number has been two-fold ..  on\nthe one hand the aerodynamic derivatives have\nchanged, and in some cases brought new\nproblems, and on the other hand the design for\nhigher mach numbers has led to thinner\naerofoils and more slender fuselages for which\nthe required stiffness is more difficult to\nprovide .  both these aspects are discussed,\nand various methods of attack on the\nproblems are considered .  the relative merits\nof stiffness, damping and massbalance\nfor the prevention of control surface flutter are\ndiscussed .  a brief mention is made of\nthe recent problems of damage from jet efflux\nand of the possible aeroelastic effects\nof kinetic heating .", "original_document": {"doc_id": "746", "title": "aeroelastic problems in connection with high speed\nflight .", "text": "aeroelastic problems in connection with high speed\nflight .\n  a review is given of developments\nin the field of aeroelasticity during the\npast ten years .  the effect of steadily increasing\nmach number has been two-fold ..  on\nthe one hand the aerodynamic derivatives have\nchanged, and in some cases brought new\nproblems, and on the other hand the design for\nhigher mach numbers has led to thinner\naerofoils and more slender fuselages for which\nthe required stiffness is more difficult to\nprovide .  both these aspects are discussed,\nand various methods of attack on the\nproblems are considered .  the relative merits\nof stiffness, damping and massbalance\nfor the prevention of control surface flutter are\ndiscussed .  a brief mention is made of\nthe recent problems of damage from jet efflux\nand of the possible aeroelastic effects\nof kinetic heating .", "author": "broadbent,e.g.", "bib": "j. roy. aero. soc. 1956."}}, "876": {"docno": "876", "text": "on flutter testing in high speed wind tunnels . on flutter testing in high speed wind tunnels .\n  the requirements for simulating in a wind tunnel flutter conditions\nappropriate to high-speed flight are discussed, and an assessment is\nmade of the desirable features of a wind tunnel suitable for flutter\ntesting at transonic and supersonic speeds .\n  it is concluded that such a tunnel should have either the mach number\nor the stagnation pressure variable during the tunnel run, and that it\nis of considerable advantage, and for some purposes essential, for high\nstagnation pressures to be available .  the stagnation pressure required\nto allow flight conditions to be simulated with a flutter model is\nconsidered to range from at least 2 atmospheres for transonic speeds to\nabout 15 atmospheres for m = 4 .  no attempt to simulate kinetic heating\nis envisaged, although its effect on stiffness should be allowed for in\nthe design of the model .  to minimise uncertainties due to the\nvariation of the model stiffness with temperature it is desirable that\nmeans for controlling the stagnation temperature should be incorporated\nin the tunnel .", "original_document": {"doc_id": "876", "title": "on flutter testing in high speed wind tunnels .", "text": "on flutter testing in high speed wind tunnels .\n  the requirements for simulating in a wind tunnel flutter conditions\nappropriate to high-speed flight are discussed, and an assessment is\nmade of the desirable features of a wind tunnel suitable for flutter\ntesting at transonic and supersonic speeds .\n  it is concluded that such a tunnel should have either the mach number\nor the stagnation pressure variable during the tunnel run, and that it\nis of considerable advantage, and for some purposes essential, for high\nstagnation pressures to be available .  the stagnation pressure required\nto allow flight conditions to be simulated with a flutter model is\nconsidered to range from at least 2 atmospheres for transonic speeds to\nabout 15 atmospheres for m = 4 .  no attempt to simulate kinetic heating\nis envisaged, although its effect on stiffness should be allowed for in\nthe design of the model .  to minimise uncertainties due to the\nvariation of the model stiffness with temperature it is desirable that\nmeans for controlling the stagnation temperature should be incorporated\nin the tunnel .", "author": "lambourne,n.c. and scruton,c.", "bib": "arc r + m.3054, 1956."}}, "359": {"docno": "359", "text": "note on the hypersonic similarity law for an unyawed\ncone . note on the hypersonic similarity law for an unyawed\ncone .\n  it is now known that the hypersonic similarity law derived for\nslender cones and ogival bodies under the assumption, is\napplicable for mach numbers as low as 3 .  this note makes use of\na series development to infer the hypersonic similarity law for\nunyawed cones from the taylor-maccoll differential equations and\nassociated boundary conditions .  a simple approximate formula\nfor the function of the similarity law is obtained,\nand the drag function computed with this formula is compared\nwith kopal's numerical results and, for very slender cones, with\nvon karman's linearized formula .", "original_document": {"doc_id": "359", "title": "note on the hypersonic similarity law for an unyawed\ncone .", "text": "note on the hypersonic similarity law for an unyawed\ncone .\n  it is now known that the hypersonic similarity law derived for\nslender cones and ogival bodies under the assumption, is\napplicable for mach numbers as low as 3 .  this note makes use of\na series development to infer the hypersonic similarity law for\nunyawed cones from the taylor-maccoll differential equations and\nassociated boundary conditions .  a simple approximate formula\nfor the function of the similarity law is obtained,\nand the drag function computed with this formula is compared\nwith kopal's numerical results and, for very slender cones, with\nvon karman's linearized formula .", "author": "lees,l.", "bib": "j. ae. scs. 18, 1951."}}, "573": {"docno": "573", "text": "viscous hypersonic similitude . viscous hypersonic similitude .\n  an extension of classical hypersonic similitude is developed\nwhich takes into account the interaction effect of the\ndisplacement thickness of the boundary layer .  a basic result of this\nviscous similitude is that the total drag including frictional drag\nobeys the classical similarity law for the pressure drag .\nadditional similarity conditions governing viscous effects must be\nimposed in this similitude .\n  underlying the similitude is a new hypersonic boundary-layer\nindependence principle .  according to this principle, the\nprincipal part of a hypersonic boundary layer with given pressure\nand wall temperature distributions and free-stream total\nenthalpy is independent of the (high) external mach number\ndistribution outside the boundary layer .\n  various features of viscous hypersonic similitudes are\ndiscussed .  it is found, for example, that it applies to three-\ndimensional boundary-layer interaction effects on flat bodies, provided\nthe concepts of strip theory may be applied, and provided the\naspect ratio is an invariant .", "original_document": {"doc_id": "573", "title": "viscous hypersonic similitude .", "text": "viscous hypersonic similitude .\n  an extension of classical hypersonic similitude is developed\nwhich takes into account the interaction effect of the\ndisplacement thickness of the boundary layer .  a basic result of this\nviscous similitude is that the total drag including frictional drag\nobeys the classical similarity law for the pressure drag .\nadditional similarity conditions governing viscous effects must be\nimposed in this similitude .\n  underlying the similitude is a new hypersonic boundary-layer\nindependence principle .  according to this principle, the\nprincipal part of a hypersonic boundary layer with given pressure\nand wall temperature distributions and free-stream total\nenthalpy is independent of the (high) external mach number\ndistribution outside the boundary layer .\n  various features of viscous hypersonic similitudes are\ndiscussed .  it is found, for example, that it applies to three-\ndimensional boundary-layer interaction effects on flat bodies, provided\nthe concepts of strip theory may be applied, and provided the\naspect ratio is an invariant .", "author": "hayer,w.d. and probstein,r.f.", "bib": "j. ae. scs. 26, 1959, 815."}}}, "qrels": {"1": {"51": 3, "486": -1, "13": 4, "184": 2, "12": 3, "876": 3}}}
+
+####test-output/evaluation-per-query.prototext
+measure {
+	query_id: "1"
+	measure: "P@2"
+	value: "0.5"
+}
+measure {
+	query_id: "1"
+	measure: "nDCG@2"
+	value: "0.4598603945740938"
+}
+
+
+####test-output/evaluation.prototext
+measure {
+	key: "P@2"
+	value: "0.5"
+}
+measure {
+	key: "nDCG@2"
+	value: "0.4598603945740938"
+}
+
+
+####test-output/serp.html
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="icon"
+    href="https://raw.githubusercontent.com/capreolus-ir/diffir/master/docs/images/icon.png">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+  <title>diffir: IR model comparision</title>
+  <style>
+    .card {
+      margin: 5px !important;
+    }
+
+    .highlight {
+      background-color: #ffffd3;
+    }
+
+    #DocumentOverlay {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, .25);
+    }
+
+    #DocumentDetails {
+      position: fixed;
+      top: 60px;
+      left: 10%;
+      right: 10%;
+      bottom: 60px;
+      background-color: white;
+      padding: 20px;
+      border: 1px solid rgba(0, 0, 0, .125);
+      border-radius: 0.25rem;
+      box-shadow: 0 0 16px black;
+      overflow: auto;
+    }
+
+    .close-overlay {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      border-radius: 100%;
+      background-color: #111;
+      font-size: 17px;
+      padding: 9px;
+      color: white;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      font-weight: normal;
+      line-height: 11px;
+      cursor: pointer;
+    }
+
+    .docid {
+      background-color: rgb(224, 135, 55);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 20px;
+      overflow: hidden;
+      margin-bottom: 0;
+      border-radius: 0;
+      font-weight: normal;
+      white-space: nowrap;
+    }
+
+    .docid-value {
+      transform: rotate(90deg);
+      font-size: 0.7em;
+      padding-left: 8px;
+    }
+
+    .fields th {
+      vertical-align: top;
+      text-align: right;
+      padding-right: 12px;
+      color: #999;
+      font-weight: normal;
+    }
+
+    #query-container {
+      max-width: 600px;
+      border: 1px solid #999;
+      border-radius: 0.25rem;
+      margin: 20px auto;
+      padding: 10px;
+    }
+
+    .other-rank {
+      font-size: 1.2em;
+      display: inline-block;
+      width: 20px;
+      margin-top: 46px;
+      margin-left: 3px;
+      margin-right: 3px;
+      cursor: help;
+    }
+
+    mark {
+      padding: 0;
+      font-weight: bold;
+    }
+
+    .snippet {
+      font-size: 0.9em;
+      line-height: 1.2;
+    }
+
+    .elip {
+      text-align: center;
+      margin: 16px;
+      color: gray;
+    }
+
+    .doc-info {
+      white-space: nowrap;
+    }
+
+    .card-header {
+      min-height: 128px;
+      cursor: pointer;
+    }
+
+    .swatch {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      vertical-align: middle;
+    }
+
+    .form-group {
+      width: 150px;
+      height: 20px;
+      padding-left: 10px;
+      padding-top: 10px;
+    }
+
+    .nobackground {
+      background: transparent !important;
+      font-weight: normal;
+    }
+    .styled-table {
+      margin-left: 0px;
+      margin-top: 10px;
+      border-collapse: collapse;    
+      font-size: 0.9em;
+      /* font-family: sans-serif;       */
+      min-width: 350px;      
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+    .styled-table thead tr {
+      background-color: #17a2b8;
+      color: #ffffff;
+      text-align: left;
+    }    
+    /* .styled-table th, */
+    .styled-table td {
+      /* padding: 12px 15px; */
+      text-align: center;
+    }    
+    .styled-table tbody tr {
+      color: #ffffff;
+    }
+    /*
+    .styled-table tbody tr:nth-of-type(even) {
+      background-color: #f3f3f3;
+    } */
+
+    .styled-table tbody tr:last-of-type {
+      border-bottom: 2px solid #009879;
+    }
+
+    #ranking-summary ul li span {
+      margin-right: 5px;
+    }    
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="collapse bg-dark" id="navbarHeader">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 col-md-6 py-4">
+            <h6 class="text-white">Summary</h6>
+            <p class="text-white" id="ranking-summary"></p>
+          </div>
+          <div class="col-sm-5 col-md-5 py-4"> 
+            <h6 class="text-white">Ranking statistics</h6>                                   
+            <ul>
+              <li class="text-white"><span id="contrast-measure"></span></li>
+              <li class="text-white"> <span>Relevance metrics</span> <div id="metrics"></div></li>
+            </ul>                        
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar navbar-dark bg-dark box-shadow navbar-fixed-top">
+      <div class="container d-flex justify-content-between">
+        <a href="#" class="navbar-brand d-flex align-items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+            viewBox="0 0 16 16">
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+          </svg>
+          <strong style="padding-left:  5px;">DiffIR</strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"
+          aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="input-group" style="padding-top: 50px; padding-bottom: 10px; background-color: white;">
+      <select id="Queries" data-width="100%" data-style="border" data-container="body"></select>
+    </div>
+    <div id="query-container" class="sticky-top" style="background-color: white;">
+      <div style="position:relative">
+        <button id="query-collapse-btn" style="position: absolute; top: 12px; right: 8px;" type="button"
+          class="btn btn-outline-info btn-sm" data-toggle="collapse" data-target=".query_collapse" aria-expanded="false"
+          aria-controls="query_collapse">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            class="bi bi-arrows-angle-expand" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707zm4.344-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707z" />
+          </svg>
+        </button>
+      </div>
+      <div id="Query" style="padding-right: 45px;">
+      </div>
+    </div>
+    <div class="row justify-content-center" id="runName">
+      <div class="col">
+        <h6 id="Run1Name" style="text-align: center;"></h6>
+      </div>
+      <div class="col">
+        <h6 id="Run2Name" style="text-align: center;"></h6>
+      </div>
+    </div>
+    <div class="row" id="docList">
+      <div id="Run1Docs" class="col">
+      </div>
+      <div id="Run2Docs" class="col">
+      </div>
+    </div>    
+  </div>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+  <script type="text/javascript">
+  </script>
+  <script type="text/javascript">
+    var allWeightsA = {};
+    var allWeightsB = {};
+    var mergedWeights = {};
+    var COLOR_A = '236, 154, 8';
+    var COLOR_B = '121, 196, 121';
+    var singleRunView = (data.meta.run2_name === null);
+
+    function markup(text, weights) {
+      weights = weights.filter(function (e) {
+        return (e[2] > 0 || typeof e[2] === 'string');
+      })
+      var $result = $('<div></div>');
+      if (weights.length === 0) {
+        $result.text(text);
+      } else {
+        $result.append($('<span></span>').text(text.substring(0, weights[0][0])));
+        $.each(weights, function (i, weight) {
+          if (typeof weight[2] === 'string') {
+            var weightColor = weight[2];
+          } else {
+            var weightColor = 'rgba(255, 237, 140, ' + weight[2].toString() + ')';
+          }
+          $result.append($('<mark></mark>').text(text.substring(weight[0], weight[1])).css('background', weightColor).attr("run1", weight[3]).attr("run2", weight[4]));
+          if (i + 1 < weights.length) {
+            $result.append($('<span></span>').text(text.substring(weight[1], weights[i + 1][0])));
+          }
+        });
+        $result.append($('<span></span>').text(text.substring(weights[weights.length - 1][1], text.length)));
+      }
+      return $result;
+    }
+
+    function colorizeWeights(mergedWeights) {
+      // deep copu & handle if doesn't exist
+      mergedWeights = mergedWeights ? JSON.parse(JSON.stringify(mergedWeights)) : [];
+      var results = mergedWeights.map((segment) => {
+        if (!("run2" in segment[2]) || segment[2].run2 === null) {
+          return [segment[0], segment[1], 'rgba(' + COLOR_A + ', ' + segment[2].run1.toString() + ')', segment[2].run1, segment[2].run2];
+        } else if (!("run" in segment[2]) || segment[2].run1 === null) {
+          return [segment[0], segment[1], 'rgba(' + COLOR_B + ', ' + segment[2].run2.toString() + ')', segment[2].run1, segment[2].run2];
+        } else {
+          var nil = 'rgba(0, 0, 0, 0)'
+          var colorA = 'rgba(' + COLOR_A + ', ' + segment[2].run1.toString() + ')';
+          var colorB = 'rgba(' + COLOR_B + ', ' + segment[2].run2.toString() + ')';
+          var overlapColors = 'linear-gradient(' + colorA + ', ' + nil + '), linear-gradient(' + nil + ', ' + colorB + ')'
+          return [segment[0], segment[1], overlapColors, segment[2].run1, segment[2].run2];
+        }
+      })
+      return results;
+    }
+    function generateDocListSingleView(run, container, oneRunWeights) {
+      $(container).empty();
+      $(container).css("padding-left", "15%").css("padding-right", "15%");
+      $.each(run, function (i, doc) {
+        oneRunWeights[doc.doc_id] = doc.weights;
+        if (i >= 1 && run[i - 1].rank + 1 != doc.rank) {
+          $('<div class="elip"></div>').text('⋮ ' + (doc.rank - run[i - 1].rank - 1).toString() + ' doc(s) skipped').appendTo(container);
+        }
+        var $did = $('<div class="docid"></div>').append($('<div class="docid-value"></div>').text(doc.doc_id));
+        $did.css('background-color', data.meta.relevanceColors[doc.relevance !== null ? doc.relevance.toString() : 'null']).css("right", '0');
+        if (doc.relevance === null) {
+          var $rel = $('<h6 class="badge badge-info">Unjudged</h6>').css('background-color', data.meta.relevanceColors['null']);
+        } else {
+          var $rel = $('<h6 class="badge badge-info"></h6>').text('Rel: ' + doc.relevance).css('background-color', data.meta.relevanceColors[doc.relevance.toString()]).attr('title', data.meta.qrelDefs[doc.relevance.toString()]).css('cursor', 'help');
+        }
+        var $score = $('<h6 class="badge"></h6>').text('Score: ' + doc.score.toFixed(4));
+        var doc_fields = data.docs[doc.doc_id];
+        var $text = markup(doc_fields[doc.snippet.field].substring(doc.snippet.start, doc.snippet.stop), doc.snippet.weights)
+        if (doc.snippet.stop < doc_fields[doc.snippet.field].length) {
+          $text.append('...');
+        }
+        if (doc.snippet.start > 0) {
+          $text.prepend('...');
+        }
+        $text.prepend($('<span style="color: #999;"></span>').text(doc.snippet.field + ': '));
+        var newEl = $('<div></div>')
+          .append($('<div class="card"></div>')
+            .attr('data-docid', doc.doc_id)
+            .attr('run1-rank', doc.rank)
+            .append($('<div class="card-header"></div>')
+              // .css('padding-' + docIdFloat, '30px')
+              .append(doc.rank)
+              .append(' ')
+              .append($did)
+              .append(' ')
+              .append($rel)
+              .append(' ')
+              .append($score)
+              .append($('<div class="snippet"></div>').append($text))
+            )
+          )
+          .appendTo(container);
+      });
+    }
+    function generateDocList(run, otherRun, container, docIdFloat, allWeights) {
+      $(container).empty();
+      $.each(run, function (i, doc) {
+        allWeights[doc.doc_id] = doc.weights;
+        if (i >= 1 && run[i - 1].rank + 1 != doc.rank) {
+          $('<div class="elip"></div>').text('⋮ ' + (doc.rank - run[i - 1].rank - 1).toString() + ' doc(s) skipped').appendTo(container);
+        }
+        var $did = $('<div class="docid"></div>').append($('<div class="docid-value"></div>').text(doc.doc_id));
+        $did.css('background-color', data.meta.relevanceColors[doc.relevance !== null ? doc.relevance.toString() : 'null']).css(docIdFloat, '0');
+        if (doc.relevance === null) {
+          var $rel = $('<h6 class="badge badge-info">Unjudged</h6>').css('background-color', data.meta.relevanceColors['null']);
+        } else {
+          var $rel = $('<h6 class="badge badge-info"></h6>').text('Rel: ' + doc.relevance).css('background-color', data.meta.relevanceColors[doc.relevance.toString()]).attr('title', data.meta.qrelDefs[doc.relevance.toString()]).css('cursor', 'help');
+        }
+        var $score = $('<h6 class="badge"></h6>').text('Score: ' + doc.score.toFixed(4));
+        var doc_fields = data.docs[doc.doc_id];
+        var $text = markup(doc_fields[doc.snippet.field].substring(doc.snippet.start, doc.snippet.stop), doc.snippet.weights)
+        if (doc.snippet.stop < doc_fields[doc.snippet.field].length) {
+          $text.append('...');
+        }
+        if (doc.snippet.start > 0) {
+          $text.prepend('...');
+        }
+        $text.prepend($('<span style="color: #999;"></span>').text(doc.snippet.field + ': '));
+        // $text.append(' ').append('<a href="#" class="doc-info" role="button">See more</a>');
+        var otherRank = null;
+        $.each(otherRun, function (i, otherDoc) {
+          if (otherDoc.doc_id === doc.doc_id) {
+            otherRank = otherDoc.rank;
+            return false; // break
+          }
+        });
+        if (otherRank === null) {
+          var symbol = '×';
+          var tip = 'not ranked in other run';
+        }
+        else if (doc.rank === otherRank) {
+          var symbol = docIdFloat === 'right' ? '→' : '←';
+          var tip = 'ranked equally in other run'
+        } else if (doc.rank < otherRank) {
+          var symbol = docIdFloat === 'right' ? '⬊' : '⬋';
+          var tip = 'ranked lower in other run (' + otherRank + ')'
+        } else if (doc.rank > otherRank) {
+          var symbol = docIdFloat === 'right' ? '⬈' : '⬉';
+          var tip = 'ranked higher in other run (' + otherRank + ')'
+        }
+        var newEl = $('<div></div>')
+          // .append($('<span class="other-rank"></span>').text(symbol).css('float', docIdFloat).css('text-align', docIdFloat === 'right' ? 'left' : 'right').attr('title', tip))
+          .append($('<div class="card"></div>')
+            .attr("run1-rank", docIdFloat === 'right' ? doc.rank : (otherRank === null ? "No" : otherRank))
+            .attr("run2-rank", docIdFloat === 'right' ? (otherRank === null ? "No" : otherRank): doc.rank)
+            .attr('data-docid', doc.doc_id)
+            .append($('<div class="card-header"></div>')
+              .css('padding-' + docIdFloat, '30px')
+              .append($("<span class='border badge' style='min-width: 50px; font-weight: normal;color: grey;'></span>").html('<span style="font-size: 1.2em;font-weight:bold; color: black;">'+doc.rank +'</span> '+symbol + (otherRank === null ? '': otherRank)).attr('title', tip))
+              .append(' ')
+              .append($did)
+              .append(' ')
+              .append($rel)
+              .append(' ')
+              .append($score)
+              .append($('<div class="snippet"></div>').append($text))
+            )
+          )
+          .appendTo(container);
+      });
+    }
+
+    function selectQuery() {
+      var $select = $('#Queries');
+      var query_id = $select.val();
+      var query = data.queries.filter(query => query.fields.query_id === query_id);
+      mergedWeights = query[0].mergedWeights
+      var $query = $('#Query');
+      $query.empty();
+      var $table = $('<table class="fields"></table>').appendTo($query);
+      if (query.length > 0) {
+        query = query[0];
+        $.each(query.fields, function (fname, fvalue) {
+          if (fname == "contrast"){
+            fvalue = fvalue.name +" (" + fvalue.value.toFixed(3)+")";
+            $("#contrast-measure").text("Contrast measure: "+fvalue);
+          } else {
+            $('<tr></tr>')
+            .append($('<th></th>').text(fname))
+            .append($('<td></td>').text(fvalue))
+            .appendTo($table);
+          }
+        });
+        colors = ["badge-secondary", "badge-info", "badge-warning", "badge-primary"]
+        $summary = $("<ul></ul>")
+        $.each(query.summary, function(index, data){
+          $l=$("<li></li>");
+          $.each(data, function(idx, statement){
+            $("<span class='badge "+ colors[index] +"'></span>").text(statement).appendTo($l);
+          });
+          $summary.append($l);
+        });
+        $("#ranking-summary").empty().append($summary)
+        if (singleRunView) {
+          var $metricsTable = $('<table class="styled-table" align="center"></table>')
+          $("<thead> <tr> <th>Metric</th> <td>Value</td>").appendTo($metricsTable);
+          $tbody = $("<tbody></tbody>");
+          $.each(query.metrics, function(metric_name, metric_value){
+            $('<tr></tr>').append($('<th></th>').text(metric_name))
+            .append($('<td></td>').text(metric_value[0]==null? "No" : metric_value[0].toFixed(3)))
+            .appendTo($tbody)
+          });
+          $metricsTable.append($tbody);
+          $("#metrics").empty().append($metricsTable);          
+          allWeightsA = {}
+          generateDocListSingleView(query.run_1, "#docList", allWeightsA);
+        } else {
+          var $metricsTable = $('<table class="styled-table" align="center"></table>')
+          $("<thead> <tr> <th>Metric</th> <td>Run1</td> <td>Run2</td></tr></thead>").appendTo($metricsTable);
+          $tbody = $("<tbody></tbody>");
+          $.each(query.metrics, function(metric_name, metric_value){
+            $('<tr></tr>').append($('<th></th>').text(metric_name))
+            .append($('<td></td>').text(metric_value[0] == null? "No" : metric_value[0].toFixed(3)))
+            .append($('<td></td>').text(metric_value[1] == null? "No" : metric_value[1].toFixed(3))).appendTo($tbody)
+          });
+          $metricsTable.append($tbody);
+          $("#metrics").empty().append($metricsTable);
+          allWeightsA = {};
+          allWeightsB = {};          
+          generateDocList(query.run_1, query.run_2, '#Run1Docs', 'right', allWeightsA);
+          generateDocList(query.run_2, query.run_1, '#Run2Docs', 'left', allWeightsB);          
+        }
+      }
+      var extraFields = $("#Query").find("tr").slice(2).attr("class", "query_collapse collapse");
+      // Don't show expand/collapse button if there are not fields to expand/collapse
+      $('#query-collapse-btn').toggle(extraFields.length > 0);
+    }
+
+    function checkThreshold(value, threshold) {
+      if (typeof value !== 'undefined') {
+        return parseFloat(value) < threshold;
+      } else return true;
+    }
+
+    function onChangeWeightThreshold() {
+      $("#DocumentDetails mark").removeClass("nobackground")
+      var run1Threshold = parseFloat($("#run1Threshold").text());
+      var run2Threshold = parseFloat($("#run2Threshold").text());
+      $("#DocumentDetails mark").each(function () {
+        var run1w = $(this).attr("run1");
+        var run2w = $(this).attr("run2");
+        if (checkThreshold(run1w, run1Threshold) && checkThreshold(run2w, run2Threshold)) {
+          $(this).addClass("nobackground");
+        } else if (checkThreshold(run1w, run1Threshold)) {
+          $(this).css("background", "rgba(" + COLOR_B + "," + run2w + ")");
+        } else if (checkThreshold(run2w, run2Threshold)) {
+          $(this).css("background", "rgba(" + COLOR_A + "," + run1w + ")");
+        } else {
+          $(this).css("background", 'linear-gradient(rgba('+ COLOR_A + "," + run1w + '),  rgba( '+ COLOR_B + "," + run2w + '))');
+        }
+      })
+    }
+
+    function onCardEnter() {
+      var did = $(this).attr('data-docid');
+      $('.card[data-docid="' + did + '"').addClass('highlight');
+    }
+
+    function onCardLeave() {
+      var did = $(this).attr('data-docid');
+      $('.card.highlight').removeClass('highlight');
+    }
+
+    function onDocInfoClick() {
+      var docid = $(this).closest('[data-docid]').attr('data-docid');
+      var doc = data.docs[docid];
+      $('<div id="DocumentOverlay"></div>').appendTo(document.body)
+      var page = $('<div id="DocumentDetails" class="sticky-top"></div>')
+        .append($('<div class="close-overlay">X</div>').click(closeDoc))
+        .appendTo(document.body);
+      var legendTable = $('<table class="fields"></table>')
+        .appendTo(page);
+      var run1Rank = $(this).closest('[run1-rank]').attr('run1-rank');
+      legendTable.append($('<tr></tr>')
+        .append($('<th></th>').text(data.meta.run1_name))
+        .append($('<td></td>')
+          .append($('<span class="swatch"></span>').css('background-color', 'rgb(' + COLOR_A + ')'))
+        )
+        .append($('<td></td>').append($(" <span class='border badge' style='min-width: 70px;'></span>").text("Rank: " +run1Rank)))
+        .append($('<td></td>').append($('<form><div class="form-group"><input type="range" class="form-control-range" min="0", max="1.1", step="0.1" value="0.1" id="weightThresholdA"></div></form>').attr("title", "slide to change weight threshold")))
+        .append($('<td><span id="run1Threshold" class="badge border rounded threshold-value">0.1</span></td>'))
+      );
+      if (!singleRunView) {
+        var run2Rank = $(this).closest('[run2-rank]').attr('run2-rank');
+        legendTable.append($('<tr></tr>')
+          .append($('<th></th>').text(data.meta.run2_name))
+          .append($('<td></td>')
+            .append($('<span class="swatch"></span>').css('background-color', 'rgb(' + COLOR_B + ')'))
+          )
+          .append($('<td></td>').append($(" <span class='border badge' style='min-width: 70px;'></span>").text("Rank: " +run2Rank)))
+          .append($('<td></td>')
+            .append($('<form><div class="form-group"><input type="range" class="form-control-range" min="0", max="1.1", step="0.1" value="0.1" id="weightThresholdB"></div></form>').attr("title", "slide to change weight threshold"))
+          ).append($('<td><span id="run2Threshold" class="badge border rounded threshold-value">0.1</span></td>'))
+        );
+        legendTable.append($('<tr></tr>')
+          .append($('<th>both</th>'))
+          .append($('<td></td>')
+            .append($('<span class="swatch"></span>').css('background', 'linear-gradient(rgb(' + COLOR_A + '), rgb(' + COLOR_B + '))'))
+          ));
+      }
+      var fieldTable = $('<table class="fields"></table>')
+        .appendTo(page);
+      var weightsA = allWeightsA[docid] || {};
+      var weightsB = allWeightsB[docid] || {};
+      var mweights = mergedWeights[docid] || {};
+
+      $.each(doc, function (fname, fvalue) {
+        if (singleRunView) {
+          if (!(fname in weightsA)) {
+            mweights[fname] = [];
+          } else {
+            mweights[fname] = weightsA[fname].map(segment => {
+              return [segment[0], segment[1], { "run1": segment[2] }];
+            });
+          }
+        }
+        var weights = colorizeWeights(mweights[fname]);
+        $('<tr></tr>')
+          .append($('<th></th>').text(fname))
+          .append($('<td></td>').append(markup(fvalue, weights)))
+          .appendTo(fieldTable);
+      });
+
+      $("input").change(function () {
+        var threshold = $(this).closest("form :input").val();
+        if ($(this).attr("id") === "weightThresholdA") {
+          $("#run1Threshold").text(threshold);
+        } else {
+          $("#run2Threshold").text(threshold);
+        }
+        onChangeWeightThreshold();
+      });
+      onChangeWeightThreshold();
+      return false; // prevent nav
+    }
+
+    function closeDoc() {
+      $('#DocumentOverlay,#DocumentDetails').remove();
+    }
+    function ding() {
+      console.log("Reaching limits! Alert");
+    }
+
+    $(function () {
+      if (singleRunView) {
+        $("#runName").empty();
+        $("#runName").append($('<h6 style="text-align: center;"></h6>').text(data.meta.run1_name));
+      } else {
+        $('#Run1Name').text(data.meta.run1_name);
+        $('#Run2Name').text(data.meta.run2_name);
+      }
+      var $select = $('#Queries');
+      var queryDisplayField = null;
+      $.each(data.meta.queryFields, function (i, e) {
+        if (e !== 'query_id') {
+          queryDisplayField = e;
+          return false; // break
+        }
+      });
+      $.each(data.queries, function (_, query) {
+        if (!singleRunView){
+          $('<option>').attr('value', query['fields']['query_id']).attr("data-tokens", query.fields.query_id + " " + query.fields[queryDisplayField]).attr('data-subtext', query.fields.contrast.name+': '+query.fields.contrast.value.toFixed(3)).text(query.fields[queryDisplayField]).appendTo($select);
+        } else {
+          $('<option>').attr('value', query['fields']['query_id']).text(query.fields[queryDisplayField]).appendTo($select);
+        }
+      });
+      $select.change(selectQuery).change();
+      $(document).on('mouseenter', '.card', onCardEnter);
+      $(document).on('mouseleave', '.card', onCardLeave);
+      $(document).on('click', '.card', onDocInfoClick);
+      $(document).on('click', '#DocumentOverlay', closeDoc);
+      $(document).keyup(function (e) {
+        if (e.key === "Escape") {
+          closeDoc();
+        }
+        if (e.key === "ArrowLeft" && !$("#Queries").is(":focus")) {
+          var prev_val = $("#Queries option:selected").prev().val();
+          if (typeof prev_val != "undefined") {
+            $select.val(prev_val);
+            $select.trigger("change");
+          } else {
+            ding();
+          }
+        }
+        if (e.key === "ArrowRight" && !$("#Queries").is(":focus")) {
+          var next_val = $("#Queries option:selected").next().val();
+          if (typeof next_val != "undefined") {
+            $select.val(next_val);
+            $select.trigger("change");
+          } else {
+            ding();
+          }
+        }
+      });
+    });
+    $(document).ready(function () {
+      var $select = $('#Queries');
+      if (data.queries.length > 20)
+        $select.attr("data-live-search","true")
+      $select.selectpicker();
+      $("#Query").find("tr").slice(2).attr("class", "query_collapse collapse")
+      $(".query_collapse").on("shown.bs.collapse", function () {
+        text = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-angle-contract" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M.172 15.828a.5.5 0 0 0 .707 0l4.096-4.096V14.5a.5.5 0 1 0 1 0v-3.975a.5.5 0 0 0-.5-.5H1.5a.5.5 0 0 0 0 1h2.768L.172 15.121a.5.5 0 0 0 0 .707zM15.828.172a.5.5 0 0 0-.707 0l-4.096 4.096V1.5a.5.5 0 1 0-1 0v3.975a.5.5 0 0 0 .5.5H14.5a.5.5 0 0 0 0-1h-2.768L15.828.879a.5.5 0 0 0 0-.707z"/></svg>';
+        $("#query-collapse-btn").html(text);
+      })
+      $(".query_collapse").on("hidden.bs.collapse", function () {
+        text = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-angle-expand" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707zm4.344-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707z"></svg>';
+        $("#query-collapse-btn").html(text);
+      })
+    })
+  </script>
+</body>
+
+</html>

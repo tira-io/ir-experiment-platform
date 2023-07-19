@@ -58,7 +58,8 @@ def run_capture_stdout_files(
 
     return buffer.getvalue()\
         .replace(str(_TEST_IO_DIR) + '/', '')\
-        .replace(str(tmp_path/output_dir), output_dir) + captured_files
+        .replace(str(tmp_path/output_dir), output_dir)\
+        .replace(str(tmp_path), '<output-dir>/') + '\n'.join([i for i in captured_files.split('\n') if not i.strip().startswith('var data =')])
 
 
 def _run_capture_stdout_files_fail(
@@ -486,6 +487,32 @@ def test_all_valid():
     actual = _run_capture_stdout_files_pass([
         '--run', f'{_TEST_IO_DIR}/test-input/run_sample_valid.txt',
         '--qrels', f'{_TEST_IO_DIR}/test-input/qrels_sample_valid.txt',
+        '--topics', f'{_TEST_IO_DIR}/test-input/topics_sample_valid.jsonl',
+        '--measures', 'P@2', 'nDCG@2',
+        '--output', f'{_TEST_OUTPUT_DIR}/test-output',
+    ])
+    shutil.rmtree(_TEST_IO_DIR / 'test-output', ignore_errors=True)
+    verify(actual)
+
+def test_all_valid_with_rendering():
+    shutil.rmtree(_TEST_IO_DIR / 'test-output', ignore_errors=True)
+    (_TEST_IO_DIR / 'test-output').mkdir(exist_ok=True, parents=True)
+    actual = _run_capture_stdout_files_pass([
+        '--run', f'{_TEST_IO_DIR}/test-input/test-input-cranfield/run.txt',
+        '--qrels', f'{_TEST_IO_DIR}/test-input/test-input-cranfield/qrels.txt',
+        '--topics', f'{_TEST_IO_DIR}/test-input/test-input-cranfield/queries.jsonl',
+        '--measures', 'P@2', 'nDCG@2',
+        '--output', f'{_TEST_OUTPUT_DIR}/test-output',
+    ])
+    shutil.rmtree(_TEST_IO_DIR / 'test-output', ignore_errors=True)
+    verify(actual)
+
+def test_all_valid_with_rendering_wrong_qrels_and_queries():
+    shutil.rmtree(_TEST_IO_DIR / 'test-output', ignore_errors=True)
+    (_TEST_IO_DIR / 'test-output').mkdir(exist_ok=True, parents=True)
+    actual = _run_capture_stdout_files_pass([
+        '--run', f'{_TEST_IO_DIR}/test-input/test-input-cranfield/run.txt',
+        '--qrels', f'{_TEST_IO_DIR}/test-input/test-input-cranfield/qrels.txt',
         '--topics', f'{_TEST_IO_DIR}/test-input/topics_sample_valid.jsonl',
         '--measures', 'P@2', 'nDCG@2',
         '--output', f'{_TEST_OUTPUT_DIR}/test-output',

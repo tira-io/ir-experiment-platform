@@ -9,6 +9,8 @@ from typing import Tuple, Dict, List, Optional
 
 import ir_measures
 from ir_measures import Qrel, ScoredDoc, Measure, Metric
+import sys
+import pandas as pd
 
 
 def add_error(
@@ -802,6 +804,96 @@ def main():
         return
 
     write_prototext(aggregated, per_query, output_path)
+
+    irds_id = irds_id_from_metadata_or_none(args.qrels)
+    if irds_id:
+        try:
+            render_results(args.run, irds_id, output_path)
+        except Exception as e:
+            pass
+
+
+def normalized_run(run, depth=1000):
+    run = pd.read_csv(run, sep="\s+", names=["qid", "q0", "docno", "rank", "score", "system"])
+
+    try:
+        run['qid'] = run['qid'].astype(int)
+    except:
+        pass
+
+    run = run.copy().sort_values(["qid", "score", "docno"], ascending=[True, False, False]).reset_index()
+
+    if 'Q0' not in run.columns:
+        run['Q0'] = 0
+
+    run = run.groupby("qid")[["qid", "Q0", "docno", "score", "system"]].head(depth)
+
+    # Make sure that rank position starts by 1
+    run["rank"] = 1
+    run["rank"] = run.groupby("qid")["rank"].cumsum()
+    
+    return run[['qid', 'Q0', 'docno', 'rank', 'score', 'system']]
+
+def queries_dict(irds_dataset):
+    return {str(i.query_id): i for i in irds_dataset.queries_iter()}
+
+def qrels_dict(irds_dataset):
+    ret = {}
+
+    for qrel in irds_dataset.qrels_iter():
+        qid = str(qrel.query_id)
+        if qid not in ret:
+            ret[qid] = {}
+        ret[qid][str(qrel.doc_id)] = qrel.relevance
+    
+    return ret
+
+def render_results(run_file, irds_id, output_path, top_k=10):
+    sys.path.append('/tira/application/src/tira/')
+    import ir_datasets
+    from ir_datasets_loader import IrDatasetsLoader
+    irds_loader = IrDatasetsLoader()
+    dataset = ir_datasets.load(irds_id)
+    all_queries = queries_dict(dataset)
+    all_qrels = qrels_dict(dataset)
+
+    docs_store = dataset.docs_store()
+    excerpt_for_rendering = {'queries': {}, 'documents': {}, 'qrels': {}}
+
+    run = normalized_run(run_file, top_k)
+
+    for _, i in run.iterrows():
+        qid = str(i.qid)
+        docno = str(i.docno)
+        excerpt_for_rendering['queries'][qid] = all_queries[qid]
+        excerpt_for_rendering['documents'][docno] = docs_store.get(docno)
+
+        if qid in all_qrels and docno in all_qrels[qid]:
+            if qid not in excerpt_for_rendering['qrels']:
+                excerpt_for_rendering['qrels'][qid] = {}
+            excerpt_for_rendering['qrels'][qid][docno] = all_qrels[qid][docno]
+
+    excerpt_for_rendering['queries'] = {k: json.loads(irds_loader.map_query_as_jsonl(v)) for k,v in excerpt_for_rendering['queries'].items()}
+    excerpt_for_rendering['documents'] = {k: json.loads(irds_loader.map_doc(v)) for k,v in excerpt_for_rendering['documents'].items()}
+
+    with open(output_path / '.data-top-10-for-rendering.jsonl', 'w') as output_file:
+        output_file.write(json.dumps(excerpt_for_rendering))
+
+    from diffir.run import diff_from_local_data
+    _, rendered_serp = diff_from_local_data([str(run_file.resolve())], [str((output_path / '.data-top-10-for-rendering.jsonl').resolve())], cli=False, web=True, print_html=False)
+
+    with open(output_path / 'serp.html', 'w') as output_file:
+        output_file.write(rendered_serp)
+
+
+def irds_id_from_metadata_or_none(f):
+    try:
+        f = Path(f)
+        for p in [f / 'metadata.json', f.parent / 'metadata.json']:
+            if (p).is_file():
+                return json.load(open(p))['ir_datasets_id']
+    except:
+        pass
 
 
 if __name__ == '__main__':
