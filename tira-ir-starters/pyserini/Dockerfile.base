@@ -1,0 +1,19 @@
+FROM pytorch/pytorch:1.12.0-cuda11.3-cudnn8-runtime
+
+RUN apt-get update \
+	&& apt-get install -y git openjdk-11-jdk build-essential
+
+RUN pip3 install pyserini pandas jupyterlab runnb
+
+RUN pip3 install tira==0.0.22
+
+ENV PYTHONPATH=/workspace
+
+RUN jupyter trust /workspace/*.ipynb
+
+RUN pip3 install faiss-cpu
+
+ADD *.ipynb /workspace/
+
+RUN jupyter trust /workspace/*.ipynb 
+
