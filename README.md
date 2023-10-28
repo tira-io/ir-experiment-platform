@@ -41,7 +41,7 @@ The current leaderboards can be viewed in [tira.io](https://www.tira.io/task-ove
 - [TREC Web Track 2014 (ClueWeb12)](https://www.tira.io/task-overview/ir-benchmarks/clueweb12-trec-web-2014-20230107-training)
 - [Touché 2020 Task 2 (ClueWeb12)](https://www.tira.io/task-overview/ir-benchmarks/clueweb12-touche-2020-task-2-20230209-training)
 - [Touché 2021 Task 2 (ClueWeb12)](https://www.tira.io/task-overview/ir-benchmarks/clueweb12-touche-2021-task-2-20230209-training)
-- Touché 2023 Task 2 (ClueWeb22) ([Task is still ongoing](https://www.tira.io/task/touche-2023-task-2), so the leaderboard is not yet public)
+- Touché 2023 Task 2 (ClueWeb22) ([Task is still ongoing](https://www.tira.io/task-overview/touche-2023-task-2), so the leaderboard is not yet public)
 - [TREC Terabyte 2004 (gov2)](https://www.tira.io/task-overview/ir-benchmarks/gov2-trec-tb-2004-20230209-training)
 - [TREC Terabyte 2005 (gov2)](https://www.tira.io/task-overview/ir-benchmarks/gov2-trec-tb-2005-20230209-training)
 - [TREC Terabyte 2006 (gov2)](https://www.tira.io/task-overview/ir-benchmarks/gov2-trec-tb-2006-20230209-training)
@@ -58,7 +58,7 @@ We have a tutorial showing how new, potentially work-in-progress data can be imp
 
 ## Submission
 
-Submission is available at: The hosted version of the IR Experiment Platform is open for submissions at [https://www.tira.io/task/ir-benchmarks](https://www.tira.io/task/ir-benchmarks). To simplify submissions, we provide several [starters](tira-ir-starters) (that yield 50 different retrieval models) that you can [use as starting point](tira-ir-starters).
+Submission is available at: The hosted version of the IR Experiment Platform is open for submissions at [https://www.tira.io/task-overview/ir-benchmarks](https://www.tira.io/task-overview/ir-benchmarks). To simplify submissions, we provide several [starters](tira-ir-starters) (that yield 50 different retrieval models) that you can [use as starting point](tira-ir-starters).
 
 After the run was unblinded and published by an organizer, it becomes visible on the leaderboard (here, as example, the top entries by nDCG@10 for the ClueWeb09):
 
