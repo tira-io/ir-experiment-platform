@@ -8,6 +8,7 @@ import os
 from tira.third_party_integrations import ensure_pyterrier_is_loaded, load_rerank_data, normalize_run
 import pyterrier as pt
 from pyterrier import IndexRef
+import gzip
 import importlib
 from tqdm import tqdm
 
@@ -34,18 +35,22 @@ def parse_args():
     parser.add_argument('--retrieval_pipeline', type=str, default=None, help='TBD.')
     parser.add_argument('--params', type=str, nargs='+', help='The controls of the retrieval methods as dictionaries.', required=False)
     parser.add_argument('--rerank', type=bool, default=False, help='Run a re-ranker. This assumes that the input directory contains a valid re-ranking input.', required=False)
+    parser.add_argument('--blocks', type=bool, default=False, help='For indexing: should the pyterrier index add blocks?', required=False)
     
     return parser.parse_args()
 
 
-def index(documents, index_directory):
+def index(documents, index_directory, blocks):
     if os.path.exists(f'{index_directory}/data.properties'):
         return pt.IndexRef.of(f'{index_directory}/data.properties')
 
-    documents = tqdm((json.loads(line) for line in Path(documents).open('rt')), 'Load Documents')
+    if Path(documents).exists():
+        documents = tqdm((json.loads(line) for line in Path(documents).open('rt')), 'Load Documents')
+    elif Path(documents +'.gz').exists():
+        documents = tqdm((json.loads(line) for line in gzip.open(documents + '.gz', 'rt')), 'Load Documents')
 
     print(f'create new index at:\t{index_directory}')
-    return pt.IterDictIndexer(index_directory, meta= {'docno' : 100}).index(documents)
+    return pt.IterDictIndexer(index_directory, meta={'docno' : 100}, blocks=blocks).index(documents)
 
 
 def retrieve(queries, index_ref, args, retrieval_pipeline, output_directory):
@@ -78,7 +83,7 @@ if __name__ == '__main__':
     args = parse_args()
     ensure_pyterrier_is_loaded()
 
-    index_ref = index(args.input + '/documents.jsonl', os.path.abspath(Path(args.index_directory) / 'index')) if args.index_directory else None
+    index_ref = index(args.input + '/documents.jsonl', os.path.abspath(Path(args.index_directory) / 'index'), args.blocks) if args.index_directory else None
 
     if args.retrieval_pipeline:
         if args.rerank:
