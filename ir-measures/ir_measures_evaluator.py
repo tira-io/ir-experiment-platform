@@ -877,7 +877,7 @@ def render_results(run_file, irds_id, output_path, top_k=10):
     excerpt_for_rendering['queries'] = {k: json.loads(irds_loader.map_query_as_jsonl(v)) for k,v in excerpt_for_rendering['queries'].items()}
     excerpt_for_rendering['documents'] = {k: json.loads(irds_loader.map_doc(v)) for k,v in excerpt_for_rendering['documents'].items()}
 
-    with gzip.open(Path(output_path) / '.data-top-10-for-rendering.json.gz', 'w') as output_file:
+    with gzip.open(Path(output_path) / '.data-top-10-for-rendering.json.gz', 'wt') as output_file:
         output_file.write(json.dumps(excerpt_for_rendering))
 
 
