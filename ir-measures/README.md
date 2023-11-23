@@ -6,7 +6,7 @@ To test the evaluator locally, please install `tira-run` (e.g., `pip3 install ti
 
 ```
 tira-run \
-	--image webis/ir_measures_evaluator:1.0.2 \
+	--image webis/ir_measures_evaluator:1.0.3 \
 	--input-run ${PWD}/tests/end-to-end-test/output-of-run/ \
 	--input-directory ${PWD}/tests/end-to-end-test/truth-data/ \
 	--output-directory ${PWD}/tests/end-to-end-test/evaluator-output \

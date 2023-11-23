@@ -12,7 +12,53 @@ import ir_measures
 from ir_measures import Qrel, ScoredDoc, Measure, Metric
 import sys
 import pandas as pd
+from tira.pandas_integration import PandasIntegration
 
+def tira_pd(path):
+    class TmpTiraClient():
+        def get_run_output(self, approach, d_id):
+            return path
+    return PandasIntegration(TmpTiraClient())
+
+
+def transformed_queries(directory):
+    print(str(directory))
+    return tira_pd(str(directory)).transform_queries('ignored', 'irgnored')
+
+
+def transformed_documents(directory):
+    return tira_pd(str(directory)).transform_documents('ignored', 'irgnored')
+
+def count_processed_queries(queries, directory):
+    try:
+        processed_queries = {i['qid'] for _, i in transformed_queries(directory).iterrows()}
+    
+        return len(queries.intersection(processed_queries))
+    except:
+        return 0
+
+def count_processed_documents(documents, directory):
+    try:
+        processed_documents = {str(i['docno']) for _, i in transformed_queries(directory).iterrows()}
+        print(documents)
+        print(processed_documents)
+        return len(documents.intersection(processed_documents))
+    except:
+        return 0
+
+def tirex_component_evaluation(qrels, output_directory):
+    ret = {}
+    queries = {str(i.query_id) for i in qrels}
+    documents = {str(i.doc_id) for i in qrels}
+    output_directory = (output_directory / '..').absolute().resolve()
+    print(output_directory)
+    if (output_directory / 'queries.jsonl').is_file() or (output_directory / 'queries.jsonl.gz').is_file():
+        ret['intermediate_processed_queries_judged'] = count_processed_queries(queries, output_directory)
+
+    if (output_directory / 'documents.jsonl').is_file or (output_directory / 'documents.jsonl.gz').is_file:
+        ret['intermediate_processed_documents_judged'] = count_processed_documents(documents, output_directory)    
+
+    return ret
 
 def add_error(
         error_log: Dict[str, Dict[str, List[str]]],
@@ -679,36 +725,16 @@ def check_run_consistency(
         )
 
 
-def write_prototext(
-        aggregated: Dict[Measure, float],
-        per_query: List[Metric],
-        output_path: Path,
-) -> None:
+def write_prototext(aggregated: Dict[Measure, float], per_query: List[Metric], output_path: Path) -> None:
     print_info('Export metrics.', indent=False)
-    write_aggregated_prototext(
-        aggregated,
-        output_path / "evaluation.prototext"
-    )
-    write_per_query_prototext(
-        per_query,
-        output_path / "evaluation-per-query.prototext"
-    )
+    write_aggregated_prototext(aggregated, output_path / "evaluation.prototext")
+    write_per_query_prototext(per_query, output_path / "evaluation-per-query.prototext")
     print_success('Metrics successfully exported.', indent=False)
 
 
 def main():
     # Parse command line arguments.
     args = parse_args()
-
-    # Check run file.
-    run_path = args.run
-    if run_path is not None:
-        # Check and load run.
-        check_file_path(run_path, 'run')
-        check_run_format(run_path)
-        run = load_run(run_path)
-    else:
-        run = None
 
     # Check qrels.
     qrels_path = args.qrels
@@ -738,28 +764,20 @@ def main():
 
     # Check output path.
     output_path = args.output
-    if output_path is not None:
-        check_output_path(output_path, 'output')
-
     # Shortcuts for early exit.
-    if run is None:
-        print_error('Unable to validate without run file.', indent=False)
-        exit(1)
+    if output_path is None:
+        # Only measure, no writing to output.
+        return
+    check_output_path(output_path, 'output')
 
     if qrels is None or topics is None:
         if qrels is not None:
             # Must have qrels and topics or neither.
-            print_error(
-                'Consistency check without topics file is not allowed.',
-                indent=False
-            )
+            print_error('Consistency check without topics file is not allowed.', indent=False)
             exit(1)
         if topics is not None:
             # Must have qrels and topics or neither.
-            print_error(
-                'Consistency check without qrels file is not allowed.',
-                indent=False
-            )
+            print_error('Consistency check without qrels file is not allowed.', indent=False)
             exit(1)
         missing = []
         if qrels is None:
@@ -767,20 +785,29 @@ def main():
         if topics is None:
             missing.append('topics')
         if measures is not None:
-            print_error(
-                f'Measuring without {" and ".join(missing)} files '
-                f'is not allowed.',
-                indent=False
-            )
+            print_error(f'Measuring without {" and ".join(missing)} files is not allowed.', indent=False)
             exit(1)
         if output_path is not None:
-            print_error(
-                f'Exporting metrics without {" and ".join(missing)} files '
-                f'is not allowed.',
-                indent=False
-            )
+            print_error(f'Exporting metrics without {" and ".join(missing)} files is not allowed.', indent=False)
             exit(1)
         # Only check run format, no consistency check.
+        return
+    write_prototext(tirex_component_evaluation(qrels, args.run), [], output_path)
+
+    # Check run file.
+    run_path = args.run
+    if run_path is not None:
+        # Check and load run.
+        check_file_path(run_path, 'run')
+        check_run_format(run_path)
+        run = load_run(run_path)
+    else:
+        run = None
+
+    # Shortcuts for early exit.
+    if run is None:
+        print_error('Unable to validate without run file.', indent=False)
+        exit(1)
         return
 
     # Check run, qrels, and topics consistency.
@@ -788,21 +815,14 @@ def main():
 
     # Shortcuts for early exit.
     if measures is None:
-        if output_path is not None:
-            print_error(
-                'Exporting metrics without measures is not allowed.',
-                indent=False
-            )
-            exit(1)
+        print_error('Exporting metrics without measures is not allowed.', indent=False)
+        exit(1)
         # Only consistency check, no measurement.
         return
 
-    aggregated, per_query = evaluate(measures, qrels, run)
-
-    # Shortcuts for early exit.
-    if output_path is None:
-        # Only measure, no writing to output.
-        return
+    aggregated, per_query = evaluate(measures, qrels, run)    
+    for k, v in tirex_component_evaluation(qrels, run_path).items():
+        aggregated[k] = v
 
     write_prototext(aggregated, per_query, output_path)
 
