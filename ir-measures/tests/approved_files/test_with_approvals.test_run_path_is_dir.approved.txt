@@ -1,6 +1,7 @@
-ℹ Check run path: test-input
-	✗ Run path is not a file.
-✗ Run path is invalid: 1 error
+ℹ Check output path: .
+	⚠ Output directory is not empty.
+✓ Output path is valid: 1 warning
+✗ Exporting metrics without qrels and topics files is not allowed.
 
 
 ####

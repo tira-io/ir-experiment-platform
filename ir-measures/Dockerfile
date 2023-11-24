@@ -1,4 +1,4 @@
-FROM webis/ir_measures_evaluator:dev-1.0.6
+FROM webis/ir_measures_evaluator:dev-1.0.7
 
 COPY ir_measures_evaluator.py /
 

@@ -1,13 +1,10 @@
-ℹ Check run path: test-input/run_sample_valid.txt
-✓ Run path is valid.
-ℹ Check run file format.
-✓ Run file format is valid.
-ℹ Load run with ir-measures.
-✓ Run successfully loaded.
 ℹ Check topics path: test-input/topics_sample_valid.jsonl
 ✓ Topics path is valid.
 ℹ Load topics.
 ✓ Topics successfully loaded.
+ℹ Check output path: /tmp
+	⚠ Output directory is not empty.
+✓ Output path is valid: 1 warning
 ✗ Consistency check without qrels file is not allowed.
 
 

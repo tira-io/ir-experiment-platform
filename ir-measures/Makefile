@@ -1,4 +1,4 @@
-IMAGE_VERSION=1.0.6
+IMAGE_VERSION=1.0.7
 
 build-docker-image:
 	docker build -t webis/ir_measures_evaluator:dev-${IMAGE_VERSION} -f Dockerfile.dev .

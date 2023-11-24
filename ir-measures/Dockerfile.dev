@@ -1,7 +1,7 @@
 # docker build -t webis/ir_measures_evaluator:dev-1.0.7 -f Dockerfile.dev .
-FROM webis/tira-application:basis-0.0.94
+FROM webis/tira-application:0.0.94
 
-RUN apt-get install -y jq libffi-dev && pip3 install ir-datasets ir-measures approvaltests exceptiongroup pytest jupyter
+RUN apt-get install -y jq libffi-dev && pip3 install ir-datasets ir-measures==0.3.1 approvaltests exceptiongroup pytest jupyter
 
 #./ir_measures_evaluator.py --topics tests/end-to-end-test/truth-data/queries.jsonl --qrels tests/end-to-end-test/truth-data/qrels.txt --run tests/end-to-end-test/document-components/run.txt --output fff/
 #./ir_measures_evaluator.py --topics tests/end-to-end-test/truth-data/queries.jsonl --qrels tests/end-to-end-test/truth-data/qrels.txt --run tests/end-to-end-test/query-components/run.txt --output fff/

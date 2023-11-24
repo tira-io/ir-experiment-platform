@@ -22,7 +22,6 @@ def tira_pd(path):
 
 
 def transformed_queries(directory):
-    print(str(directory))
     return tira_pd(str(directory)).transform_queries('ignored', 'irgnored')
 
 
@@ -40,8 +39,6 @@ def count_processed_queries(queries, directory):
 def count_processed_documents(documents, directory):
     try:
         processed_documents = {str(i['docno']) for _, i in transformed_queries(directory).iterrows()}
-        print(documents)
-        print(processed_documents)
         return len(documents.intersection(processed_documents))
     except:
         return 0
@@ -51,11 +48,10 @@ def tirex_component_evaluation(qrels, output_directory):
     queries = {str(i.query_id) for i in qrels}
     documents = {str(i.doc_id) for i in qrels}
     output_directory = (output_directory / '..').absolute().resolve()
-    print(output_directory)
     if (output_directory / 'queries.jsonl').is_file() or (output_directory / 'queries.jsonl.gz').is_file():
         ret['intermediate_processed_queries_judged'] = count_processed_queries(queries, output_directory)
 
-    if (output_directory / 'documents.jsonl').is_file or (output_directory / 'documents.jsonl.gz').is_file:
+    if (output_directory / 'documents.jsonl').is_file() or (output_directory / 'documents.jsonl.gz').is_file():
         ret['intermediate_processed_documents_judged'] = count_processed_documents(documents, output_directory)    
 
     return ret
@@ -726,6 +722,10 @@ def check_run_consistency(
 
 
 def write_prototext(aggregated: Dict[Measure, float], per_query: List[Metric], output_path: Path) -> None:
+
+    if not aggregated:
+        return
+
     print_info('Export metrics.', indent=False)
     write_aggregated_prototext(aggregated, output_path / "evaluation.prototext")
     write_per_query_prototext(per_query, output_path / "evaluation-per-query.prototext")
@@ -791,6 +791,7 @@ def main():
             print_error(f'Exporting metrics without {" and ".join(missing)} files is not allowed.', indent=False)
             exit(1)
         # Only check run format, no consistency check.
+
         return
     write_prototext(tirex_component_evaluation(qrels, args.run), [], output_path)
 
@@ -808,7 +809,6 @@ def main():
     if run is None:
         print_error('Unable to validate without run file.', indent=False)
         exit(1)
-        return
 
     # Check run, qrels, and topics consistency.
     check_run_consistency(run, qrels, topics)

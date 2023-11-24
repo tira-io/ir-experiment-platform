@@ -1,6 +1,5 @@
 {
-"image": "webis/ir_measures_evaluator:dev-1.0.6",
-//"image": "mcr.microsoft.com/devcontainers/python:1-3.11-bullseye",
+"image": "webis/ir_measures_evaluator:dev-1.0.7",
 "customizations": {
 	"vscode": {
 		"extensions": [
