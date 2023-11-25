@@ -18,7 +18,9 @@ def parse_args():
 
 def main(args):
     os.environ['TIRA_INPUT_DIRECTORY'] = os.path.abspath(args.input)
+    os.environ['TIRA_INPUT_DATASET'] = os.path.abspath(args.input)
     os.environ['TIRA_OUTPUT_DIRECTORY'] = os.path.abspath(args.output)
+    os.environ['TIRA_OUTPUT_DIR'] = os.path.abspath(args.output)
 
     if args.chdir:
         print(f'Change directory to allow relative imports to "{args.chdir}".', flush=True)
