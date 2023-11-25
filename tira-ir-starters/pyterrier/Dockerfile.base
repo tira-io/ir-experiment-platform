@@ -9,12 +9,13 @@ RUN apt-get update \
 	&& python3 -c "import pyterrier as pt; pt.init(version='${PYTERRIER_VERSION}', helper_version='${PYTERRIER_HELPER_VERSION}');" \
 	&& python3 -c "import pyterrier as pt; pt.init(version='${PYTERRIER_VERSION}', helper_version='${PYTERRIER_HELPER_VERSION}', boot_packages=['com.github.terrierteam:terrier-prf:-SNAPSHOT']);"
 
-RUN pip3 install tira==0.0.22
+RUN pip3 install tira==0.0.97
 
 COPY pyterrier/full-rank-pipeline.ipynb pyterrier/retrieval-pipeline.ipynb pyterrier/run-pyterrier-notebook.py pyterrier/default_pipelines.py pyterrier/pyterrier_cli.py /workspace/
 
 ENV PYTHONPATH=/workspace
 
 RUN jupyter trust /workspace/full-rank-pipeline.ipynb \
-	&& jupyter trust /workspace/retrieval-pipeline.ipynb
+	&& jupyter trust /workspace/retrieval-pipeline.ipynb \
+	&& ln -s /workspace/run-pyterrier-notebook.py /workspace/run-notebook.py
 

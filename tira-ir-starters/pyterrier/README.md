@@ -90,8 +90,8 @@ Please refer to the general tutorial on [how to import your retrieval approach t
 To build the image and to deploy it in TIRA, please run the follwoing commands:
 
 ```
-docker build -t webis/tira-ir-starter-pyterrier:0.0.2-base -f pyterrier/Dockerfile.base .
-docker push webis/tira-ir-starter-pyterrier:0.0.2-base
+docker build -t webis/tira-ir-starter-pyterrier:0.0.5-base -f pyterrier/Dockerfile.base .
+docker push webis/tira-ir-starter-pyterrier:0.0.5-base
 ```
 
 
