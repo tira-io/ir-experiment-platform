@@ -21,7 +21,7 @@ def main(args):
     os.environ['TIRA_OUTPUT_DIRECTORY'] = os.path.abspath(args.output)
 
     if args.chdir:
-        print('Change directory to allow relative imports to "{args.chdir}".', flush=True)
+        print(f'Change directory to allow relative imports to "{args.chdir}".', flush=True)
         os.chdir(args.chdir)
 
     command = f'runnb --allow-not-trusted {args.notebook}'
