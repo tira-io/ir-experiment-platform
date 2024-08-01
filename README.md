@@ -111,7 +111,6 @@ If you use TIRA/Tirex in your research (or cached run files or cached indices or
   series =                   {Lecture Notes in Computer Science},
   site =                     {Dublin, Irland},
   title =                    {{Continuous Integration for Reproducible Shared Tasks with TIRA.io}},
-  todo =                     {doi, month, pages, code},
   year =                     2023
 }
 ```
