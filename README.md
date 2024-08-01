@@ -82,3 +82,36 @@ The starters are available and documented in the directory [tira-ir-starters](ti
 
 The simplest starter implements BM25 retrieval using a few lines of declarative PyTerrier code in a Jupyter notebook.
 
+### Paper
+
+If you use TIRA/Tirex in your research (or cached run files or cached indices or other outputs), please cite the TIRA and TIREx paper:
+
+```
+@InProceedings{froebe:2023e,
+  author =                   {Maik Fr{\"o}be and Jan Heinrich Reimer and Sean MacAvaney and Niklas Deckers and Simon Reich and Janek Bevendorff and Benno Stein and Matthias Hagen and Martin Potthast},
+  booktitle =                {46th International ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR 2023)},
+  doi =                      {10.1145/3539618.3591888},
+  editor =                   {Hsin-Hsi Chen and {Wei-Jou (Edward)} Duh and Hen-Hsen Huang and {Makoto P.} Kato and Josiane Mothe and Barbara Poblete},
+  isbn =                     {9781450394086},
+  month =                    jul,
+  numpages =                 11,
+  pages =                    {2826--2836},
+  publisher =                {ACM},
+  site =                     {Taipei, Taiwan},
+  title =                    {{The Information Retrieval Experiment Platform}},
+  year =                     2023
+}
+
+@InProceedings{froebe:2023b,
+  address =                  {Berlin Heidelberg New York},
+  author =                   {Maik Fr{\"o}be and Matti Wiegmann and Nikolay Kolyada and Bastian Grahm and Theresa Elstner and Frank Loebe and Matthias Hagen and Benno Stein and Martin Potthast},
+  booktitle =                {Advances in Information Retrieval. 45th European Conference on {IR} Research ({ECIR} 2023)},
+  month =                    apr,
+  publisher =                {Springer},
+  series =                   {Lecture Notes in Computer Science},
+  site =                     {Dublin, Irland},
+  title =                    {{Continuous Integration for Reproducible Shared Tasks with TIRA.io}},
+  todo =                     {doi, month, pages, code},
+  year =                     2023
+}
+```
